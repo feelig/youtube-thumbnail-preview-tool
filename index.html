@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouTube Thumbnail Preview & Safe Zone Tester</title>
+    <meta
+      name="description"
+      content="Free online YouTube thumbnail preview and safe zone tester. Check how your thumbnail looks on desktop, mobile, and sidebar layouts before publishing."
+    />
+    <meta
+      name="keywords"
+      content="YouTube thumbnail preview, YouTube safe zone, thumbnail tester, mobile thumbnail preview, sidebar thumbnail preview"
+    />
+    <link rel="canonical" href="index.html" />
+    <meta property="og:title" content="YouTube Thumbnail Preview & Safe Zone Tester" />
+    <meta
+      property="og:description"
+      content="Preview your YouTube thumbnail on desktop, mobile, and sidebar layouts with a built-in safe zone overlay."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="social-preview.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <div class="hero__copy">
+          <p class="eyebrow">Thumbnail workflow tool</p>
+          <h1>YouTube Thumbnail Preview &amp; Safe Zone Tester</h1>
+          <p class="hero__subtitle">
+            Free online tool to preview how your YouTube thumbnail appears on desktop home,
+            mobile feed, and sidebar suggested videos before you publish.
+          </p>
+        </div>
+        <div class="hero__meta">
+          <div class="meta-card">
+            <strong>Local preview only</strong>
+            <span>Your image stays in the browser and never uploads to a server.</span>
+          </div>
+          <div class="meta-card">
+            <strong>Three YouTube contexts</strong>
+            <span>Desktop, mobile, and suggested video layouts in one place.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="workspace" aria-label="Thumbnail preview tool">
+        <section class="panel controls" aria-labelledby="tool-heading">
+          <div class="panel__head">
+            <h2 id="tool-heading">Tool Settings</h2>
+            <p>Upload a thumbnail and adjust the metadata used in the previews.</p>
+          </div>
+
+          <div class="upload-box" id="uploadBox">
+            <input
+              id="thumbnailInput"
+              class="sr-only"
+              type="file"
+              accept="image/png,image/jpeg"
+            />
+            <button class="upload-box__button" id="uploadTrigger" type="button">
+              Upload PNG or JPG
+            </button>
+            <p class="upload-box__hint">Recommended ratio: 1280 x 720 (16:9)</p>
+            <p class="upload-box__filename" id="fileName">Using default sample thumbnail</p>
+          </div>
+
+          <div class="ad-slot ad-slot--upload" aria-label="Advertisement"></div>
+
+          <label class="field">
+            <span>Video Title</span>
+            <textarea id="titleInput" rows="3" maxlength="120">
+How to Make Better YouTube Thumbnails That Still Look Clear on Mobile</textarea
+            >
+          </label>
+
+          <label class="field">
+            <span>Channel Name <em>Optional</em></span>
+            <input id="channelInput" type="text" maxlength="40" value="Creator Studio Lab" />
+          </label>
+
+          <label class="field">
+            <span>Video Duration <em>Optional</em></span>
+            <input id="durationInput" type="text" maxlength="8" value="12:48" />
+          </label>
+
+          <div class="toggle-row">
+            <div>
+              <strong>Dark Mode Preview</strong>
+              <p>Switch the preview area to a darker YouTube-like viewing environment.</p>
+            </div>
+            <label class="switch">
+              <input id="darkModeToggle" type="checkbox" />
+              <span class="switch__track"></span>
+              <span class="switch__label">Off</span>
+            </label>
+          </div>
+
+          <div class="toggle-row">
+            <div>
+              <strong>Safe Zone Overlay</strong>
+              <p>Highlight a margin and the timestamp block area.</p>
+            </div>
+            <label class="switch">
+              <input id="safeZoneToggle" type="checkbox" checked />
+              <span class="switch__track"></span>
+              <span class="switch__label">Show</span>
+            </label>
+          </div>
+
+          <button class="export-button" id="exportButton" type="button">
+            Export Preview Board
+          </button>
+        </section>
+
+        <section class="panel previews" aria-labelledby="preview-heading">
+          <div class="panel__head">
+            <h2 id="preview-heading">Live Preview</h2>
+            <p>Check readability, crop balance, and timestamp overlap across common YouTube surfaces.</p>
+          </div>
+
+          <div class="ad-slot ad-slot--leaderboard" aria-label="Advertisement"></div>
+
+          <div class="preview-grid">
+            <article class="preview-card">
+              <div class="preview-card__head">
+                <h3>Desktop Home Preview</h3>
+                <span>Large feed card</span>
+              </div>
+              <div class="youtube-shell youtube-shell--desktop" data-preview="desktop">
+                <div class="thumb-wrap">
+                  <div class="thumb-canvas" data-thumb="desktop">
+                    <img id="desktopImage" alt="Desktop thumbnail preview" />
+                    <div class="safe-zone" aria-hidden="true"></div>
+                    <span class="duration-badge" data-duration="desktop">12:48</span>
+                  </div>
+                </div>
+                <div class="desktop-meta">
+                  <div class="avatar-dot"></div>
+                  <div class="meta-copy">
+                    <h4 data-title="desktop"></h4>
+                    <p><span data-channel="desktop"></span> &middot; <span>124K views</span> &middot; <span>2 days ago</span></p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <div class="ad-slot ad-slot--infeed" aria-label="Advertisement"></div>
+
+            <article class="preview-card">
+              <div class="preview-card__head">
+                <h3>Mobile Feed Preview</h3>
+                <span>Smaller, text-sensitive layout</span>
+              </div>
+              <div class="youtube-shell youtube-shell--mobile" data-preview="mobile">
+                <div class="thumb-wrap">
+                  <div class="thumb-canvas" data-thumb="mobile">
+                    <img id="mobileImage" alt="Mobile thumbnail preview" />
+                    <div class="safe-zone" aria-hidden="true"></div>
+                    <span class="duration-badge" data-duration="mobile">12:48</span>
+                  </div>
+                </div>
+                <div class="mobile-meta">
+                  <h4 data-title="mobile"></h4>
+                  <p><span data-channel="mobile"></span> &middot; <span>124K views</span></p>
+                </div>
+              </div>
+            </article>
+
+            <article class="preview-card">
+              <div class="preview-card__head">
+                <h3>Sidebar Suggested Preview</h3>
+                <span>Compact recommendation slot</span>
+              </div>
+              <div class="youtube-shell youtube-shell--sidebar" data-preview="sidebar">
+                <div class="thumb-wrap thumb-wrap--sidebar">
+                  <div class="thumb-canvas" data-thumb="sidebar">
+                    <img id="sidebarImage" alt="Sidebar thumbnail preview" />
+                    <div class="safe-zone" aria-hidden="true"></div>
+                    <span class="duration-badge" data-duration="sidebar">12:48</span>
+                  </div>
+                </div>
+                <div class="sidebar-meta">
+                  <h4 data-title="sidebar"></h4>
+                  <p data-channel="sidebar"></p>
+                  <p>124K views</p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+        </section>
+      </section>
+
+      <section class="guide panel" aria-labelledby="guide-heading">
+        <div class="panel__head">
+          <h2 id="guide-heading">How to Use This Thumbnail Preview Tool</h2>
+          <p>Use the uploader, preview layouts, and safe zone overlay to catch readability issues before publishing.</p>
+        </div>
+        <div class="guide-grid">
+          <article class="guide-step">
+            <h3>1. Upload your thumbnail</h3>
+            <p>Choose a local PNG or JPG file. The image is read directly in your browser with FileReader, so nothing is uploaded to a server.</p>
+          </article>
+          <article class="guide-step">
+            <h3>2. Type your real video title</h3>
+            <p>The preview cards update as you type so you can catch long lines, weak emphasis, and small text problems before publishing.</p>
+          </article>
+          <article class="guide-step">
+            <h3>3. Check the safe zone</h3>
+            <p>Turn the overlay on to keep key words, faces, and icons away from the outer margin and the lower-right timestamp block.</p>
+          </article>
+          <article class="guide-step">
+            <h3>4. Export your review board</h3>
+            <p>Save a combined preview image if you want to review design options with teammates or compare multiple thumbnail versions.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="tips panel" aria-labelledby="tips-heading">
+        <div class="panel__head">
+          <h2 id="tips-heading">Safe Zone Guidance</h2>
+        </div>
+        <div class="tips__content">
+          <p>
+            The timestamp in the bottom-right corner can cover part of your thumbnail, especially on smaller screens.
+          </p>
+          <p>
+            Keep important words, logos, and faces away from the outer edges and out of the timestamp block whenever possible.
+          </p>
+        </div>
+      </section>
+
+      <section class="content-summary panel" aria-labelledby="summary-heading">
+        <div class="panel__head">
+          <h2 id="summary-heading">Why Thumbnail Preview Matters</h2>
+          <p>This section gives the page more editorial weight while staying tightly related to the tool.</p>
+        </div>
+        <div class="summary-grid">
+          <article class="summary-card">
+            <h3>Desktop thumbnails look larger than mobile thumbnails</h3>
+            <p>Design choices that feel clear on a laptop can become soft or crowded in the mobile feed. Previewing both surfaces reduces guesswork.</p>
+          </article>
+          <article class="summary-card">
+            <h3>Suggested video slots are compact and competitive</h3>
+            <p>Sidebar thumbnails often sit next to many alternatives. Strong composition and readable text matter more when the card is small.</p>
+          </article>
+          <article class="summary-card">
+            <h3>Safe zone planning protects key visual information</h3>
+            <p>Important details placed too close to edges or the duration badge can disappear visually, especially on smaller layouts and dense feeds.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-links panel" aria-labelledby="guides-heading">
+        <div class="panel__head">
+          <h2 id="guides-heading">Guides</h2>
+          <p>Read more about safe zones, mobile readability, text sizing, and thumbnail mistakes before you finalize a design.</p>
+        </div>
+        <div class="link-grid">
+          <a class="link-card" href="youtube-thumbnail-safe-zone-guide.html">
+            <strong>YouTube Thumbnail Safe Zone Guide</strong>
+            <span>Learn how the safe zone works and why the lower-right timestamp area matters.</span>
+          </a>
+          <a class="link-card" href="how-to-make-youtube-thumbnails-readable-on-mobile.html">
+            <strong>How to Make Thumbnails Readable on Mobile</strong>
+            <span>Understand why mobile previews feel harsher and how to design for small screens.</span>
+          </a>
+          <a class="link-card" href="best-youtube-thumbnail-text-size-tips.html">
+            <strong>Best YouTube Thumbnail Text Size Tips</strong>
+            <span>Get practical guidance on text amount, scale, contrast, and clarity.</span>
+          </a>
+          <a class="link-card" href="youtube-thumbnail-preview-faq.html">
+            <strong>YouTube Thumbnail Preview FAQ</strong>
+            <span>Read common questions about accuracy, local uploads, export, and safe zones.</span>
+          </a>
+          <a class="link-card" href="youtube-thumbnail-mistakes-to-avoid.html">
+            <strong>YouTube Thumbnail Mistakes to Avoid</strong>
+            <span>Review common design issues that lower click-through and hurt readability.</span>
+          </a>
+          <a class="link-card" href="desktop-vs-mobile-thumbnail-cropping-explained.html">
+            <strong>Desktop vs Mobile Thumbnail Cropping Explained</strong>
+            <span>See why one thumbnail can feel different across desktop and mobile layouts.</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="content-links panel" aria-labelledby="site-pages-heading">
+        <div class="panel__head">
+          <h2 id="site-pages-heading">Site Pages</h2>
+          <p>Background information about the tool, privacy handling, terms, and ways to get in touch.</p>
+        </div>
+        <div class="link-grid">
+          <a class="link-card" href="about.html">
+            <strong>About</strong>
+            <span>Learn what this tool does, who it is for, and why it was built.</span>
+          </a>
+          <a class="link-card" href="privacy.html">
+            <strong>Privacy Policy</strong>
+            <span>Read how local image handling works and what future analytics or ads may involve.</span>
+          </a>
+          <a class="link-card" href="terms.html">
+            <strong>Terms of Use</strong>
+            <span>Review the basic conditions for using the thumbnail preview tool.</span>
+          </a>
+          <a class="link-card" href="contact.html">
+            <strong>Contact</strong>
+            <span>Send feedback, report issues, or suggest improvements for the site.</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="faq panel" aria-labelledby="faq-heading">
+        <div class="panel__head">
+          <h2 id="faq-heading">FAQ</h2>
+          <p>Short answers for creators checking thumbnail clarity and safe zone placement.</p>
+        </div>
+
+        <div class="faq-list">
+          <article class="faq-item">
+            <h3>What is a YouTube thumbnail safe zone?</h3>
+            <p>
+              A safe zone is the central area of a thumbnail where key text and subject matter remain readable across YouTube layouts. It helps reduce clipping and timestamp overlap.
+            </p>
+          </article>
+          <article class="faq-item">
+            <h3>Why should I preview thumbnails on mobile?</h3>
+            <p>
+              Mobile previews are smaller, so thin text, busy compositions, and edge details become hard to read faster than they do on desktop.
+            </p>
+          </article>
+          <article class="faq-item">
+            <h3>Does the YouTube timestamp cover part of the thumbnail?</h3>
+            <p>
+              Yes. The duration label usually appears in the lower-right corner, so that area should stay clear of important text or facial details.
+            </p>
+          </article>
+          <article class="faq-item">
+            <h3>Can I test sidebar suggested video thumbnails here?</h3>
+            <p>
+              Yes. The sidebar preview simulates a smaller recommendation slot where readability and composition are often more challenging.
+            </p>
+          </article>
+          <article class="faq-item">
+            <h3>Do uploaded images stay private?</h3>
+            <p>
+              Yes. This tool runs entirely in the browser. Your thumbnail is previewed locally and is not uploaded to any server.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="contact.html">Contact</a>
+        <a href="terms.html">Terms</a>
+        <a href="youtube-thumbnail-safe-zone-guide.html">Safe Zone Guide</a>
+        <a href="how-to-make-youtube-thumbnails-readable-on-mobile.html">Mobile Readability</a>
+        <a href="best-youtube-thumbnail-text-size-tips.html">Text Size Tips</a>
+        <a href="youtube-thumbnail-preview-faq.html">Preview FAQ</a>
+        <a href="youtube-thumbnail-mistakes-to-avoid.html">Thumbnail Mistakes</a>
+        <a href="desktop-vs-mobile-thumbnail-cropping-explained.html">Desktop vs Mobile</a>
+      </nav>
+      <p>&copy; 2026 YouTube Thumbnail Preview &amp; Safe Zone Tester</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
