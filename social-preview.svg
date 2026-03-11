@@ -1,35 +1,57 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">FinLogic Hub</title>
+  <desc id="desc">State filing fees and annual report deadlines rebuilt around official state guidance.</desc>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#fff1f2" />
-      <stop offset="55%" stop-color="#ffffff" />
-      <stop offset="100%" stop-color="#f8fafc" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f7f1e7" />
+      <stop offset="55%" stop-color="#ead9c2" />
+      <stop offset="100%" stop-color="#d6b690" />
     </linearGradient>
-    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#ef4444" />
-      <stop offset="100%" stop-color="#111827" />
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9f3a18" />
+      <stop offset="100%" stop-color="#6f2710" />
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)" />
-  <rect x="58" y="58" width="1084" height="514" rx="38" fill="#ffffff" stroke="#e2e8f0" />
-  <text x="110" y="150" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#dc2626">
-    YOUTUBE TOOL
+  <rect width="1200" height="630" fill="url(#bg)" rx="38" />
+  <circle cx="1038" cy="112" r="84" fill="rgba(159,58,24,0.12)" />
+  <circle cx="936" cy="520" r="132" fill="rgba(111,39,16,0.1)" />
+  <rect x="72" y="72" width="228" height="54" rx="18" fill="url(#accent)" />
+  <text x="100" y="108" fill="#fff7f0" font-family="'Public Sans', sans-serif" font-size="28" font-weight="700">FINLOGIC HUB</text>
+  <text x="72" y="214" fill="#1f2933" font-family="'Source Serif 4', Georgia, serif" font-size="70" font-weight="700">
+    State filing fees
   </text>
-  <text x="110" y="220" font-family="Arial, sans-serif" font-size="54" font-weight="800" fill="#0f172a">
-    Thumbnail Preview
+  <text x="72" y="294" fill="#1f2933" font-family="'Source Serif 4', Georgia, serif" font-size="70" font-weight="700">
+    and annual report deadlines
   </text>
-  <text x="110" y="286" font-family="Arial, sans-serif" font-size="54" font-weight="800" fill="#0f172a">
-    &amp; Safe Zone Tester
+  <text x="72" y="372" fill="#5e6875" font-family="'Public Sans', sans-serif" font-size="30" font-weight="500">
+    Official-source summaries for selected U.S. business entities
   </text>
-  <text x="110" y="352" font-family="Arial, sans-serif" font-size="26" font-weight="500" fill="#64748b">
-    Check desktop, mobile, and suggested video layouts
-  </text>
-  <rect x="110" y="404" width="458" height="68" rx="20" fill="#fee2e2" />
-  <text x="146" y="447" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#b91c1c">
-    Local upload. Instant preview. Export board.
-  </text>
-  <rect x="742" y="122" width="340" height="192" rx="26" fill="url(#card)" />
-  <rect x="770" y="152" width="284" height="160" rx="18" fill="#0f172a" opacity="0.28" />
-  <rect x="742" y="344" width="164" height="98" rx="20" fill="url(#card)" />
-  <rect x="918" y="344" width="164" height="98" rx="20" fill="url(#card)" />
+  <g transform="translate(72 440)">
+    <rect width="354" height="112" rx="24" fill="rgba(255,253,249,0.88)" stroke="rgba(159,58,24,0.15)" />
+    <text x="28" y="48" fill="#9f3a18" font-family="'Public Sans', sans-serif" font-size="25" font-weight="700">
+      Reviewed March 11, 2026
+    </text>
+    <text x="28" y="84" fill="#1f2933" font-family="'Public Sans', sans-serif" font-size="22" font-weight="600">
+      Deadlines, fees, and late-rule notes
+    </text>
+  </g>
+  <g transform="translate(742 172)">
+    <rect width="360" height="270" rx="30" fill="rgba(255,253,249,0.78)" stroke="rgba(31,41,51,0.08)" />
+    <rect x="26" y="28" width="308" height="58" rx="18" fill="rgba(159,58,24,0.08)" />
+    <text x="44" y="65" fill="#6f2710" font-family="'Public Sans', sans-serif" font-size="24" font-weight="700">
+      Current coverage
+    </text>
+    <text x="42" y="126" fill="#1f2933" font-family="'Public Sans', sans-serif" font-size="26" font-weight="700">
+      North Carolina
+    </text>
+    <text x="42" y="166" fill="#1f2933" font-family="'Public Sans', sans-serif" font-size="26" font-weight="700">
+      Pennsylvania
+    </text>
+    <text x="42" y="206" fill="#1f2933" font-family="'Public Sans', sans-serif" font-size="26" font-weight="700">
+      Delaware
+    </text>
+    <text x="42" y="246" fill="#1f2933" font-family="'Public Sans', sans-serif" font-size="26" font-weight="700">
+      Nevada and Georgia
+    </text>
+  </g>
 </svg>
