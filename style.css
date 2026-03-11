@@ -516,6 +516,16 @@ h3 {
   text-decoration: none;
 }
 
+.inline-link {
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.inline-link:hover {
+  color: var(--accent-dark);
+}
+
 .related-links {
   margin-top: 28px;
   padding-top: 24px;
