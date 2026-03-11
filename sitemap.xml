@@ -61,6 +61,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://finlogichub5.com/tools/florida/annual-report-deadline/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://finlogichub5.com/tools/nevada/annual-fee-calculator/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -87,6 +92,11 @@
   </url>
   <url>
     <loc>https://finlogichub5.com/tools/washington/annual-report-deadline-guide/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://finlogichub5.com/tools/connecticut/annual-report-deadline/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
