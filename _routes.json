@@ -1,9 +1,20 @@
 {
   "version": 1,
   "include": [
+    "/archive",
+    "/market-risk-today",
+    "/risk-history",
+    "/weekly",
     "/tools/delaware/annual-fee-calculator",
+    "/tools/delaware/annual-report-deadline",
+    "/tools/georgia/annual-report-deadline",
+    "/tools/nevada/annual-fee-calculator",
+    "/tools/north-carolina/annual-report-deadline",
+    "/tools/pennsylvania/annual-fee-calculator",
+    "/tools/pennsylvania/annual-report-deadline",
     "/methodology",
     "/pillar/asset-allocation-method",
+    "/pillar/risk-regime-explained",
     "/pillar/market-risk-framework",
     "/tools/washington/annual-report-deadline"
   ],
