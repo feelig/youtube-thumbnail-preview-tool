@@ -3,6 +3,7 @@ import path from "node:path";
 
 import { liveStatePages } from "../data/live-state-pages.mjs";
 import { stateDirectory } from "../data/state-directory.mjs";
+import { structuredStateContentByFilePath } from "../data/structured-state-content.mjs";
 import {
   formatLongDate,
   getPageRoute,
@@ -15,6 +16,7 @@ const ROOT = process.cwd();
 const SITE_ORIGIN = "https://finlogichub5.com";
 const GENERATED_AT = new Date();
 const directoryByRoute = new Map(stateDirectory.map((entry) => [entry.route, entry]));
+const structuredBodyByFilePath = new Map(Object.entries(structuredStateContentByFilePath));
 
 function escapeHtml(value) {
   return String(value)
@@ -58,6 +60,89 @@ function renderSourceLinks(links) {
             </li>`
     )
     .join("\n");
+}
+
+function normalizeParagraphs(value) {
+  if (!value) return [];
+  return Array.isArray(value) ? value : [value];
+}
+
+function renderParagraphs(paragraphs, className = "body-copy") {
+  return normalizeParagraphs(paragraphs)
+    .map((paragraph) => `          <p class="${escapeHtml(className)}">${escapeHtml(paragraph)}</p>`)
+    .join("\n");
+}
+
+function renderSectionHead(eyebrow, title) {
+  return `          <div class="section__head">
+            <p class="eyebrow">${escapeHtml(eyebrow)}</p>
+            <h2>${escapeHtml(title)}</h2>
+          </div>`;
+}
+
+function renderStructuredTableSection(section) {
+  const paragraphs = renderParagraphs(section.paragraphs);
+  const note = section.note
+    ? `\n          <p class="table-note">${escapeHtml(section.note)}</p>`
+    : "";
+
+  return `        <section class="section surface">
+${renderSectionHead(section.eyebrow, section.title)}
+${paragraphs ? `${paragraphs}\n` : ""}          <div class="table-scroll">
+            <table class="summary-table">
+              <thead>
+                <tr>
+${section.headers
+  .map((header) => `                  <th>${escapeHtml(header)}</th>`)
+  .join("\n")}
+                </tr>
+              </thead>
+              <tbody>
+${section.rows
+  .map(
+    (row) => `                <tr>
+${row.map((cell) => `                  <td>${escapeHtml(cell)}</td>`).join("\n")}
+                </tr>`
+  )
+  .join("\n")}
+              </tbody>
+            </table>
+          </div>${note}
+        </section>`;
+}
+
+function renderStructuredDetailCardsSection(section) {
+  const paragraphs = renderParagraphs(section.paragraphs);
+
+  return `        <section class="section">
+${renderSectionHead(section.eyebrow, section.title)}
+${paragraphs ? `${paragraphs}\n` : ""}          <div class="detail-grid">
+${section.cards
+  .map(
+    (card) => `            <article class="detail-card">
+              <h3>${escapeHtml(card.title)}</h3>
+              <p>${escapeHtml(card.text)}</p>
+            </article>`
+  )
+  .join("\n")}
+          </div>
+        </section>`;
+}
+
+function renderStructuredBody(sections) {
+  return sections
+    .map((section) => {
+      if (section.type === "table") {
+        return renderStructuredTableSection(section);
+      }
+
+      if (section.type === "detailCards") {
+        return renderStructuredDetailCardsSection(section);
+      }
+
+      throw new Error(`Unsupported structured section type: ${section.type}`);
+    })
+    .join("\n\n");
 }
 
 function renderSectionNav() {
@@ -407,6 +492,8 @@ function renderPage(page) {
   const scriptTag = page.scriptSrc ? `\n    <script src="${escapeHtml(page.scriptSrc)}"></script>` : "";
   const summaryNote = page.summaryNoteHtml ? `\n${page.summaryNoteHtml}` : "";
   const directoryEntry = directoryByRoute.get(getPageRoute(page));
+  const structuredSections = structuredBodyByFilePath.get(page.filePath);
+  const pageBody = structuredSections ? renderStructuredBody(structuredSections) : page.bodyHtml;
   const reviewStatus = getReviewStatus(parseReviewDate(page.lastReviewed), GENERATED_AT);
   const sectionNav = directoryEntry ? `\n${renderSectionNav()}\n` : "\n";
   const quickAnswerSection = directoryEntry ? `\n${renderQuickAnswers(directoryEntry)}\n` : "\n";
@@ -467,7 +554,7 @@ function renderPage(page) {
         </nav>
       </header>
 
-      <main class="page">
+      <main class="page" data-content-model="${structuredSections ? "structured" : "legacy"}">
         <section class="hero hero--page">
           <div class="hero__copy surface">
             <div class="breadcrumbs">
@@ -494,7 +581,7 @@ ${renderMetrics(page.metrics)}
             </div>${summaryNote}
           </aside>
         </section>${sectionNav}${quickAnswerSection}${decisionCheckSection}${customerActionSection}${trustSnapshotSection}${detailIntroSection}
-${page.bodyHtml}
+${pageBody}
 
         <section class="section surface" id="sources">
           <div class="section__head">
@@ -532,4 +619,6 @@ for (const page of liveStatePages) {
   await fs.writeFile(targetFile, renderPage(page));
 }
 
-console.log(`Built ${liveStatePages.length} state pages.`);
+console.log(
+  `Built ${liveStatePages.length} state pages. Structured bodies: ${structuredBodyByFilePath.size}.`
+);

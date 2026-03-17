@@ -54,6 +54,7 @@ function parsePage(file, html) {
   const title = extractFirst(/<h1>([\s\S]*?)<\/h1>/i, html);
   const reviewDate = extractFirst(/Last reviewed:\s*([^<]+)/i, html);
   const canonical = extractFirst(/<link rel="canonical" href="([^"]+)"/i, html);
+  const contentModel = extractFirst(/<main class="page" data-content-model="([^"]+)"/i, html);
   const sourceUrls = extractSourceUrls(html);
 
   return {
@@ -61,6 +62,7 @@ function parsePage(file, html) {
     title,
     reviewDate,
     canonical,
+    contentModel,
     sourceUrls,
     hasQuickAnswer: /What most readers need first/i.test(html),
     hasCustomerTask: /What to do before you file or pay/i.test(html),
@@ -172,11 +174,15 @@ async function mapWithConcurrency(items, worker) {
 function formatPageSummary(pages) {
   const lines = [];
   lines.push(`Pages found: ${pages.length}`);
+  const structuredCount = pages.filter((page) => page.contentModel === "structured").length;
+  lines.push(`Structured body pages: ${structuredCount}`);
+  lines.push(`Legacy body pages: ${pages.length - structuredCount}`);
   lines.push("");
 
   for (const page of pages) {
     const problems = findStructureProblems(page);
     const summaryBits = [
+      page.contentModel ? `${page.contentModel} body` : "unknown body model",
       `${page.sourceUrls.length} source link${page.sourceUrls.length === 1 ? "" : "s"}`,
       page.reviewDate ? `reviewed ${page.reviewDate}` : "no review date",
     ];
