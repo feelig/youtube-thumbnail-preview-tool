@@ -60,6 +60,29 @@ function renderSourceLinks(links) {
     .join("\n");
 }
 
+function renderSectionNav() {
+  const links = [
+    { href: "#quick-answer", label: "Quick answer" },
+    { href: "#decision-checks", label: "Decision checks" },
+    { href: "#next-step", label: "Next step" },
+    { href: "#details", label: "Detailed rules" },
+    { href: "#sources", label: "Official sources" }
+  ];
+
+  return `        <nav class="section-nav surface" aria-label="Page sections">
+          <strong>Jump to</strong>
+          <div class="section-nav__links">
+${links
+  .map(
+    (link) => `            <a class="section-link" href="${escapeHtml(link.href)}">${escapeHtml(
+      link.label
+    )}</a>`
+  )
+  .join("\n")}
+          </div>
+        </nav>`;
+}
+
 function formatReviewDate(value) {
   return parseReviewDate(value).toISOString().slice(0, 10);
 }
@@ -148,6 +171,7 @@ function renderDecisionCheckSection(entry) {
   ];
 
   return `        <section class="section surface">
+          <div id="decision-checks"></div>
           <div class="section__head">
             <p class="eyebrow">Decision checks</p>
             <h2>Before you rely on the answer above</h2>
@@ -206,6 +230,7 @@ function renderQuickAnswers(entry) {
   }
 
   return `        <section class="section surface">
+          <div id="quick-answer"></div>
           <div class="section__head">
             <p class="eyebrow">Quick answer</p>
             <h2>What most readers need first</h2>
@@ -248,6 +273,7 @@ function renderCustomerActionSection(page, entry) {
     "Check the official portal, state record, or official notice for the current late consequence.";
 
   return `        <section class="section section--split">
+          <div id="next-step"></div>
           <div class="surface task-panel">
             <div class="section__head">
               <p class="eyebrow">Customer task</p>
@@ -287,6 +313,21 @@ ${renderActionCards(nextStepCards)}
             <p class="section-note">
               Supporting official sources stay listed below. If a private notice, service quote, or
               state record conflicts with this summary, follow the official state source.
+            </p>
+          </div>
+        </section>`;
+}
+
+function renderDetailIntro(entry) {
+  return `        <section class="section surface">
+          <div id="details"></div>
+          <div class="section__head">
+            <p class="eyebrow">Detailed rules</p>
+            <h2>Read the official-detail layer only if you still need it</h2>
+            <p>
+              The sections below break down the specific ${escapeHtml(
+                entry.directoryComparison.obligation.toLowerCase()
+              )} rules, entity splits, and official notes that sit behind the quick answer.
             </p>
           </div>
         </section>`;
@@ -367,6 +408,7 @@ function renderPage(page) {
   const summaryNote = page.summaryNoteHtml ? `\n${page.summaryNoteHtml}` : "";
   const directoryEntry = directoryByRoute.get(getPageRoute(page));
   const reviewStatus = getReviewStatus(parseReviewDate(page.lastReviewed), GENERATED_AT);
+  const sectionNav = directoryEntry ? `\n${renderSectionNav()}\n` : "\n";
   const quickAnswerSection = directoryEntry ? `\n${renderQuickAnswers(directoryEntry)}\n` : "\n";
   const decisionCheckSection = directoryEntry
     ? `\n${renderDecisionCheckSection(directoryEntry)}\n`
@@ -377,6 +419,7 @@ function renderPage(page) {
   const trustSnapshotSection = directoryEntry
     ? `\n${renderTrustSnapshot(page, directoryEntry)}\n`
     : "\n";
+  const detailIntroSection = directoryEntry ? `\n${renderDetailIntro(directoryEntry)}\n` : "\n";
   const structuredData = renderStructuredData(page);
 
   return `<!DOCTYPE html>
@@ -450,10 +493,10 @@ function renderPage(page) {
 ${renderMetrics(page.metrics)}
             </div>${summaryNote}
           </aside>
-        </section>${quickAnswerSection}${decisionCheckSection}${customerActionSection}${trustSnapshotSection}
+        </section>${sectionNav}${quickAnswerSection}${decisionCheckSection}${customerActionSection}${trustSnapshotSection}${detailIntroSection}
 ${page.bodyHtml}
 
-        <section class="section surface">
+        <section class="section surface" id="sources">
           <div class="section__head">
             <p class="eyebrow">Official links</p>
             <h2>Sources used for this page</h2>

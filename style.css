@@ -431,6 +431,40 @@ h3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.section-nav {
+  display: grid;
+  gap: 14px;
+  padding: 18px 20px;
+}
+
+.section-nav strong {
+  color: var(--accent-dark);
+}
+
+.section-nav__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.section-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid rgba(15, 79, 130, 0.12);
+  border-radius: 999px;
+  background: #f7fbff;
+  color: var(--accent-dark);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.section-link:hover {
+  border-color: rgba(15, 79, 130, 0.28);
+  color: var(--accent);
+}
+
 .state-card {
   display: block;
   padding: 20px;
@@ -554,6 +588,16 @@ h3 {
 
 .section-note {
   margin: 0;
+}
+
+#quick-answer,
+#decision-checks,
+#next-step,
+#details,
+#sources {
+  position: relative;
+  top: -92px;
+  height: 0;
 }
 
 .table-scroll {
@@ -867,5 +911,9 @@ h3 {
   .site-nav,
   .footer-nav {
     gap: 12px;
+  }
+
+  .section-nav {
+    padding: 16px;
   }
 }
