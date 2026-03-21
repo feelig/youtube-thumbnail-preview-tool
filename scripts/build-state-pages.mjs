@@ -18,6 +18,30 @@ const GENERATED_AT = new Date();
 const directoryByRoute = new Map(stateDirectory.map((entry) => [entry.route, entry]));
 const structuredBodyByFilePath = new Map(Object.entries(structuredStateContentByFilePath));
 
+function validateStructuredBodyCoverage() {
+  const liveFilePaths = new Set(liveStatePages.map((page) => page.filePath));
+  const missingStructuredBodies = liveStatePages
+    .filter((page) => !structuredBodyByFilePath.has(page.filePath))
+    .map((page) => page.filePath);
+  const orphanStructuredBodies = [...structuredBodyByFilePath.keys()].filter(
+    (filePath) => !liveFilePaths.has(filePath)
+  );
+
+  if (missingStructuredBodies.length > 0 || orphanStructuredBodies.length > 0) {
+    const parts = [];
+
+    if (missingStructuredBodies.length > 0) {
+      parts.push(`missing structured bodies for: ${missingStructuredBodies.join(", ")}`);
+    }
+
+    if (orphanStructuredBodies.length > 0) {
+      parts.push(`orphan structured bodies for: ${orphanStructuredBodies.join(", ")}`);
+    }
+
+    throw new Error(`Structured body coverage is out of sync: ${parts.join(" | ")}`);
+  }
+}
+
 function escapeHtml(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -501,7 +525,7 @@ function renderPage(page) {
   const summaryNote = page.summaryNoteHtml ? `\n${page.summaryNoteHtml}` : "";
   const directoryEntry = directoryByRoute.get(getPageRoute(page));
   const structuredSections = structuredBodyByFilePath.get(page.filePath);
-  const pageBody = structuredSections ? renderStructuredBody(structuredSections) : page.bodyHtml;
+  const pageBody = renderStructuredBody(structuredSections);
   const reviewStatus = getReviewStatus(parseReviewDate(page.lastReviewed), GENERATED_AT);
   const sectionNav = directoryEntry ? `\n${renderSectionNav()}\n` : "\n";
   const quickAnswerSection = directoryEntry ? `\n${renderQuickAnswers(directoryEntry)}\n` : "\n";
@@ -620,6 +644,8 @@ ${renderSourceLinks(page.sourceLinks)}
 </html>
 `;
 }
+
+validateStructuredBodyCoverage();
 
 for (const page of liveStatePages) {
   const targetFile = path.join(ROOT, page.filePath);
