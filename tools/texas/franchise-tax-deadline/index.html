@@ -91,6 +91,8 @@
           <strong>Jump to</strong>
           <div class="section-nav__links">
             <a class="section-link" href="#quick-answer">Quick answer</a>
+            <a class="section-link" href="#evidence-chain">Evidence chain</a>
+            <a class="section-link" href="#decision-tool">Decision tool</a>
             <a class="section-link" href="#decision-checks">Decision checks</a>
             <a class="section-link" href="#next-step">Next step</a>
             <a class="section-link" href="#details">Detailed rules</a>
@@ -125,6 +127,306 @@
               <span class="insight-label">If already late</span>
               <strong>$50 late-report penalty plus tax penalties if tax is due</strong>
             </article>
+          </div>
+        </section>
+
+        <section class="section surface" data-evidence-chain>
+          <div id="evidence-chain"></div>
+          <div class="section__head">
+            <p class="eyebrow">Evidence chain</p>
+            <h2>Official proof for the headline answers</h2>
+            <p>
+              Each quick-answer field below points to the exact official sources that support it, so
+              the customer-facing summary can still be audited back to the state record.
+            </p>
+          </div>
+          <div class="evidence-grid">
+            <article class="evidence-card">
+              <span class="evidence-label">Filing label</span>
+              <strong>Franchise tax report and information report</strong>
+              <p>This uses the state's actual recurring filing label instead of flattening everything into a generic annual-report name.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Texas Comptroller franchise tax page">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Texas Comptroller franchise tax reports and payments FAQ">Source 2</a>
+            <a class="proof-chip" href="#source-3" aria-label="Open official source 3: Texas Comptroller Public and Ownership Information Report requirements">Source 3</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">Who should use this page</span>
+              <strong>Taxable entities filing PIR or OIR</strong>
+              <p>The scope comes from the entity groups named in the official sources, not just the state name.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Texas Comptroller franchise tax page">Source 1</a>
+            <a class="proof-chip" href="#source-3" aria-label="Open official source 3: Texas Comptroller Public and Ownership Information Report requirements">Source 3</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">Headline due date</span>
+              <strong>May 15</strong>
+              <p>This is the fast answer, but the official record still controls if the state uses anniversary, formation-month, or report-month triggers.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Texas Comptroller franchise tax page">Source 1</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: Texas Comptroller due dates and Webfile payment timing">Source 5</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">Main amount shown</span>
+              <strong>$2,650,000 no-tax-due threshold for 2026 reports</strong>
+              <p>This stays tied to the published state fee, threshold, or state-level amount rather than a private service quote.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Texas Comptroller franchise tax page">Source 1</a>
+            <a class="proof-chip" href="#source-4" aria-label="Open official source 4: Texas Comptroller no-tax-due reporting changes for 2024 and later">Source 4</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">If already late</span>
+              <strong>$50 late-report penalty plus tax penalties if tax is due</strong>
+              <p>Late-state consequences often differ from the on-time amount, so this answer is anchored separately.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Texas Comptroller franchise tax page">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Texas Comptroller franchise tax reports and payments FAQ">Source 2</a>
+            <a class="proof-chip" href="#source-6" aria-label="Open official source 6: Texas Comptroller making your franchise tax account current">Source 6</a>
+          </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section surface" data-decision-tool-root>
+          <div id="decision-tool"></div>
+          <div class="section__head">
+            <p class="eyebrow">Decision tool</p>
+            <h2>Narrow the rule to your situation</h2>
+            <p>Texas is not just about whether tax is due. The May 15 deadline, no-tax-due threshold, and PIR or OIR requirement all need to stay in the same picture.</p>
+          </div>
+          <div class="decision-tool-layout">
+            <div class="decision-tool-controls">
+              <label class="field" for="decision-case-texas">
+                <span>Which Texas filing situation fits best?</span>
+                <select id="decision-case-texas" data-decision-case>
+                  <option value="no-tax-due">Entity at or below the 2026 no-tax-due threshold</option>
+                  <option value="tax-due">Entity that may owe franchise tax</option>
+                  <option value="pir-or-oir">Entity checking PIR versus OIR</option>
+                </select>
+              </label>
+              <label class="field" for="decision-status-texas">
+                <span>What do you need right now?</span>
+                <select id="decision-status-texas" data-decision-status>
+                  <option value="standard">Normal rule</option>
+                  <option value="late">Already late</option>
+                  <option value="confirm">Need to verify</option>
+                </select>
+              </label>
+              <p class="decision-tool-note">
+                Use this to trim the page to the rule set that matters first, then finish on the
+                official sources linked on the card.
+              </p>
+            </div>
+            <div class="decision-tool-results" data-decision-tool aria-live="polite">
+            <article class="decision-result-card" data-decision-card data-case="no-tax-due" data-status="standard">
+              <span class="decision-result-label">Normal rule</span>
+              <h3>Entity at or below the 2026 no-tax-due threshold</h3>
+              <p>Even when no franchise tax is due under the threshold rule, Texas still expects the appropriate Public Information Report or Ownership Information Report.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>May 15</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$2,650,000 no-tax-due threshold for 2026 reports</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Comptroller account and the PIR or OIR guidance before you stop at a zero-tax answer.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Texas Comptroller franchise tax page">Source 1</a>
+            <a class="proof-chip" href="#source-3" aria-label="Open official source 3: Texas Comptroller Public and Ownership Information Report requirements">Source 3</a>
+            <a class="proof-chip" href="#source-4" aria-label="Open official source 4: Texas Comptroller no-tax-due reporting changes for 2024 and later">Source 4</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="no-tax-due" data-status="late">
+              <span class="decision-result-label">Already late</span>
+              <h3>Entity at or below the 2026 no-tax-due threshold</h3>
+              <p>Texas publishes a $50 penalty for each late report, and overdue accounts can still move into additional enforcement steps.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>May 15</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$2,650,000 no-tax-due threshold for 2026 reports</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Comptroller account and the PIR or OIR guidance before you stop at a zero-tax answer.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Texas Comptroller franchise tax page">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Texas Comptroller franchise tax reports and payments FAQ">Source 2</a>
+            <a class="proof-chip" href="#source-6" aria-label="Open official source 6: Texas Comptroller making your franchise tax account current">Source 6</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="no-tax-due" data-status="confirm">
+              <span class="decision-result-label">Need to verify</span>
+              <h3>Entity at or below the 2026 no-tax-due threshold</h3>
+              <p>Confirm the report year and threshold before relying on the no-tax-due reading because Texas changed the reporting rules for returns due on or after January 1, 2024.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>May 15</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$2,650,000 no-tax-due threshold for 2026 reports</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Comptroller account and the PIR or OIR guidance before you stop at a zero-tax answer.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Texas Comptroller franchise tax page">Source 1</a>
+            <a class="proof-chip" href="#source-4" aria-label="Open official source 4: Texas Comptroller no-tax-due reporting changes for 2024 and later">Source 4</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="tax-due" data-status="standard">
+              <span class="decision-result-label">Normal rule</span>
+              <h3>Entity that may owe franchise tax</h3>
+              <p>The normal Texas filing path here is still May 15, but the entity must handle both the tax calculation and the related information report.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>May 15</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>Tax can be due, plus late-report and late-tax penalties if not filed on time</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Comptroller franchise-tax page, due-date guidance, and Webfile timing rules before paying.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Texas Comptroller franchise tax page">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Texas Comptroller franchise tax reports and payments FAQ">Source 2</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: Texas Comptroller due dates and Webfile payment timing">Source 5</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="tax-due" data-status="late">
+              <span class="decision-result-label">Already late</span>
+              <h3>Entity that may owe franchise tax</h3>
+              <p>Texas says late reports draw a $50 penalty, and late tax can carry 5% or 10% tax penalties depending on how late the payment is.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>May 15</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>Tax can be due, plus late-report and late-tax penalties if not filed on time</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Comptroller franchise-tax page, due-date guidance, and Webfile timing rules before paying.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Texas Comptroller franchise tax page">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Texas Comptroller franchise tax reports and payments FAQ">Source 2</a>
+            <a class="proof-chip" href="#source-6" aria-label="Open official source 6: Texas Comptroller making your franchise tax account current">Source 6</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="tax-due" data-status="confirm">
+              <span class="decision-result-label">Need to verify</span>
+              <h3>Entity that may owe franchise tax</h3>
+              <p>Confirm whether tax is actually due before filing because the information-report obligation still continues either way.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>May 15</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>Tax can be due, plus late-report and late-tax penalties if not filed on time</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Comptroller franchise-tax page, due-date guidance, and Webfile timing rules before paying.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Texas Comptroller franchise tax page">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Texas Comptroller franchise tax reports and payments FAQ">Source 2</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: Texas Comptroller due dates and Webfile payment timing">Source 5</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="pir-or-oir" data-status="standard">
+              <span class="decision-result-label">Normal rule</span>
+              <h3>Entity checking PIR versus OIR</h3>
+              <p>Texas splits the information report into PIR versus OIR, and using the wrong report type is one of the easiest ways to under-read the filing requirement.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>May 15</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>The key issue is the correct information report, not a separate filing fee</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Comptroller PIR or OIR guidance before submitting the franchise-tax filing.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Texas Comptroller franchise tax reports and payments FAQ">Source 2</a>
+            <a class="proof-chip" href="#source-3" aria-label="Open official source 3: Texas Comptroller Public and Ownership Information Report requirements">Source 3</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="pir-or-oir" data-status="late">
+              <span class="decision-result-label">Already late</span>
+              <h3>Entity checking PIR versus OIR</h3>
+              <p>If the report is late, Texas still applies the late-report penalty and can escalate the account if it stays unresolved.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>May 15</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>The key issue is the correct information report, not a separate filing fee</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Comptroller PIR or OIR guidance before submitting the franchise-tax filing.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Texas Comptroller franchise tax page">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Texas Comptroller franchise tax reports and payments FAQ">Source 2</a>
+            <a class="proof-chip" href="#source-6" aria-label="Open official source 6: Texas Comptroller making your franchise tax account current">Source 6</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="pir-or-oir" data-status="confirm">
+              <span class="decision-result-label">Need to verify</span>
+              <h3>Entity checking PIR versus OIR</h3>
+              <p>Match the entity type to the Comptroller's PIR and OIR guidance before filing, especially for trusts, associations, or combined-group members.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>May 15</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>The key issue is the correct information report, not a separate filing fee</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Comptroller PIR or OIR guidance before submitting the franchise-tax filing.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Texas Comptroller franchise tax reports and payments FAQ">Source 2</a>
+            <a class="proof-chip" href="#source-3" aria-label="Open official source 3: Texas Comptroller Public and Ownership Information Report requirements">Source 3</a>
+          </div>
+            </article>
+            </div>
           </div>
         </section>
 
@@ -350,37 +652,37 @@
             <h2>Sources used for this page</h2>
           </div>
           <ul class="source-list">
-            <li class="source-item">
+            <li class="source-item" id="source-1">
               <a href="https://comptroller.texas.gov/taxes/franchise/">
                 <span class="source-kicker">Official source 1</span>
                 <strong>Texas Comptroller franchise tax page</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-2">
               <a href="https://comptroller.texas.gov/taxes/franchise/faq/reports-payments.php">
                 <span class="source-kicker">Official source 2</span>
                 <strong>Texas Comptroller franchise tax reports and payments FAQ</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-3">
               <a href="https://comptroller.texas.gov/taxes/franchise/pir-oir-filing-req.php">
                 <span class="source-kicker">Official source 3</span>
                 <strong>Texas Comptroller Public and Ownership Information Report requirements</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-4">
               <a href="https://comptroller.texas.gov/taxes/franchise/ntd-rpt-updates-2024.php">
                 <span class="source-kicker">Official source 4</span>
                 <strong>Texas Comptroller no-tax-due reporting changes for 2024 and later</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-5">
               <a href="https://comptroller.texas.gov/taxes/file-pay/due-dates.php">
                 <span class="source-kicker">Official source 5</span>
                 <strong>Texas Comptroller due dates and Webfile payment timing</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-6">
               <a href="https://comptroller.texas.gov/taxes/franchise/current-2024.php">
                 <span class="source-kicker">Official source 6</span>
                 <strong>Texas Comptroller making your franchise tax account current</strong>

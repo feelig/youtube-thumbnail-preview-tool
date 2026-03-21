@@ -95,6 +95,8 @@
           <strong>Jump to</strong>
           <div class="section-nav__links">
             <a class="section-link" href="#quick-answer">Quick answer</a>
+            <a class="section-link" href="#evidence-chain">Evidence chain</a>
+            <a class="section-link" href="#decision-tool">Decision tool</a>
             <a class="section-link" href="#decision-checks">Decision checks</a>
             <a class="section-link" href="#next-step">Next step</a>
             <a class="section-link" href="#details">Detailed rules</a>
@@ -129,6 +131,235 @@
               <span class="insight-label">If already late</span>
               <strong>No flat late fee stated on the due-date chart</strong>
             </article>
+          </div>
+        </section>
+
+        <section class="section surface" data-evidence-chain>
+          <div id="evidence-chain"></div>
+          <div class="section__head">
+            <p class="eyebrow">Evidence chain</p>
+            <h2>Official proof for the headline answers</h2>
+            <p>
+              Each quick-answer field below points to the exact official sources that support it, so
+              the customer-facing summary can still be audited back to the state record.
+            </p>
+          </div>
+          <div class="evidence-grid">
+            <article class="evidence-card">
+              <span class="evidence-label">Filing label</span>
+              <strong>Annual report</strong>
+              <p>This uses the state's actual recurring filing label instead of flattening everything into a generic annual-report name.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: North Carolina Secretary of State annual report due dates">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: North Carolina SOS file an annual report guidance">Source 2</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">Who should use this page</span>
+              <strong>LLCs, L3Cs, corporations, partnerships</strong>
+              <p>The scope comes from the entity groups named in the official sources, not just the state name.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: North Carolina Secretary of State annual report due dates">Source 1</a>
+            <a class="proof-chip" href="#source-3" aria-label="Open official source 3: North Carolina SOS maintaining registration guidance">Source 3</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">Headline due date</span>
+              <strong>April 15 for LLCs; fiscal-year-based for corporations</strong>
+              <p>This is the fast answer, but the official record still controls if the state uses anniversary, formation-month, or report-month triggers.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: North Carolina Secretary of State annual report due dates">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: North Carolina SOS file an annual report guidance">Source 2</a>
+            <a class="proof-chip" href="#source-3" aria-label="Open official source 3: North Carolina SOS maintaining registration guidance">Source 3</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">Main amount shown</span>
+              <strong>$202-$203 online or $200 paper for LLCs</strong>
+              <p>This stays tied to the published state fee, threshold, or state-level amount rather than a private service quote.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: North Carolina SOS file an annual report guidance">Source 2</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: North Carolina business registration fee table">Source 5</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">If already late</span>
+              <strong>No flat late fee stated on the due-date chart</strong>
+              <p>Late-state consequences often differ from the on-time amount, so this answer is anchored separately.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: North Carolina Secretary of State annual report due dates">Source 1</a>
+            <a class="proof-chip" href="#source-4" aria-label="Open official source 4: North Carolina SOS reinstatement guidance">Source 4</a>
+          </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section surface" data-decision-tool-root>
+          <div id="decision-tool"></div>
+          <div class="section__head">
+            <p class="eyebrow">Decision tool</p>
+            <h2>Narrow the rule to your situation</h2>
+            <p>North Carolina becomes much easier once you separate LLC timing from corporation timing and keep the online payment-method fees separate from the base filing fees.</p>
+          </div>
+          <div class="decision-tool-layout">
+            <div class="decision-tool-controls">
+              <label class="field" for="decision-case-north-carolina">
+                <span>Which North Carolina entity type fits best?</span>
+                <select id="decision-case-north-carolina" data-decision-case>
+                  <option value="llc-or-l3c">LLC or L3C</option>
+                  <option value="corporation">Business corporation</option>
+                </select>
+              </label>
+              <label class="field" for="decision-status-north-carolina">
+                <span>What do you need right now?</span>
+                <select id="decision-status-north-carolina" data-decision-status>
+                  <option value="standard">Normal rule</option>
+                  <option value="late">Already late</option>
+                  <option value="confirm">Need to verify</option>
+                </select>
+              </label>
+              <p class="decision-tool-note">
+                Use this to trim the page to the rule set that matters first, then finish on the
+                official sources linked on the card.
+              </p>
+            </div>
+            <div class="decision-tool-results" data-decision-tool aria-live="polite">
+            <article class="decision-result-card" data-decision-card data-case="llc-or-l3c" data-status="standard">
+              <span class="decision-result-label">Normal rule</span>
+              <h3>LLC or L3C</h3>
+              <p>North Carolina LLCs and L3Cs are the simpler path because they use the fixed April 15 annual-report deadline after the year of formation.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>April 15 each year after the year of creation</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$200 paper, $202 by ACH, or $203 by credit card online</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the SOS annual-report guidance and fee table before choosing online or paper filing.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: North Carolina Secretary of State annual report due dates">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: North Carolina SOS file an annual report guidance">Source 2</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: North Carolina business registration fee table">Source 5</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="llc-or-l3c" data-status="late">
+              <span class="decision-result-label">Already late</span>
+              <h3>LLC or L3C</h3>
+              <p>North Carolina's due-date chart does not publish a flat late fee, so use the state record and reinstatement guidance if the business may already be out of status.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>April 15 each year after the year of creation</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$200 paper, $202 by ACH, or $203 by credit card online</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the SOS annual-report guidance and fee table before choosing online or paper filing.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: North Carolina Secretary of State annual report due dates">Source 1</a>
+            <a class="proof-chip" href="#source-4" aria-label="Open official source 4: North Carolina SOS reinstatement guidance">Source 4</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="llc-or-l3c" data-status="confirm">
+              <span class="decision-result-label">Need to verify</span>
+              <h3>LLC or L3C</h3>
+              <p>Confirm that the entity is an LLC or L3C and not a corporation before relying on the fixed April 15 rule.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>April 15 each year after the year of creation</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$200 paper, $202 by ACH, or $203 by credit card online</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the SOS annual-report guidance and fee table before choosing online or paper filing.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: North Carolina Secretary of State annual report due dates">Source 1</a>
+            <a class="proof-chip" href="#source-3" aria-label="Open official source 3: North Carolina SOS maintaining registration guidance">Source 3</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="corporation" data-status="standard">
+              <span class="decision-result-label">Normal rule</span>
+              <h3>Business corporation</h3>
+              <p>North Carolina corporations do not use the LLC's fixed April 15 rule. The due date tracks the corporation's fiscal year instead.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>The 15th day of the fourth month after the fiscal year end</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$25 paper, $20 by ACH, or $21 by credit card online</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Check the state annual-report guidance and the corporation's fiscal-year record before filing.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: North Carolina Secretary of State annual report due dates">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: North Carolina SOS file an annual report guidance">Source 2</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: North Carolina business registration fee table">Source 5</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="corporation" data-status="late">
+              <span class="decision-result-label">Already late</span>
+              <h3>Business corporation</h3>
+              <p>If the corporation has already missed reports, North Carolina's reinstatement guidance says the missing reports and applicable fees must be cleared for each year involved.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>The 15th day of the fourth month after the fiscal year end</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$25 paper, $20 by ACH, or $21 by credit card online</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Check the state annual-report guidance and the corporation's fiscal-year record before filing.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-4" aria-label="Open official source 4: North Carolina SOS reinstatement guidance">Source 4</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: North Carolina business registration fee table">Source 5</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="corporation" data-status="confirm">
+              <span class="decision-result-label">Need to verify</span>
+              <h3>Business corporation</h3>
+              <p>Confirm the corporation's fiscal year end before relying on the due date because that trigger controls the report deadline.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>The 15th day of the fourth month after the fiscal year end</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$25 paper, $20 by ACH, or $21 by credit card online</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Check the state annual-report guidance and the corporation's fiscal-year record before filing.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: North Carolina Secretary of State annual report due dates">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: North Carolina SOS file an annual report guidance">Source 2</a>
+            <a class="proof-chip" href="#source-3" aria-label="Open official source 3: North Carolina SOS maintaining registration guidance">Source 3</a>
+          </div>
+            </article>
+            </div>
           </div>
         </section>
 
@@ -331,31 +562,31 @@
             <h2>Sources used for this page</h2>
           </div>
           <ul class="source-list">
-            <li class="source-item">
+            <li class="source-item" id="source-1">
               <a href="https://www.sosnc.gov/divisions/business_registration/annual_report_due_dates">
                 <span class="source-kicker">Official source 1</span>
                 <strong>North Carolina Secretary of State annual report due dates</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-2">
               <a href="https://www.sosnc.gov/divisions/business_registration/annual_report/12819032">
                 <span class="source-kicker">Official source 2</span>
                 <strong>North Carolina SOS file an annual report guidance</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-3">
               <a href="https://www.sosnc.gov/manual/register_a_foreign_business/maintaining_registration">
                 <span class="source-kicker">Official source 3</span>
                 <strong>North Carolina SOS maintaining registration guidance</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-4">
               <a href="https://www.sosnc.gov/divisions/business_registration/Reinstatement_and_Requalification_Paper_Domestic">
                 <span class="source-kicker">Official source 4</span>
                 <strong>North Carolina SOS reinstatement guidance</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-5">
               <a href="https://b2b.sosnc.gov/fees/by_title/_Business_Registration">
                 <span class="source-kicker">Official source 5</span>
                 <strong>North Carolina business registration fee table</strong>

@@ -6,12 +6,15 @@ import { coverageBuckets, stateDirectory } from "../data/state-directory.mjs";
 import {
   formatLongDate,
   getPageRoute,
+  MIN_RECOMMENDED_SOURCE_COUNT,
   parseReviewDate,
   pluralize
 } from "./lib/state-page-utils.mjs";
 
 const ROOT = process.cwd();
 const DIRECTORY_ROUTE = "/states.html";
+const OPERATIONS_ROUTE = "/operations.html";
+const OPERATIONS_REPORT = path.join(ROOT, "reports", "daily-source-scan.json");
 
 function escapeHtml(value) {
   return String(value)
@@ -21,7 +24,14 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;");
 }
 
-function renderSiteHead({ title, description, canonical, ogTitle, ogDescription }) {
+function renderSiteHead({
+  title,
+  description,
+  canonical,
+  ogTitle,
+  ogDescription,
+  robotsContent = null
+}) {
   return `    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${escapeHtml(title)}</title>
@@ -34,7 +44,7 @@ function renderSiteHead({ title, description, canonical, ogTitle, ogDescription 
     <meta
       property="og:description"
       content="${escapeHtml(ogDescription)}"
-    />
+    />${robotsContent ? `\n    <meta name="robots" content="${escapeHtml(robotsContent)}" />` : ""}
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://finlogichub5.com/social-preview.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -215,6 +225,309 @@ function renderSearchPanel(title, description) {
           </div>`;
 }
 
+function buildFallbackScan(entries) {
+  return {
+    scannedAt: null,
+    readableDate: "No scan snapshot yet",
+    staleReviewThresholdDays: 45,
+    pagesScanned: entries.length,
+    sourceLinksChecked: new Set(entries.flatMap((entry) => entry.page.sourceLinks.map((link) => link.href))).size,
+    linkHealth: {
+      ok: 0,
+      blocked: 0,
+      timedOut: 0,
+      transportIssues: 0,
+      brokenOrError: 0
+    },
+    stalePages: [],
+    thinCoveragePages: [],
+    pages: entries.map((entry) => ({
+      state: entry.state,
+      route: entry.route,
+      lastReviewed: entry.page.lastReviewed,
+      reviewAgeDays: 0,
+      sourceCount: entry.page.sourceLinks.length
+    })),
+    brokenLinks: [],
+    blockedLinks: [],
+    timedOutLinks: [],
+    transportIssueLinks: []
+  };
+}
+
+async function loadOperationsSnapshot(entries) {
+  try {
+    const raw = await fs.readFile(OPERATIONS_REPORT, "utf8");
+    return JSON.parse(raw);
+  } catch {
+    return buildFallbackScan(entries);
+  }
+}
+
+function formatScanTimestamp(scannedAt, readableDate) {
+  if (!scannedAt) {
+    return readableDate;
+  }
+
+  const value = new Date(scannedAt);
+
+  return new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    timeZone: "UTC",
+    timeZoneName: "short"
+  }).format(value);
+}
+
+function getOperationsPriority(row, staleReviewThresholdDays) {
+  if (
+    row.reviewAgeDays > staleReviewThresholdDays ||
+    row.brokenCount > 0 ||
+    row.timedOutCount > 0 ||
+    row.transportCount > 0
+  ) {
+    return {
+      rank: 0,
+      label: "Immediate attention",
+      note: "Resolve data or source-health risk before relying on this page as current.",
+      toneClass: "badge--overdue"
+    };
+  }
+
+  if (row.blockedCount > 0 || row.reviewAgeDays >= Math.max(staleReviewThresholdDays - 10, 0)) {
+    return {
+      rank: 1,
+      label: "Watch closely",
+      note: "The page is still usable, but it deserves a quick human check or source follow-up.",
+      toneClass: "badge--soon"
+    };
+  }
+
+  return {
+    rank: 2,
+    label: "Stable",
+    note: "No immediate review or source-health issue is showing in the latest scan snapshot.",
+    toneClass: "badge--fresh"
+  };
+}
+
+function renderIssueSummary(row) {
+  const parts = [];
+
+  if (row.brokenCount > 0) parts.push(`${row.brokenCount} broken`);
+  if (row.timedOutCount > 0) parts.push(`${row.timedOutCount} timeout`);
+  if (row.transportCount > 0) parts.push(`${row.transportCount} transport`);
+  if (row.blockedCount > 0) parts.push(`${row.blockedCount} blocked`);
+
+  return parts.length > 0 ? parts.join(" / ") : "No source-health issues in latest scan";
+}
+
+function buildOperationsModel(entries, snapshot) {
+  const pageSummaryByRoute = new Map(snapshot.pages.map((page) => [page.route, page]));
+  const sourceOwners = new Map();
+
+  for (const entry of entries) {
+    for (const link of entry.page.sourceLinks) {
+      const owners = sourceOwners.get(link.href) ?? [];
+      owners.push({ route: entry.route, state: entry.state });
+      sourceOwners.set(link.href, owners);
+    }
+  }
+
+  const routeCounts = new Map(
+    entries.map((entry) => [
+      entry.route,
+      { brokenCount: 0, blockedCount: 0, timedOutCount: 0, transportCount: 0 }
+    ])
+  );
+  const issueSets = [
+    { key: "brokenCount", label: "Broken or error", items: snapshot.brokenLinks ?? [] },
+    { key: "timedOutCount", label: "Timed out", items: snapshot.timedOutLinks ?? [] },
+    { key: "transportCount", label: "Transport issue", items: snapshot.transportIssueLinks ?? [] },
+    { key: "blockedCount", label: "Blocked", items: snapshot.blockedLinks ?? [] }
+  ];
+  const issueRows = [];
+
+  for (const issueSet of issueSets) {
+    for (const item of issueSet.items) {
+      const owners = sourceOwners.get(item.url) ?? [];
+
+      for (const owner of owners) {
+        const counts = routeCounts.get(owner.route);
+        if (counts) {
+          counts[issueSet.key] += 1;
+        }
+      }
+
+      issueRows.push({
+        category: issueSet.label,
+        states: owners.length > 0 ? owners.map((owner) => owner.state).join(", ") : "Not matched",
+        url: item.url,
+        detail:
+          item.note ||
+          (item.finalUrl && item.finalUrl !== item.url ? `Redirected to ${item.finalUrl}` : ""),
+        sortRank:
+          issueSet.label === "Broken or error"
+            ? 0
+            : issueSet.label === "Timed out"
+              ? 1
+              : issueSet.label === "Transport issue"
+                ? 2
+                : 3
+      });
+    }
+  }
+
+  const routeHealthRows = entries
+    .map((entry) => {
+      const summary = pageSummaryByRoute.get(entry.route) ?? {
+        route: entry.route,
+        state: entry.state,
+        lastReviewed: entry.page.lastReviewed,
+        reviewAgeDays: 0,
+        sourceCount: entry.page.sourceLinks.length
+      };
+      const counts = routeCounts.get(entry.route) ?? {
+        brokenCount: 0,
+        blockedCount: 0,
+        timedOutCount: 0,
+        transportCount: 0
+      };
+      const priority = getOperationsPriority(
+        {
+          ...summary,
+          ...counts
+        },
+        snapshot.staleReviewThresholdDays
+      );
+
+      return {
+        state: entry.state,
+        route: entry.route,
+        lastReviewed: summary.lastReviewed,
+        reviewAgeDays: summary.reviewAgeDays,
+        sourceCount: summary.sourceCount,
+        ...counts,
+        issueSummary: renderIssueSummary(counts),
+        priority
+      };
+    })
+    .sort((left, right) => {
+      if (left.priority.rank !== right.priority.rank) {
+        return left.priority.rank - right.priority.rank;
+      }
+
+      if (left.reviewAgeDays !== right.reviewAgeDays) {
+        return right.reviewAgeDays - left.reviewAgeDays;
+      }
+
+      return left.state.localeCompare(right.state);
+    });
+
+  return {
+    issueRows: issueRows.sort((left, right) => {
+      if (left.sortRank !== right.sortRank) {
+        return left.sortRank - right.sortRank;
+      }
+
+      return left.states.localeCompare(right.states);
+    }),
+    routeHealthRows,
+    attentionRows: routeHealthRows.filter((row) => row.priority.rank < 2),
+    pagesAtBaselineCoverage: routeHealthRows.filter(
+      (row) => row.sourceCount === MIN_RECOMMENDED_SOURCE_COUNT
+    ).length
+  };
+}
+
+function renderOperationsMetrics(snapshot, attentionRows, pagesAtBaselineCoverage) {
+  const metrics = [
+    {
+      label: "Latest scan",
+      text: `${formatScanTimestamp(snapshot.scannedAt, snapshot.readableDate)} | ${snapshot.pagesScanned} pages`
+    },
+    {
+      label: "Link health",
+      text: `${snapshot.sourceLinksChecked} checked | ${snapshot.linkHealth.brokenOrError} broken/error | ${snapshot.linkHealth.blocked} blocked`
+    },
+    {
+      label: "Pages needing attention",
+      text: `${attentionRows.length} page${attentionRows.length === 1 ? "" : "s"} | ${pagesAtBaselineCoverage} still sitting on the 5-source baseline`
+    }
+  ];
+
+  return metrics
+    .map(
+      (metric) => `              <div class="metric-card">
+                <strong>${escapeHtml(metric.label)}</strong>
+                <span>${escapeHtml(metric.text)}</span>
+              </div>`
+    )
+    .join("\n");
+}
+
+function renderOperationsAttentionCards(rows) {
+  if (rows.length === 0) {
+    return `          <div class="mini-grid">
+            <article class="mini-card">
+              <span>Stable snapshot</span>
+              <strong>No pages are calling for immediate follow-up right now.</strong>
+              <p>The latest scan is not surfacing stale reviews, broken links, timeouts, or transport issues on any live state page.</p>
+            </article>
+          </div>`;
+  }
+
+  return `          <div class="mini-grid ops-grid">
+${rows
+  .map(
+    (row) => `            <article class="mini-card ops-card">
+              <span>${escapeHtml(row.priority.label)}</span>
+              <strong>${escapeHtml(row.state)}</strong>
+              <p>${escapeHtml(row.priority.note)}</p>
+              <p class="ops-card__meta">Reviewed ${escapeHtml(row.lastReviewed)} | ${row.sourceCount} official ${pluralize(row.sourceCount, "source")}</p>
+              <p class="ops-card__meta">${escapeHtml(row.issueSummary)}</p>
+            </article>`
+  )
+  .join("\n")}
+          </div>`;
+}
+
+function renderOperationsBoardRows(rows) {
+  return rows
+    .map(
+      (row) => `                <tr>
+                  <td><a class="inline-link" href="${escapeHtml(row.route)}">${escapeHtml(row.state)}</a></td>
+                  <td>${escapeHtml(row.lastReviewed)} (${row.reviewAgeDays} day${row.reviewAgeDays === 1 ? "" : "s"} old)</td>
+                  <td>${row.sourceCount}</td>
+                  <td>${escapeHtml(row.issueSummary)}</td>
+                  <td><span class="badge ${row.priority.toneClass}">${escapeHtml(row.priority.label)}</span></td>
+                </tr>`
+    )
+    .join("\n");
+}
+
+function renderIssueLogRows(issueRows) {
+  if (issueRows.length === 0) {
+    return `                <tr>
+                  <td colspan="4">No blocked, timed-out, transport, or broken source links are in the current scan log.</td>
+                </tr>`;
+  }
+
+  return issueRows
+    .map(
+      (row) => `                <tr>
+                  <td>${escapeHtml(row.category)}</td>
+                  <td>${escapeHtml(row.states)}</td>
+                  <td><a class="inline-link" href="${escapeHtml(row.url)}">${escapeHtml(row.url)}</a></td>
+                  <td>${escapeHtml(row.detail || "No extra note")}</td>
+                </tr>`
+    )
+    .join("\n");
+}
+
 function renderStartPathCards() {
   const cards = [
     {
@@ -246,6 +559,164 @@ function renderStartPathCards() {
             </a>`
     )
     .join("\n");
+}
+
+function renderOperationsPage({
+  latestReviewText,
+  snapshot,
+  routeHealthRows,
+  attentionRows,
+  issueRows,
+  pagesAtBaselineCoverage
+}) {
+  return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+${renderSiteHead({
+  title: "Operations Review Board | FinLogic Hub",
+  description:
+    "Internal monitoring board for FinLogic Hub showing the latest source scan snapshot, review freshness, and state-guide follow-up priorities.",
+  canonical: `https://finlogichub5.com${OPERATIONS_ROUTE}`,
+  ogTitle: "Operations Review Board | FinLogic Hub",
+  ogDescription:
+    "Internal monitoring board for source health, review freshness, and state-guide follow-up priorities.",
+  robotsContent: "noindex,follow"
+})}
+  </head>
+  <body>
+    <div class="site-shell">
+${renderHeader()}
+
+      <main class="page">
+        <section class="hero hero--page">
+          <div class="hero__copy surface">
+            <div class="breadcrumbs">
+              <a href="/">Home</a>
+              <span>/</span>
+              <span>Operations review board</span>
+            </div>
+            <p class="eyebrow">Operations</p>
+            <h1>Track review freshness, source health, and pages that need follow-up.</h1>
+            <p class="hero__subtitle">
+              This board is an internal maintenance view. It keeps the latest scan snapshot, review
+              cadence, and source-health signals in one place without adding customer clutter to the
+              public navigation.
+            </p>
+            <div class="badge-row">
+              <span class="badge">Latest scan: ${escapeHtml(formatScanTimestamp(snapshot.scannedAt, snapshot.readableDate))}</span>
+              <span class="badge">Latest manual review on live pages: ${escapeHtml(latestReviewText)}</span>
+              <span class="badge">Noindex maintenance page</span>
+            </div>
+          </div>
+
+          <aside class="summary-panel surface">
+            <h2>Current snapshot</h2>
+            <div class="metric-grid">
+${renderOperationsMetrics(snapshot, attentionRows, pagesAtBaselineCoverage)}
+            </div>
+          </aside>
+        </section>
+
+        <section class="section surface">
+          <div class="section__head">
+            <p class="eyebrow">Follow-up first</p>
+            <h2>States that deserve a closer look</h2>
+            <p>
+              Immediate attention means a stale review, timeout, transport issue, or broken source.
+              Watch closely usually means blocked government sources or a page nearing the review
+              threshold.
+            </p>
+          </div>
+${renderOperationsAttentionCards(attentionRows)}
+        </section>
+
+        <section class="section surface">
+          <div class="section__head">
+            <p class="eyebrow">State board</p>
+            <h2>Health snapshot across all live guides</h2>
+            <p>
+              This board combines review age, source count, and link-health signals so release
+              decisions can stay consistent across the whole site.
+            </p>
+          </div>
+          <div class="table-scroll">
+            <table class="summary-table">
+              <thead>
+                <tr>
+                  <th>State</th>
+                  <th>Review freshness</th>
+                  <th>Sources</th>
+                  <th>Latest scan issues</th>
+                  <th>Priority</th>
+                </tr>
+              </thead>
+              <tbody>
+${renderOperationsBoardRows(routeHealthRows)}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section surface">
+          <div class="section__head">
+            <p class="eyebrow">Issue log</p>
+            <h2>Blocked, timed-out, transport, and broken source links</h2>
+            <p>
+              This table mirrors the latest scan log so the team can see which official sources
+              were blocked, unstable, or broken without opening the raw report file first.
+            </p>
+          </div>
+          <div class="table-scroll">
+            <table class="summary-table">
+              <thead>
+                <tr>
+                  <th>Issue type</th>
+                  <th>State impact</th>
+                  <th>Source URL</th>
+                  <th>Note</th>
+                </tr>
+              </thead>
+              <tbody>
+${renderIssueLogRows(issueRows)}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section section--split">
+          <div class="surface">
+            <div class="section__head">
+              <p class="eyebrow">Release rule</p>
+              <h2>What this board is meant to protect</h2>
+            </div>
+            <ul class="checklist">
+              <li>Every live guide should keep its manual review date inside the current review window.</li>
+              <li>Every live guide should keep at least ${MIN_RECOMMENDED_SOURCE_COUNT} official state sources linked.</li>
+              <li>Broken or error-level source links should stop the release path instead of hiding quietly in production.</li>
+              <li>Blocked government sources should trigger human follow-up even when the page itself is still usable.</li>
+            </ul>
+          </div>
+          <div class="surface">
+            <div class="section__head">
+              <p class="eyebrow">How to use it</p>
+              <h2>How this board fits the maintenance workflow</h2>
+            </div>
+            <ul class="checklist">
+              <li>Start with the states marked Immediate attention.</li>
+              <li>If the issue is a blocked source, verify manually before changing the live copy.</li>
+              <li>If the issue is a timeout or transport failure, rerun the scan before treating it as a broken source.</li>
+              <li>Use the linked state guide from the board table when the page itself needs a fresh review.</li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+${renderFooter()}
+    </div>
+    <script src="/script.js"></script>
+  </body>
+</html>
+`;
 }
 
 function renderHomePage({ entries, latestReviewText, uniqueSourceCount }) {
@@ -583,6 +1054,8 @@ const bucketSummaries = coverageBuckets.map((bucket) => ({
   bucket,
   entries: entries.filter((entry) => entry.coverageBucket === bucket.key)
 }));
+const operationsSnapshot = await loadOperationsSnapshot(entries);
+const operationsModel = buildOperationsModel(entries, operationsSnapshot);
 
 await fs.writeFile(
   path.join(ROOT, "index.html"),
@@ -594,4 +1067,16 @@ await fs.writeFile(
   renderStatesPage({ entries, latestReviewText, bucketSummaries })
 );
 
-console.log(`Built site pages for ${entries.length} live guides.`);
+await fs.writeFile(
+  path.join(ROOT, "operations.html"),
+  renderOperationsPage({
+    latestReviewText,
+    snapshot: operationsSnapshot,
+    routeHealthRows: operationsModel.routeHealthRows,
+    attentionRows: operationsModel.attentionRows,
+    issueRows: operationsModel.issueRows,
+    pagesAtBaselineCoverage: operationsModel.pagesAtBaselineCoverage
+  })
+);
+
+console.log(`Built site pages for ${entries.length} live guides plus the operations board.`);

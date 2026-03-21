@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operations Review Board | FinLogic Hub</title>
+    <meta
+      name="description"
+      content="Internal monitoring board for FinLogic Hub showing the latest source scan snapshot, review freshness, and state-guide follow-up priorities."
+    />
+    <link rel="canonical" href="https://finlogichub5.com/operations.html" />
+    <meta property="og:title" content="Operations Review Board | FinLogic Hub" />
+    <meta
+      property="og:description"
+      content="Internal monitoring board for source health, review freshness, and state-guide follow-up priorities."
+    />
+    <meta name="robots" content="noindex,follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://finlogichub5.com/social-preview.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;family=Source+Serif+4:wght@600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="/">
+          <span class="brand__mark">FH</span>
+          <span>
+            <strong>FinLogic Hub</strong>
+            <small>State filing fee guides</small>
+          </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/states.html">States</a>
+          <a href="/filing-basics.html">Filing basics</a>
+          <a href="/filing-help-options.html">Help options</a>
+          <a href="/about.html">About</a>
+        </nav>
+      </header>
+
+      <main class="page">
+        <section class="hero hero--page">
+          <div class="hero__copy surface">
+            <div class="breadcrumbs">
+              <a href="/">Home</a>
+              <span>/</span>
+              <span>Operations review board</span>
+            </div>
+            <p class="eyebrow">Operations</p>
+            <h1>Track review freshness, source health, and pages that need follow-up.</h1>
+            <p class="hero__subtitle">
+              This board is an internal maintenance view. It keeps the latest scan snapshot, review
+              cadence, and source-health signals in one place without adding customer clutter to the
+              public navigation.
+            </p>
+            <div class="badge-row">
+              <span class="badge">Latest scan: March 21, 2026 at 12:42 PM UTC</span>
+              <span class="badge">Latest manual review on live pages: March 17, 2026</span>
+              <span class="badge">Noindex maintenance page</span>
+            </div>
+          </div>
+
+          <aside class="summary-panel surface">
+            <h2>Current snapshot</h2>
+            <div class="metric-grid">
+              <div class="metric-card">
+                <strong>Latest scan</strong>
+                <span>March 21, 2026 at 12:42 PM UTC | 16 pages</span>
+              </div>
+              <div class="metric-card">
+                <strong>Link health</strong>
+                <span>88 checked | 0 broken/error | 7 blocked</span>
+              </div>
+              <div class="metric-card">
+                <strong>Pages needing attention</strong>
+                <span>5 pages | 9 still sitting on the 5-source baseline</span>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <section class="section surface">
+          <div class="section__head">
+            <p class="eyebrow">Follow-up first</p>
+            <h2>States that deserve a closer look</h2>
+            <p>
+              Immediate attention means a stale review, timeout, transport issue, or broken source.
+              Watch closely usually means blocked government sources or a page nearing the review
+              threshold.
+            </p>
+          </div>
+          <div class="mini-grid ops-grid">
+            <article class="mini-card ops-card">
+              <span>Immediate attention</span>
+              <strong>Delaware</strong>
+              <p>Resolve data or source-health risk before relying on this page as current.</p>
+              <p class="ops-card__meta">Reviewed March 17, 2026 | 5 official sources</p>
+              <p class="ops-card__meta">1 transport</p>
+            </article>
+            <article class="mini-card ops-card">
+              <span>Immediate attention</span>
+              <strong>North Carolina</strong>
+              <p>Resolve data or source-health risk before relying on this page as current.</p>
+              <p class="ops-card__meta">Reviewed March 17, 2026 | 5 official sources</p>
+              <p class="ops-card__meta">1 transport</p>
+            </article>
+            <article class="mini-card ops-card">
+              <span>Watch closely</span>
+              <strong>Georgia</strong>
+              <p>The page is still usable, but it deserves a quick human check or source follow-up.</p>
+              <p class="ops-card__meta">Reviewed March 17, 2026 | 5 official sources</p>
+              <p class="ops-card__meta">5 blocked</p>
+            </article>
+            <article class="mini-card ops-card">
+              <span>Watch closely</span>
+              <strong>Kansas</strong>
+              <p>The page is still usable, but it deserves a quick human check or source follow-up.</p>
+              <p class="ops-card__meta">Reviewed March 17, 2026 | 5 official sources</p>
+              <p class="ops-card__meta">1 blocked</p>
+            </article>
+            <article class="mini-card ops-card">
+              <span>Watch closely</span>
+              <strong>Pennsylvania</strong>
+              <p>The page is still usable, but it deserves a quick human check or source follow-up.</p>
+              <p class="ops-card__meta">Reviewed March 17, 2026 | 5 official sources</p>
+              <p class="ops-card__meta">1 blocked</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section surface">
+          <div class="section__head">
+            <p class="eyebrow">State board</p>
+            <h2>Health snapshot across all live guides</h2>
+            <p>
+              This board combines review age, source count, and link-health signals so release
+              decisions can stay consistent across the whole site.
+            </p>
+          </div>
+          <div class="table-scroll">
+            <table class="summary-table">
+              <thead>
+                <tr>
+                  <th>State</th>
+                  <th>Review freshness</th>
+                  <th>Sources</th>
+                  <th>Latest scan issues</th>
+                  <th>Priority</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a class="inline-link" href="/tools/delaware/annual-report-deadline/">Delaware</a></td>
+                  <td>March 17, 2026 (4 days old)</td>
+                  <td>5</td>
+                  <td>1 transport</td>
+                  <td><span class="badge badge--overdue">Immediate attention</span></td>
+                </tr>
+                <tr>
+                  <td><a class="inline-link" href="/tools/north-carolina/annual-report-deadline/">North Carolina</a></td>
+                  <td>March 17, 2026 (4 days old)</td>
+                  <td>5</td>
+                  <td>1 transport</td>
+                  <td><span class="badge badge--overdue">Immediate attention</span></td>
+                </tr>
+                <tr>
+                  <td><a class="inline-link" href="/tools/georgia/annual-report-deadline/">Georgia</a></td>
+                  <td>March 17, 2026 (4 days old)</td>
+                  <td>5</td>
+                  <td>5 blocked</td>
+                  <td><span class="badge badge--soon">Watch closely</span></td>
+                </tr>
+                <tr>
+                  <td><a class="inline-link" href="/tools/kansas/information-report-deadline/">Kansas</a></td>
+                  <td>March 17, 2026 (4 days old)</td>
+                  <td>5</td>
+                  <td>1 blocked</td>
+                  <td><span class="badge badge--soon">Watch closely</span></td>
+                </tr>
+                <tr>
+                  <td><a class="inline-link" href="/tools/pennsylvania/annual-report-deadline/">Pennsylvania</a></td>
+                  <td>March 17, 2026 (4 days old)</td>
+                  <td>5</td>
+                  <td>1 blocked</td>
+                  <td><span class="badge badge--soon">Watch closely</span></td>
+                </tr>
+                <tr>
+                  <td><a class="inline-link" href="/tools/california/statement-of-information-deadline/">California</a></td>
+                  <td>March 17, 2026 (4 days old)</td>
+                  <td>6</td>
+                  <td>No source-health issues in latest scan</td>
+                  <td><span class="badge badge--fresh">Stable</span></td>
+                </tr>
+                <tr>
+                  <td><a class="inline-link" href="/tools/colorado/periodic-report-deadline/">Colorado</a></td>
+                  <td>March 17, 2026 (4 days old)</td>
+                  <td>5</td>
+                  <td>No source-health issues in latest scan</td>
+                  <td><span class="badge badge--fresh">Stable</span></td>
+                </tr>
+                <tr>
+                  <td><a class="inline-link" href="/tools/connecticut/annual-report-deadline/">Connecticut</a></td>
+                  <td>March 17, 2026 (4 days old)</td>
+                  <td>7</td>
+                  <td>No source-health issues in latest scan</td>
+                  <td><span class="badge badge--fresh">Stable</span></td>
+                </tr>
+                <tr>
+                  <td><a class="inline-link" href="/tools/florida/annual-report-deadline/">Florida</a></td>
+                  <td>March 17, 2026 (4 days old)</td>
+                  <td>6</td>
+                  <td>No source-health issues in latest scan</td>
+                  <td><span class="badge badge--fresh">Stable</span></td>
+                </tr>
+                <tr>
+                  <td><a class="inline-link" href="/tools/nevada/annual-fee-calculator/">Nevada</a></td>
+                  <td>March 17, 2026 (4 days old)</td>
+                  <td>5</td>
+                  <td>No source-health issues in latest scan</td>
+                  <td><span class="badge badge--fresh">Stable</span></td>
+                </tr>
+                <tr>
+                  <td><a class="inline-link" href="/tools/new-jersey/annual-report-deadline/">New Jersey</a></td>
+                  <td>March 17, 2026 (4 days old)</td>
+                  <td>6</td>
+                  <td>No source-health issues in latest scan</td>
+                  <td><span class="badge badge--fresh">Stable</span></td>
+                </tr>
+                <tr>
+                  <td><a class="inline-link" href="/tools/new-york/biennial-statement-deadline/">New York</a></td>
+                  <td>March 17, 2026 (4 days old)</td>
+                  <td>5</td>
+                  <td>No source-health issues in latest scan</td>
+                  <td><span class="badge badge--fresh">Stable</span></td>
+                </tr>
+                <tr>
+                  <td><a class="inline-link" href="/tools/oregon/annual-report-deadline/">Oregon</a></td>
+                  <td>March 17, 2026 (4 days old)</td>
+                  <td>5</td>
+                  <td>No source-health issues in latest scan</td>
+                  <td><span class="badge badge--fresh">Stable</span></td>
+                </tr>
+                <tr>
+                  <td><a class="inline-link" href="/tools/texas/franchise-tax-deadline/">Texas</a></td>
+                  <td>March 17, 2026 (4 days old)</td>
+                  <td>6</td>
+                  <td>No source-health issues in latest scan</td>
+                  <td><span class="badge badge--fresh">Stable</span></td>
+                </tr>
+                <tr>
+                  <td><a class="inline-link" href="/tools/virginia/annual-registration-fee-deadline/">Virginia</a></td>
+                  <td>March 17, 2026 (4 days old)</td>
+                  <td>6</td>
+                  <td>No source-health issues in latest scan</td>
+                  <td><span class="badge badge--fresh">Stable</span></td>
+                </tr>
+                <tr>
+                  <td><a class="inline-link" href="/tools/washington/annual-report-deadline-guide/">Washington</a></td>
+                  <td>March 17, 2026 (4 days old)</td>
+                  <td>6</td>
+                  <td>No source-health issues in latest scan</td>
+                  <td><span class="badge badge--fresh">Stable</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section surface">
+          <div class="section__head">
+            <p class="eyebrow">Issue log</p>
+            <h2>Blocked, timed-out, transport, and broken source links</h2>
+            <p>
+              This table mirrors the latest scan log so the team can see which official sources
+              were blocked, unstable, or broken without opening the raw report file first.
+            </p>
+          </div>
+          <div class="table-scroll">
+            <table class="summary-table">
+              <thead>
+                <tr>
+                  <th>Issue type</th>
+                  <th>State impact</th>
+                  <th>Source URL</th>
+                  <th>Note</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Transport issue</td>
+                  <td>Delaware</td>
+                  <td><a class="inline-link" href="https://icis.corp.delaware.gov/ecorp/logintax.aspx">https://icis.corp.delaware.gov/ecorp/logintax.aspx</a></td>
+                  <td>TypeError: fetch failed</td>
+                </tr>
+                <tr>
+                  <td>Transport issue</td>
+                  <td>North Carolina</td>
+                  <td><a class="inline-link" href="https://b2b.sosnc.gov/fees/by_title/_Business_Registration">https://b2b.sosnc.gov/fees/by_title/_Business_Registration</a></td>
+                  <td>TypeError: fetch failed</td>
+                </tr>
+                <tr>
+                  <td>Blocked</td>
+                  <td>Georgia</td>
+                  <td><a class="inline-link" href="https://sos.ga.gov/page/corporations-division">https://sos.ga.gov/page/corporations-division</a></td>
+                  <td>No extra note</td>
+                </tr>
+                <tr>
+                  <td>Blocked</td>
+                  <td>Georgia</td>
+                  <td><a class="inline-link" href="https://sos.ga.gov/how-to-guide/how-file-annual-registration">https://sos.ga.gov/how-to-guide/how-file-annual-registration</a></td>
+                  <td>No extra note</td>
+                </tr>
+                <tr>
+                  <td>Blocked</td>
+                  <td>Georgia</td>
+                  <td><a class="inline-link" href="https://sos.ga.gov/page/business-division-faq">https://sos.ga.gov/page/business-division-faq</a></td>
+                  <td>No extra note</td>
+                </tr>
+                <tr>
+                  <td>Blocked</td>
+                  <td>Georgia</td>
+                  <td><a class="inline-link" href="https://sos.ga.gov/reference-filing-fees-effective-962025">https://sos.ga.gov/reference-filing-fees-effective-962025</a></td>
+                  <td>No extra note</td>
+                </tr>
+                <tr>
+                  <td>Blocked</td>
+                  <td>Georgia</td>
+                  <td><a class="inline-link" href="https://ecorp.sos.ga.gov/BusinessSearch">https://ecorp.sos.ga.gov/BusinessSearch</a></td>
+                  <td>No extra note</td>
+                </tr>
+                <tr>
+                  <td>Blocked</td>
+                  <td>Kansas</td>
+                  <td><a class="inline-link" href="https://www.sos.ks.gov/eforms/user_login.aspx?frm=BS">https://www.sos.ks.gov/eforms/user_login.aspx?frm=BS</a></td>
+                  <td>No extra note</td>
+                </tr>
+                <tr>
+                  <td>Blocked</td>
+                  <td>Pennsylvania</td>
+                  <td><a class="inline-link" href="https://file.dos.pa.gov/">https://file.dos.pa.gov/</a></td>
+                  <td>No extra note</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section section--split">
+          <div class="surface">
+            <div class="section__head">
+              <p class="eyebrow">Release rule</p>
+              <h2>What this board is meant to protect</h2>
+            </div>
+            <ul class="checklist">
+              <li>Every live guide should keep its manual review date inside the current review window.</li>
+              <li>Every live guide should keep at least 5 official state sources linked.</li>
+              <li>Broken or error-level source links should stop the release path instead of hiding quietly in production.</li>
+              <li>Blocked government sources should trigger human follow-up even when the page itself is still usable.</li>
+            </ul>
+          </div>
+          <div class="surface">
+            <div class="section__head">
+              <p class="eyebrow">How to use it</p>
+              <h2>How this board fits the maintenance workflow</h2>
+            </div>
+            <ul class="checklist">
+              <li>Start with the states marked Immediate attention.</li>
+              <li>If the issue is a blocked source, verify manually before changing the live copy.</li>
+              <li>If the issue is a timeout or transport failure, rerun the scan before treating it as a broken source.</li>
+              <li>Use the linked state guide from the board table when the page itself needs a fresh review.</li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="/">Home</a>
+          <a href="/states.html">States</a>
+          <a href="/filing-basics.html">Filing basics</a>
+          <a href="/filing-help-options.html">Help options</a>
+          <a href="/about.html">About</a>
+          <a href="/privacy.html">Privacy</a>
+          <a href="/contact.html">Contact</a>
+          <a href="/terms.html">Terms</a>
+        </nav>
+        <p>&copy; 2026 FinLogic Hub. Informational only. Official state sources control.</p>
+      </footer>
+    </div>
+    <script src="/script.js"></script>
+  </body>
+</html>

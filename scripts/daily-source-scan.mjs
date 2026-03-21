@@ -20,6 +20,7 @@ const SCANNED_AT_TEXT = formatLongDate(SCANNED_AT);
 const STALE_REVIEW_DAYS = Number(process.env.STALE_REVIEW_DAYS ?? DEFAULT_STALE_REVIEW_DAYS);
 const CONCURRENCY = 6;
 const TIMEOUT_MS = 15000;
+const SOFT_FAIL = process.argv.includes("--soft-fail");
 
 function sentenceList(items) {
   if (items.length === 0) return "";
@@ -283,6 +284,10 @@ console.log(`Blocked links: ${linkSummary.blocked.length}`);
 console.log(`Stale pages: ${stalePages.length}`);
 console.log(`Reports written: ${path.relative(ROOT, JSON_REPORT)}, ${path.relative(ROOT, MARKDOWN_REPORT)}`);
 
-if (linkSummary.broken.length > 0 || stalePages.length > 0) {
+if (SOFT_FAIL && (linkSummary.broken.length > 0 || stalePages.length > 0)) {
+  console.log("Soft-fail mode enabled: report was written, and release gating should happen in a later audit step.");
+}
+
+if (!SOFT_FAIL && (linkSummary.broken.length > 0 || stalePages.length > 0)) {
   process.exitCode = 1;
 }

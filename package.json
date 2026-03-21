@@ -4,13 +4,15 @@
   "type": "module",
   "scripts": {
     "build": "npm run build:state-pages && npm run build:site-pages && npm run build:sitemap",
-    "release": "npm run build && npm run audit:state-pages && npm run audit:indexing && npm run scan:daily",
+    "release": "npm run scan:daily:soft && npm run build && npm run audit:state-pages && npm run audit:indexing && npm run audit:source-scan",
     "build:state-pages": "node scripts/build-state-pages.mjs",
     "build:site-pages": "node scripts/build-site-pages.mjs",
     "build:sitemap": "node scripts/build-sitemap.mjs",
     "audit:indexing": "node scripts/audit-indexing.mjs",
+    "audit:source-scan": "node scripts/audit-source-scan.mjs",
     "audit:state-pages": "node scripts/audit-state-pages.mjs",
     "audit:state-pages:links": "node scripts/audit-state-pages.mjs --check-links",
-    "scan:daily": "node scripts/daily-source-scan.mjs"
+    "scan:daily": "node scripts/daily-source-scan.mjs",
+    "scan:daily:soft": "node scripts/daily-source-scan.mjs --soft-fail"
   }
 }

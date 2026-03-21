@@ -91,6 +91,8 @@
           <strong>Jump to</strong>
           <div class="section-nav__links">
             <a class="section-link" href="#quick-answer">Quick answer</a>
+            <a class="section-link" href="#evidence-chain">Evidence chain</a>
+            <a class="section-link" href="#decision-tool">Decision tool</a>
             <a class="section-link" href="#decision-checks">Decision checks</a>
             <a class="section-link" href="#next-step">Next step</a>
             <a class="section-link" href="#details">Detailed rules</a>
@@ -125,6 +127,237 @@
               <span class="insight-label">If already late</span>
               <strong>$25 delinquency fee, then domestic dissolution at 120 days or foreign termination at 90 days</strong>
             </article>
+          </div>
+        </section>
+
+        <section class="section surface" data-evidence-chain>
+          <div id="evidence-chain"></div>
+          <div class="section__head">
+            <p class="eyebrow">Evidence chain</p>
+            <h2>Official proof for the headline answers</h2>
+            <p>
+              Each quick-answer field below points to the exact official sources that support it, so
+              the customer-facing summary can still be audited back to the state record.
+            </p>
+          </div>
+          <div class="evidence-grid">
+            <article class="evidence-card">
+              <span class="evidence-label">Filing label</span>
+              <strong>Annual report</strong>
+              <p>This uses the state's actual recurring filing label instead of flattening everything into a generic annual-report name.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Washington annual reports FAQ and 180-day filing window">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Washington Secretary of State file annual report online instructions">Source 2</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">Who should use this page</span>
+              <strong>For-profit business entities</strong>
+              <p>The scope comes from the entity groups named in the official sources, not just the state name.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Washington annual reports FAQ and 180-day filing window">Source 1</a>
+            <a class="proof-chip" href="#source-4" aria-label="Open official source 4: Washington Corporations and Charities Filing System">Source 4</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">Headline due date</span>
+              <strong>End of the anniversary month</strong>
+              <p>This is the fast answer, but the official record still controls if the state uses anniversary, formation-month, or report-month triggers.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Washington annual reports FAQ and 180-day filing window">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Washington Secretary of State file annual report online instructions">Source 2</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">Main amount shown</span>
+              <strong>$70 annual report or $95 with delinquency fee</strong>
+              <p>This stays tied to the published state fee, threshold, or state-level amount rather than a private service quote.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Washington annual reports FAQ and 180-day filing window">Source 1</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: Washington filing fee schedule and expedited service FAQ">Source 5</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">If already late</span>
+              <strong>$25 delinquency fee, then domestic dissolution at 120 days or foreign termination at 90 days</strong>
+              <p>Late-state consequences often differ from the on-time amount, so this answer is anchored separately.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: Washington filing fee schedule and expedited service FAQ">Source 5</a>
+            <a class="proof-chip" href="#source-6" aria-label="Open official source 6: Washington return business to active status guidance">Source 6</a>
+          </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section surface" data-decision-tool-root>
+          <div id="decision-tool"></div>
+          <div class="section__head">
+            <p class="eyebrow">Decision tool</p>
+            <h2>Narrow the rule to your situation</h2>
+            <p>Washington is fairly clean on timing, but the status path splits between regular filings, delinquent filings, and the domestic-versus-foreign late consequence.</p>
+          </div>
+          <div class="decision-tool-layout">
+            <div class="decision-tool-controls">
+              <label class="field" for="decision-case-washington">
+                <span>Which Washington case fits best?</span>
+                <select id="decision-case-washington" data-decision-case>
+                  <option value="domestic-for-profit">Domestic for-profit entity</option>
+                  <option value="foreign-for-profit">Foreign for-profit entity</option>
+                </select>
+              </label>
+              <label class="field" for="decision-status-washington">
+                <span>What do you need right now?</span>
+                <select id="decision-status-washington" data-decision-status>
+                  <option value="standard">Normal rule</option>
+                  <option value="late">Already late</option>
+                  <option value="confirm">Need to verify</option>
+                </select>
+              </label>
+              <p class="decision-tool-note">
+                Use this to trim the page to the rule set that matters first, then finish on the
+                official sources linked on the card.
+              </p>
+            </div>
+            <div class="decision-tool-results" data-decision-tool aria-live="polite">
+            <article class="decision-result-card" data-decision-card data-case="domestic-for-profit" data-status="standard">
+              <span class="decision-result-label">Normal rule</span>
+              <h3>Domestic for-profit entity</h3>
+              <p>Washington says the annual report is due by the end of the anniversary month, and the report can be filed within 180 days before expiration.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>By the end of the anniversary month each year</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$70 on time or $95 with the delinquency fee</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Corporations and Charities Filing System and the fee schedule before filing.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Washington annual reports FAQ and 180-day filing window">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Washington Secretary of State file annual report online instructions">Source 2</a>
+            <a class="proof-chip" href="#source-4" aria-label="Open official source 4: Washington Corporations and Charities Filing System">Source 4</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: Washington filing fee schedule and expedited service FAQ">Source 5</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="domestic-for-profit" data-status="late">
+              <span class="decision-result-label">Already late</span>
+              <h3>Domestic for-profit entity</h3>
+              <p>If the report is not filed, Washington sends a delinquency notice and later moves domestic entities toward administrative dissolution after the published timeline.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>By the end of the anniversary month each year</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$70 on time or $95 with the delinquency fee</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Corporations and Charities Filing System and the fee schedule before filing.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Washington annual reports FAQ and 180-day filing window">Source 1</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: Washington filing fee schedule and expedited service FAQ">Source 5</a>
+            <a class="proof-chip" href="#source-6" aria-label="Open official source 6: Washington return business to active status guidance">Source 6</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="domestic-for-profit" data-status="confirm">
+              <span class="decision-result-label">Need to verify</span>
+              <h3>Domestic for-profit entity</h3>
+              <p>Confirm the anniversary month on the state record because that is the control point for the due date.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>By the end of the anniversary month each year</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$70 on time or $95 with the delinquency fee</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Corporations and Charities Filing System and the fee schedule before filing.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Washington annual reports FAQ and 180-day filing window">Source 1</a>
+            <a class="proof-chip" href="#source-4" aria-label="Open official source 4: Washington Corporations and Charities Filing System">Source 4</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="foreign-for-profit" data-status="standard">
+              <span class="decision-result-label">Normal rule</span>
+              <h3>Foreign for-profit entity</h3>
+              <p>Foreign Washington entities use the same annual-report timing and fee structure on the front end.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>By the end of the anniversary month each year</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$70 on time or $95 with the delinquency fee</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the official filing system and the Washington misleading-notice alert before paying any third party.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Washington annual reports FAQ and 180-day filing window">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Washington Secretary of State file annual report online instructions">Source 2</a>
+            <a class="proof-chip" href="#source-4" aria-label="Open official source 4: Washington Corporations and Charities Filing System">Source 4</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: Washington filing fee schedule and expedited service FAQ">Source 5</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="foreign-for-profit" data-status="late">
+              <span class="decision-result-label">Already late</span>
+              <h3>Foreign for-profit entity</h3>
+              <p>Washington says foreign entities move toward a statement of termination 90 days after expiration if the annual report still is not filed.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>By the end of the anniversary month each year</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$70 on time or $95 with the delinquency fee</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the official filing system and the Washington misleading-notice alert before paying any third party.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Washington annual reports FAQ and 180-day filing window">Source 1</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: Washington filing fee schedule and expedited service FAQ">Source 5</a>
+            <a class="proof-chip" href="#source-6" aria-label="Open official source 6: Washington return business to active status guidance">Source 6</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="foreign-for-profit" data-status="confirm">
+              <span class="decision-result-label">Need to verify</span>
+              <h3>Foreign for-profit entity</h3>
+              <p>Confirm whether the entity is domestic or foreign because the late-status consequence changes even when the standard fee does not.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>By the end of the anniversary month each year</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$70 on time or $95 with the delinquency fee</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the official filing system and the Washington misleading-notice alert before paying any third party.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Washington annual reports FAQ and 180-day filing window">Source 1</a>
+            <a class="proof-chip" href="#source-3" aria-label="Open official source 3: Washington Secretary of State misleading notices and solicitation examples">Source 3</a>
+          </div>
+            </article>
+            </div>
           </div>
         </section>
 
@@ -355,37 +588,37 @@
             <h2>Sources used for this page</h2>
           </div>
           <ul class="source-list">
-            <li class="source-item">
+            <li class="source-item" id="source-1">
               <a href="https://www.sos.wa.gov/corporations-charities/frequently-asked-questions-faqs/annual-reports">
                 <span class="source-kicker">Official source 1</span>
                 <strong>Washington annual reports FAQ and 180-day filing window</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-2">
               <a href="https://www.sos.wa.gov/corporations-charities/business-entities/online-filing-instructions/file-annual-report-multiple-entity-types-online">
                 <span class="source-kicker">Official source 2</span>
                 <strong>Washington Secretary of State file annual report online instructions</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-3">
               <a href="https://www.sos.wa.gov/corporations-charities/frequently-asked-questions-faqs/third-party-notices-and-solicitations-tips-examples">
                 <span class="source-kicker">Official source 3</span>
                 <strong>Washington Secretary of State misleading notices and solicitation examples</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-4">
               <a href="https://ccfs.sos.wa.gov/">
                 <span class="source-kicker">Official source 4</span>
                 <strong>Washington Corporations and Charities Filing System</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-5">
               <a href="https://www.sos.wa.gov/corporations-charities/frequently-asked-questions-faqs/fee-scheduleexpedited-service">
                 <span class="source-kicker">Official source 5</span>
                 <strong>Washington filing fee schedule and expedited service FAQ</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-6">
               <a href="https://www.sos.wa.gov/corporations-charities/business-entities/return-business-active-status">
                 <span class="source-kicker">Official source 6</span>
                 <strong>Washington return business to active status guidance</strong>

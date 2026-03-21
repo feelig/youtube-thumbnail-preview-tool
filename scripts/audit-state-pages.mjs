@@ -65,6 +65,8 @@ function parsePage(file, html) {
     contentModel,
     sourceUrls,
     hasQuickAnswer: /What most readers need first/i.test(html),
+    hasEvidenceChain: /data-evidence-chain/i.test(html),
+    hasDecisionTool: /data-decision-tool-root/i.test(html),
     hasCustomerTask: /What to do before you file or pay/i.test(html),
     hasTrustSnapshot: /Why this page is safer to rely on/i.test(html),
     hasSourcesHeading: /Sources used for this page/i.test(html),
@@ -81,6 +83,8 @@ function findStructureProblems(page) {
   if (!page.reviewDate) problems.push("missing-review-date");
   if (!page.canonical) problems.push("missing-canonical");
   if (!page.hasQuickAnswer) problems.push("missing-quick-answer");
+  if (!page.hasEvidenceChain) problems.push("missing-evidence-chain");
+  if (!page.hasDecisionTool) problems.push("missing-decision-tool");
   if (!page.hasCustomerTask) problems.push("missing-customer-task");
   if (!page.hasTrustSnapshot) problems.push("missing-trust-snapshot");
   if (!page.hasSourcesHeading) problems.push("missing-sources-heading");

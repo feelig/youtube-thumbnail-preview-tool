@@ -91,6 +91,8 @@
           <strong>Jump to</strong>
           <div class="section-nav__links">
             <a class="section-link" href="#quick-answer">Quick answer</a>
+            <a class="section-link" href="#evidence-chain">Evidence chain</a>
+            <a class="section-link" href="#decision-tool">Decision tool</a>
             <a class="section-link" href="#decision-checks">Decision checks</a>
             <a class="section-link" href="#next-step">Next step</a>
             <a class="section-link" href="#details">Detailed rules</a>
@@ -125,6 +127,370 @@
               <span class="insight-label">If already late</span>
               <strong>$400 late fee after May 1 for profit corporations, LLCs, LPs, and LLLPs; dissolution or revocation after the September cutoff</strong>
             </article>
+          </div>
+        </section>
+
+        <section class="section surface" data-evidence-chain>
+          <div id="evidence-chain"></div>
+          <div class="section__head">
+            <p class="eyebrow">Evidence chain</p>
+            <h2>Official proof for the headline answers</h2>
+            <p>
+              Each quick-answer field below points to the exact official sources that support it, so
+              the customer-facing summary can still be audited back to the state record.
+            </p>
+          </div>
+          <div class="evidence-grid">
+            <article class="evidence-card">
+              <span class="evidence-label">Filing label</span>
+              <strong>Annual report</strong>
+              <p>This uses the state's actual recurring filing label instead of flattening everything into a generic annual-report name.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Florida annual report filing page">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Florida Division of Corporations fee schedule">Source 2</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">Who should use this page</span>
+              <strong>Profit and non-profit corporations, LLCs, LPs, and LLLPs</strong>
+              <p>The scope comes from the entity groups named in the official sources, not just the state name.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Florida annual report filing page">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Florida Division of Corporations fee schedule">Source 2</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">Headline due date</span>
+              <strong>January 1 to May 1, then September dissolution cutoff</strong>
+              <p>This is the fast answer, but the official record still controls if the state uses anniversary, formation-month, or report-month triggers.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Florida annual report filing page">Source 1</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">Main amount shown</span>
+              <strong>$61.25 to $500.00 depending on entity type, plus a $400 late fee for most for-profit entities after May 1</strong>
+              <p>This stays tied to the published state fee, threshold, or state-level amount rather than a private service quote.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Florida Division of Corporations fee schedule">Source 2</a>
+            <a class="proof-chip" href="#source-3" aria-label="Open official source 3: Florida corporate annual report and reinstatement fees">Source 3</a>
+            <a class="proof-chip" href="#source-4" aria-label="Open official source 4: Florida LLC annual report and reinstatement fees">Source 4</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">If already late</span>
+              <strong>$400 late fee after May 1 for profit corporations, LLCs, LPs, and LLLPs; dissolution or revocation after the September cutoff</strong>
+              <p>Late-state consequences often differ from the on-time amount, so this answer is anchored separately.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Florida annual report filing page">Source 1</a>
+            <a class="proof-chip" href="#source-6" aria-label="Open official source 6: Florida reinstatement filing page">Source 6</a>
+          </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section surface" data-decision-tool-root>
+          <div id="decision-tool"></div>
+          <div class="section__head">
+            <p class="eyebrow">Decision tool</p>
+            <h2>Narrow the rule to your situation</h2>
+            <p>Florida is one of the clearer states on timing, but the fee and late-fee exposure still split sharply by entity type.</p>
+          </div>
+          <div class="decision-tool-layout">
+            <div class="decision-tool-controls">
+              <label class="field" for="decision-case-florida">
+                <span>Which Florida entity type fits best?</span>
+                <select id="decision-case-florida" data-decision-case>
+                  <option value="profit-corporation">Profit corporation</option>
+                  <option value="llc">LLC</option>
+                  <option value="nonprofit-corporation">Non-profit corporation</option>
+                  <option value="lp-or-lllp">LP or LLLP</option>
+                </select>
+              </label>
+              <label class="field" for="decision-status-florida">
+                <span>What do you need right now?</span>
+                <select id="decision-status-florida" data-decision-status>
+                  <option value="standard">Normal rule</option>
+                  <option value="late">Already late</option>
+                  <option value="confirm">Need to verify</option>
+                </select>
+              </label>
+              <p class="decision-tool-note">
+                Use this to trim the page to the rule set that matters first, then finish on the
+                official sources linked on the card.
+              </p>
+            </div>
+            <div class="decision-tool-results" data-decision-tool aria-live="polite">
+            <article class="decision-result-card" data-decision-card data-case="profit-corporation" data-status="standard">
+              <span class="decision-result-label">Normal rule</span>
+              <h3>Profit corporation</h3>
+              <p>Florida uses the same annual-report filing window each year, so the main corporation decision is whether the report is still on time or already in the late-fee window.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>January 1 through May 1</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$150.00 on time or $550.00 after May 1</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use Sunbiz annual-report filing first, then keep the official receipt.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Florida annual report filing page">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Florida Division of Corporations fee schedule">Source 2</a>
+            <a class="proof-chip" href="#source-3" aria-label="Open official source 3: Florida corporate annual report and reinstatement fees">Source 3</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="profit-corporation" data-status="late">
+              <span class="decision-result-label">Already late</span>
+              <h3>Profit corporation</h3>
+              <p>After May 1, Florida adds the $400 late fee and later moves toward administrative dissolution if the report is still not filed by the September cutoff.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>January 1 through May 1</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$150.00 on time or $550.00 after May 1</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use Sunbiz annual-report filing first, then keep the official receipt.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Florida annual report filing page">Source 1</a>
+            <a class="proof-chip" href="#source-3" aria-label="Open official source 3: Florida corporate annual report and reinstatement fees">Source 3</a>
+            <a class="proof-chip" href="#source-6" aria-label="Open official source 6: Florida reinstatement filing page">Source 6</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="profit-corporation" data-status="confirm">
+              <span class="decision-result-label">Need to verify</span>
+              <h3>Profit corporation</h3>
+              <p>Confirm that the business is a profit corporation and not a nonprofit because the late-fee treatment changes materially.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>January 1 through May 1</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$150.00 on time or $550.00 after May 1</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use Sunbiz annual-report filing first, then keep the official receipt.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Florida annual report filing page">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Florida Division of Corporations fee schedule">Source 2</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="llc" data-status="standard">
+              <span class="decision-result-label">Normal rule</span>
+              <h3>LLC</h3>
+              <p>Florida LLCs use the same filing window as corporations but a different published fee schedule.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>January 1 through May 1</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$138.75 on time or $538.75 after May 1</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Florida LLC fee schedule and filing page together before paying.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Florida annual report filing page">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Florida Division of Corporations fee schedule">Source 2</a>
+            <a class="proof-chip" href="#source-4" aria-label="Open official source 4: Florida LLC annual report and reinstatement fees">Source 4</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="llc" data-status="late">
+              <span class="decision-result-label">Already late</span>
+              <h3>LLC</h3>
+              <p>Florida adds the same $400 late fee after May 1 and later moves toward administrative dissolution if the LLC is not cleared by the September cutoff.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>January 1 through May 1</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$138.75 on time or $538.75 after May 1</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Florida LLC fee schedule and filing page together before paying.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Florida annual report filing page">Source 1</a>
+            <a class="proof-chip" href="#source-4" aria-label="Open official source 4: Florida LLC annual report and reinstatement fees">Source 4</a>
+            <a class="proof-chip" href="#source-6" aria-label="Open official source 6: Florida reinstatement filing page">Source 6</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="llc" data-status="confirm">
+              <span class="decision-result-label">Need to verify</span>
+              <h3>LLC</h3>
+              <p>Confirm that the entity is an LLC and not a corporation or partnership before relying on the amount shown.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>January 1 through May 1</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$138.75 on time or $538.75 after May 1</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Florida LLC fee schedule and filing page together before paying.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Florida annual report filing page">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Florida Division of Corporations fee schedule">Source 2</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="nonprofit-corporation" data-status="standard">
+              <span class="decision-result-label">Normal rule</span>
+              <h3>Non-profit corporation</h3>
+              <p>Florida still requires the annual report, but the nonprofit fee is lower and the headline late-fee rule is different.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>January 1 through May 1</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$61.25</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Florida filing page and fee schedule rather than a generic private-service quote.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Florida annual report filing page">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Florida Division of Corporations fee schedule">Source 2</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="nonprofit-corporation" data-status="late">
+              <span class="decision-result-label">Already late</span>
+              <h3>Non-profit corporation</h3>
+              <p>Florida's main annual-report page says nonprofits are not subject to the $400 late fee that applies to most for-profit entities.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>January 1 through May 1</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$61.25</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Florida filing page and fee schedule rather than a generic private-service quote.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Florida annual report filing page">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Florida Division of Corporations fee schedule">Source 2</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="nonprofit-corporation" data-status="confirm">
+              <span class="decision-result-label">Need to verify</span>
+              <h3>Non-profit corporation</h3>
+              <p>Confirm that the corporation is nonprofit before using the no-$400-late-fee reading.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>January 1 through May 1</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$61.25</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Florida filing page and fee schedule rather than a generic private-service quote.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Florida annual report filing page">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Florida Division of Corporations fee schedule">Source 2</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="lp-or-lllp" data-status="standard">
+              <span class="decision-result-label">Normal rule</span>
+              <h3>LP or LLLP</h3>
+              <p>Florida limited partnerships and LLLPs share the core filing window but use the highest annual-report fee in this guide.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>January 1 through May 1</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$500.00 on time or $900.00 after May 1</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Sunbiz filing path with the LP/LLLP fee schedule in view.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Florida annual report filing page">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Florida Division of Corporations fee schedule">Source 2</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="lp-or-lllp" data-status="late">
+              <span class="decision-result-label">Already late</span>
+              <h3>LP or LLLP</h3>
+              <p>After May 1, the $400 late fee applies here too, and missed filings can still roll into revocation by the September cutoff.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>January 1 through May 1</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$500.00 on time or $900.00 after May 1</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Sunbiz filing path with the LP/LLLP fee schedule in view.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Florida annual report filing page">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Florida Division of Corporations fee schedule">Source 2</a>
+            <a class="proof-chip" href="#source-6" aria-label="Open official source 6: Florida reinstatement filing page">Source 6</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="lp-or-lllp" data-status="confirm">
+              <span class="decision-result-label">Need to verify</span>
+              <h3>LP or LLLP</h3>
+              <p>Confirm that the business is an LP or LLLP because the published fee is much higher than the corporation and LLC amounts.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>January 1 through May 1</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$500.00 on time or $900.00 after May 1</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Sunbiz filing path with the LP/LLLP fee schedule in view.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Florida annual report filing page">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Florida Division of Corporations fee schedule">Source 2</a>
+          </div>
+            </article>
+            </div>
           </div>
         </section>
 
@@ -391,37 +757,37 @@
             <h2>Sources used for this page</h2>
           </div>
           <ul class="source-list">
-            <li class="source-item">
+            <li class="source-item" id="source-1">
               <a href="https://dos.fl.gov/sunbiz/manage-business/efile/annual-report/">
                 <span class="source-kicker">Official source 1</span>
                 <strong>Florida annual report filing page</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-2">
               <a href="https://dos.fl.gov/sunbiz/forms/fees/">
                 <span class="source-kicker">Official source 2</span>
                 <strong>Florida Division of Corporations fee schedule</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-3">
               <a href="https://dos.fl.gov/sunbiz/forms/fees/corporate-fees/">
                 <span class="source-kicker">Official source 3</span>
                 <strong>Florida corporate annual report and reinstatement fees</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-4">
               <a href="https://dos.fl.gov/sunbiz/forms/fees/llc-fees">
                 <span class="source-kicker">Official source 4</span>
                 <strong>Florida LLC annual report and reinstatement fees</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-5">
               <a href="https://dos.fl.gov/sunbiz/about-us/faqs/">
                 <span class="source-kicker">Official source 5</span>
                 <strong>Florida Division of Corporations FAQs</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-6">
               <a href="https://dos.fl.gov/sunbiz/manage-business/efile/reinstatement/">
                 <span class="source-kicker">Official source 6</span>
                 <strong>Florida reinstatement filing page</strong>

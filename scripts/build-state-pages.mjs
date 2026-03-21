@@ -1,6 +1,10 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 
+import {
+  guideDecisionToolByRoute,
+  guideEvidenceByRoute
+} from "../data/state-guide-enhancements.mjs";
 import { liveStatePages } from "../data/live-state-pages.mjs";
 import { stateDirectory } from "../data/state-directory.mjs";
 import { structuredStateContentByFilePath } from "../data/structured-state-content.mjs";
@@ -16,6 +20,8 @@ const ROOT = process.cwd();
 const SITE_ORIGIN = "https://finlogichub5.com";
 const GENERATED_AT = new Date();
 const directoryByRoute = new Map(stateDirectory.map((entry) => [entry.route, entry]));
+const decisionToolByRoute = new Map(Object.entries(guideDecisionToolByRoute));
+const evidenceByRoute = new Map(Object.entries(guideEvidenceByRoute));
 const structuredBodyByFilePath = new Map(Object.entries(structuredStateContentByFilePath));
 
 function validateStructuredBodyCoverage() {
@@ -39,6 +45,90 @@ function validateStructuredBodyCoverage() {
     }
 
     throw new Error(`Structured body coverage is out of sync: ${parts.join(" | ")}`);
+  }
+}
+
+function validateGuideEnhancements() {
+  const liveRoutes = new Set(liveStatePages.map((page) => getPageRoute(page)));
+  const missingEvidence = [...liveRoutes].filter((route) => !evidenceByRoute.has(route));
+  const missingDecisionTools = [...liveRoutes].filter((route) => !decisionToolByRoute.has(route));
+  const orphanEvidence = [...evidenceByRoute.keys()].filter((route) => !liveRoutes.has(route));
+  const orphanDecisionTools = [...decisionToolByRoute.keys()].filter((route) => !liveRoutes.has(route));
+  const invalidReferences = [];
+
+  function validateIndexes(route, label, indexes, sourceCount) {
+    const invalidIndexes = [...new Set(indexes)].filter(
+      (index) => !Number.isInteger(index) || index < 1 || index > sourceCount
+    );
+
+    if (invalidIndexes.length > 0) {
+      invalidReferences.push(
+        `${route} ${label} has invalid source indexes: ${invalidIndexes.join(", ")}`
+      );
+    }
+  }
+
+  for (const page of liveStatePages) {
+    const route = getPageRoute(page);
+    const sourceCount = page.sourceLinks.length;
+    const evidenceConfig = evidenceByRoute.get(route);
+    const decisionTool = decisionToolByRoute.get(route);
+
+    if (evidenceConfig) {
+      for (const [field, indexes] of Object.entries(evidenceConfig)) {
+        validateIndexes(route, `evidence.${field}`, indexes, sourceCount);
+      }
+    }
+
+    if (decisionTool) {
+      for (const option of decisionTool.cases) {
+        validateIndexes(route, `decision.${option.value}.sourceIndexes`, option.sourceIndexes, sourceCount);
+        validateIndexes(
+          route,
+          `decision.${option.value}.lateSourceIndexes`,
+          option.lateSourceIndexes,
+          sourceCount
+        );
+        validateIndexes(
+          route,
+          `decision.${option.value}.confirmSourceIndexes`,
+          option.confirmSourceIndexes,
+          sourceCount
+        );
+      }
+    }
+  }
+
+  if (
+    missingEvidence.length > 0 ||
+    missingDecisionTools.length > 0 ||
+    orphanEvidence.length > 0 ||
+    orphanDecisionTools.length > 0 ||
+    invalidReferences.length > 0
+  ) {
+    const parts = [];
+
+    if (missingEvidence.length > 0) {
+      parts.push(`missing evidence config for: ${missingEvidence.join(", ")}`);
+    }
+
+    if (missingDecisionTools.length > 0) {
+      parts.push(`missing decision tool config for: ${missingDecisionTools.join(", ")}`);
+    }
+
+    if (orphanEvidence.length > 0) {
+      parts.push(`orphan evidence config for: ${orphanEvidence.join(", ")}`);
+    }
+
+    if (orphanDecisionTools.length > 0) {
+      parts.push(`orphan decision tool config for: ${orphanDecisionTools.join(", ")}`);
+    }
+
+    if (invalidReferences.length > 0) {
+      parts.push(invalidReferences.join(" | "));
+    }
+
+    throw new Error(`Guide enhancement coverage is out of sync: ${parts.join(" | ")}`);
   }
 }
 
@@ -76,7 +166,7 @@ function renderMetrics(metrics) {
 function renderSourceLinks(links) {
   return links
     .map(
-      (link, index) => `            <li class="source-item">
+      (link, index) => `            <li class="source-item" id="source-${index + 1}">
               <a href="${escapeHtml(link.href)}">
                 <span class="source-kicker">Official source ${index + 1}</span>
                 <strong>${escapeHtml(link.label)}</strong>
@@ -180,6 +270,8 @@ function renderStructuredBody(sections) {
 function renderSectionNav() {
   const links = [
     { href: "#quick-answer", label: "Quick answer" },
+    { href: "#evidence-chain", label: "Evidence chain" },
+    { href: "#decision-tool", label: "Decision tool" },
     { href: "#decision-checks", label: "Decision checks" },
     { href: "#next-step", label: "Next step" },
     { href: "#details", label: "Detailed rules" },
@@ -206,6 +298,21 @@ function formatReviewDate(value) {
 
 function getBadgeToneClass(tone) {
   return tone ? ` badge--${tone}` : "";
+}
+
+function renderProofChips(page, sourceIndexes) {
+  const uniqueIndexes = [...new Set(sourceIndexes)];
+
+  return `          <div class="proof-chip-row">
+${uniqueIndexes
+  .map((index) => {
+    const source = page.sourceLinks[index - 1];
+    return `            <a class="proof-chip" href="#source-${index}" aria-label="${escapeHtml(
+      `Open official source ${index}: ${source.label}`
+    )}">Source ${index}</a>`;
+  })
+  .join("\n")}
+          </div>`;
 }
 
 function getVerificationTrigger(entry) {
@@ -319,6 +426,69 @@ function renderActionCards(cards) {
     .join("\n");
 }
 
+function renderEvidenceChainSection(page, entry, evidenceConfig) {
+  const claims = [
+    {
+      key: "filingLabel",
+      label: "Filing label",
+      answer: entry.directoryComparison.obligation,
+      note: "This uses the state's actual recurring filing label instead of flattening everything into a generic annual-report name."
+    },
+    {
+      key: "whoShouldUse",
+      label: "Who should use this page",
+      answer: entry.directoryComparison.entityFocus,
+      note: "The scope comes from the entity groups named in the official sources, not just the state name."
+    },
+    {
+      key: "headlineDueDate",
+      label: "Headline due date",
+      answer: entry.directoryComparison.deadline,
+      note: "This is the fast answer, but the official record still controls if the state uses anniversary, formation-month, or report-month triggers."
+    },
+    {
+      key: "mainAmountShown",
+      label: "Main amount shown",
+      answer: entry.directoryComparison.amount,
+      note: "This stays tied to the published state fee, threshold, or state-level amount rather than a private service quote."
+    }
+  ];
+
+  if (entry.homeComparison?.lateRule) {
+    claims.push({
+      key: "ifAlreadyLate",
+      label: "If already late",
+      answer: entry.homeComparison.lateRule,
+      note: "Late-state consequences often differ from the on-time amount, so this answer is anchored separately."
+    });
+  }
+
+  return `        <section class="section surface" data-evidence-chain>
+          <div id="evidence-chain"></div>
+          <div class="section__head">
+            <p class="eyebrow">Evidence chain</p>
+            <h2>Official proof for the headline answers</h2>
+            <p>
+              Each quick-answer field below points to the exact official sources that support it, so
+              the customer-facing summary can still be audited back to the state record.
+            </p>
+          </div>
+          <div class="evidence-grid">
+${claims
+  .map((claim) => {
+    const sourceIndexes = evidenceConfig[claim.key];
+    return `            <article class="evidence-card">
+              <span class="evidence-label">${escapeHtml(claim.label)}</span>
+              <strong>${escapeHtml(claim.answer)}</strong>
+              <p>${escapeHtml(claim.note)}</p>
+${renderProofChips(page, sourceIndexes)}
+            </article>`;
+  })
+  .join("\n")}
+          </div>
+        </section>`;
+}
+
 function renderQuickAnswers(entry) {
   const answerCards = [
     {
@@ -361,6 +531,122 @@ ${answerCards
             </article>`
   )
   .join("\n")}
+          </div>
+        </section>`;
+}
+
+function getDecisionRuleText(option, status) {
+  if (status.value === "late") {
+    return option.lateRule;
+  }
+
+  if (status.value === "confirm") {
+    return option.confirmRule;
+  }
+
+  return option.normalRule;
+}
+
+function getDecisionSourceIndexes(option, status) {
+  if (status.value === "late") {
+    return option.lateSourceIndexes;
+  }
+
+  if (status.value === "confirm") {
+    return option.confirmSourceIndexes;
+  }
+
+  return option.sourceIndexes;
+}
+
+function renderDecisionResultCard(page, option, status, isDefault) {
+  const bodyText = getDecisionRuleText(option, status);
+  const sourceIndexes = getDecisionSourceIndexes(option, status);
+  const hiddenAttribute = isDefault ? "" : ' hidden';
+
+  return `            <article class="decision-result-card"${hiddenAttribute} data-decision-card data-case="${escapeHtml(
+    option.value
+  )}" data-status="${escapeHtml(status.value)}">
+              <span class="decision-result-label">${escapeHtml(status.label)}</span>
+              <h3>${escapeHtml(option.label)}</h3>
+              <p>${escapeHtml(bodyText)}</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>${escapeHtml(option.deadline)}</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>${escapeHtml(option.amount)}</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> ${escapeHtml(option.nextAction)}
+              </p>
+${renderProofChips(page, sourceIndexes)}
+            </article>`;
+}
+
+function renderDecisionToolSection(page, decisionTool) {
+  const [defaultCase] = decisionTool.cases;
+  const [defaultStatus] = decisionTool.statuses;
+
+  return `        <section class="section surface" data-decision-tool-root>
+          <div id="decision-tool"></div>
+          <div class="section__head">
+            <p class="eyebrow">Decision tool</p>
+            <h2>Narrow the rule to your situation</h2>
+            <p>${escapeHtml(decisionTool.intro)}</p>
+          </div>
+          <div class="decision-tool-layout">
+            <div class="decision-tool-controls">
+              <label class="field" for="decision-case-${escapeHtml(page.state.toLowerCase().replaceAll(/\s+/g, "-"))}">
+                <span>${escapeHtml(decisionTool.caseLabel)}</span>
+                <select id="decision-case-${escapeHtml(
+                  page.state.toLowerCase().replaceAll(/\s+/g, "-")
+                )}" data-decision-case>
+${decisionTool.cases
+  .map(
+    (option) => `                  <option value="${escapeHtml(option.value)}">${escapeHtml(
+      option.label
+    )}</option>`
+  )
+  .join("\n")}
+                </select>
+              </label>
+              <label class="field" for="decision-status-${escapeHtml(page.state.toLowerCase().replaceAll(/\s+/g, "-"))}">
+                <span>${escapeHtml(decisionTool.statusLabel)}</span>
+                <select id="decision-status-${escapeHtml(
+                  page.state.toLowerCase().replaceAll(/\s+/g, "-")
+                )}" data-decision-status>
+${decisionTool.statuses
+  .map(
+    (status) => `                  <option value="${escapeHtml(status.value)}">${escapeHtml(
+      status.label
+    )}</option>`
+  )
+  .join("\n")}
+                </select>
+              </label>
+              <p class="decision-tool-note">
+                Use this to trim the page to the rule set that matters first, then finish on the
+                official sources linked on the card.
+              </p>
+            </div>
+            <div class="decision-tool-results" data-decision-tool aria-live="polite">
+${decisionTool.cases
+  .flatMap((option, optionIndex) =>
+    decisionTool.statuses.map((status, statusIndex) =>
+      renderDecisionResultCard(
+        page,
+        option,
+        status,
+        optionIndex === 0 && statusIndex === 0 && option.value === defaultCase.value && status.value === defaultStatus.value
+      )
+    )
+  )
+  .join("\n")}
+            </div>
           </div>
         </section>`;
 }
@@ -523,12 +809,19 @@ function renderStructuredData(page) {
 function renderPage(page) {
   const scriptTag = page.scriptSrc ? `\n    <script src="${escapeHtml(page.scriptSrc)}"></script>` : "";
   const summaryNote = page.summaryNoteHtml ? `\n${page.summaryNoteHtml}` : "";
-  const directoryEntry = directoryByRoute.get(getPageRoute(page));
+  const route = getPageRoute(page);
+  const directoryEntry = directoryByRoute.get(route);
+  const evidenceConfig = evidenceByRoute.get(route);
+  const decisionTool = decisionToolByRoute.get(route);
   const structuredSections = structuredBodyByFilePath.get(page.filePath);
   const pageBody = renderStructuredBody(structuredSections);
   const reviewStatus = getReviewStatus(parseReviewDate(page.lastReviewed), GENERATED_AT);
   const sectionNav = directoryEntry ? `\n${renderSectionNav()}\n` : "\n";
   const quickAnswerSection = directoryEntry ? `\n${renderQuickAnswers(directoryEntry)}\n` : "\n";
+  const evidenceChainSection =
+    directoryEntry && evidenceConfig ? `\n${renderEvidenceChainSection(page, directoryEntry, evidenceConfig)}\n` : "\n";
+  const decisionToolSection =
+    decisionTool ? `\n${renderDecisionToolSection(page, decisionTool)}\n` : "\n";
   const decisionCheckSection = directoryEntry
     ? `\n${renderDecisionCheckSection(directoryEntry)}\n`
     : "\n";
@@ -612,7 +905,7 @@ function renderPage(page) {
 ${renderMetrics(page.metrics)}
             </div>${summaryNote}
           </aside>
-        </section>${sectionNav}${quickAnswerSection}${decisionCheckSection}${customerActionSection}${trustSnapshotSection}${detailIntroSection}
+        </section>${sectionNav}${quickAnswerSection}${evidenceChainSection}${decisionToolSection}${decisionCheckSection}${customerActionSection}${trustSnapshotSection}${detailIntroSection}
 ${pageBody}
 
         <section class="section surface" id="sources">
@@ -646,6 +939,7 @@ ${renderSourceLinks(page.sourceLinks)}
 }
 
 validateStructuredBodyCoverage();
+validateGuideEnhancements();
 
 for (const page of liveStatePages) {
   const targetFile = path.join(ROOT, page.filePath);

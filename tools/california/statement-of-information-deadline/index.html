@@ -91,6 +91,8 @@
           <strong>Jump to</strong>
           <div class="section-nav__links">
             <a class="section-link" href="#quick-answer">Quick answer</a>
+            <a class="section-link" href="#evidence-chain">Evidence chain</a>
+            <a class="section-link" href="#decision-tool">Decision tool</a>
             <a class="section-link" href="#decision-checks">Decision checks</a>
             <a class="section-link" href="#next-step">Next step</a>
             <a class="section-link" href="#details">Detailed rules</a>
@@ -125,6 +127,305 @@
               <span class="insight-label">If already late</span>
               <strong>FTB penalty and suspension or forfeiture risk after delinquency</strong>
             </article>
+          </div>
+        </section>
+
+        <section class="section surface" data-evidence-chain>
+          <div id="evidence-chain"></div>
+          <div class="section__head">
+            <p class="eyebrow">Evidence chain</p>
+            <h2>Official proof for the headline answers</h2>
+            <p>
+              Each quick-answer field below points to the exact official sources that support it, so
+              the customer-facing summary can still be audited back to the state record.
+            </p>
+          </div>
+          <div class="evidence-grid">
+            <article class="evidence-card">
+              <span class="evidence-label">Filing label</span>
+              <strong>Statement of Information</strong>
+              <p>This uses the state's actual recurring filing label instead of flattening everything into a generic annual-report name.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: California Secretary of State business entities FAQs">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: California Statements of Information page and filing-window schedule">Source 2</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">Who should use this page</span>
+              <strong>Stock corporations and LLCs</strong>
+              <p>The scope comes from the entity groups named in the official sources, not just the state name.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: California Secretary of State business entities FAQs">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: California Statements of Information page and filing-window schedule">Source 2</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">Headline due date</span>
+              <strong>Annual for stock corporations; every two years for LLCs, with an official six-month filing window</strong>
+              <p>This is the fast answer, but the official record still controls if the state uses anniversary, formation-month, or report-month triggers.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: California Secretary of State business entities FAQs">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: California Statements of Information page and filing-window schedule">Source 2</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">Main amount shown</span>
+              <strong>$25 for stock corporations and $20 for LLCs</strong>
+              <p>This stays tied to the published state fee, threshold, or state-level amount rather than a private service quote.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-3" aria-label="Open official source 3: California stock corporation Statement of Information fee page">Source 3</a>
+            <a class="proof-chip" href="#source-4" aria-label="Open official source 4: California LLC Statement of Information fee page">Source 4</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">If already late</span>
+              <strong>FTB penalty and suspension or forfeiture risk after delinquency</strong>
+              <p>Late-state consequences often differ from the on-time amount, so this answer is anchored separately.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: California Secretary of State business entities FAQs">Source 1</a>
+            <a class="proof-chip" href="#source-6" aria-label="Open official source 6: California SOS misleading Statement of Information solicitations alert">Source 6</a>
+          </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section surface" data-decision-tool-root>
+          <div id="decision-tool"></div>
+          <div class="section__head">
+            <p class="eyebrow">Decision tool</p>
+            <h2>Narrow the rule to your situation</h2>
+            <p>California trips people up because the state splits the initial 90-day filing from the later recurring cycle and uses different recurring cadences for stock corporations and LLCs.</p>
+          </div>
+          <div class="decision-tool-layout">
+            <div class="decision-tool-controls">
+              <label class="field" for="decision-case-california">
+                <span>Which California filing case fits best?</span>
+                <select id="decision-case-california" data-decision-case>
+                  <option value="stock-corporation">Stock corporation recurring filing</option>
+                  <option value="llc">LLC recurring filing</option>
+                  <option value="initial-filing">Initial 90-day filing</option>
+                </select>
+              </label>
+              <label class="field" for="decision-status-california">
+                <span>What do you need right now?</span>
+                <select id="decision-status-california" data-decision-status>
+                  <option value="standard">Normal rule</option>
+                  <option value="late">Already late</option>
+                  <option value="confirm">Need to verify</option>
+                </select>
+              </label>
+              <p class="decision-tool-note">
+                Use this to trim the page to the rule set that matters first, then finish on the
+                official sources linked on the card.
+              </p>
+            </div>
+            <div class="decision-tool-results" data-decision-tool aria-live="polite">
+            <article class="decision-result-card" data-decision-card data-case="stock-corporation" data-status="standard">
+              <span class="decision-result-label">Normal rule</span>
+              <h3>Stock corporation recurring filing</h3>
+              <p>After the initial filing, stock corporations move into the annual Statement of Information cycle tied to the registration month and filing-window schedule.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>Annual in the registration month, using California's six-month filing window</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$25</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the California filing-window schedule or bizfile Online before filing or paying.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: California Secretary of State business entities FAQs">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: California Statements of Information page and filing-window schedule">Source 2</a>
+            <a class="proof-chip" href="#source-3" aria-label="Open official source 3: California stock corporation Statement of Information fee page">Source 3</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: California bizfile Online filing portal">Source 5</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="stock-corporation" data-status="late">
+              <span class="decision-result-label">Already late</span>
+              <h3>Stock corporation recurring filing</h3>
+              <p>California says a missed statement can lead to delinquency notices, Franchise Tax Board penalties, and suspension or forfeiture risk.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>Annual in the registration month, using California's six-month filing window</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$25</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the California filing-window schedule or bizfile Online before filing or paying.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: California Secretary of State business entities FAQs">Source 1</a>
+            <a class="proof-chip" href="#source-6" aria-label="Open official source 6: California SOS misleading Statement of Information solicitations alert">Source 6</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="stock-corporation" data-status="confirm">
+              <span class="decision-result-label">Need to verify</span>
+              <h3>Stock corporation recurring filing</h3>
+              <p>Confirm that the entity is a stock corporation and that you are not still in the initial 90-day filing period before relying on the recurring annual rule.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>Annual in the registration month, using California's six-month filing window</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$25</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the California filing-window schedule or bizfile Online before filing or paying.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: California Secretary of State business entities FAQs">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: California Statements of Information page and filing-window schedule">Source 2</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="llc" data-status="standard">
+              <span class="decision-result-label">Normal rule</span>
+              <h3>LLC recurring filing</h3>
+              <p>California LLCs move to the biennial Statement of Information cycle after the initial 90-day filing, and the due window still follows the registration month.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>Every two years in the registration month, using California's six-month filing window</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$20</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Open the California filing-window schedule first, then file through bizfile Online.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: California Secretary of State business entities FAQs">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: California Statements of Information page and filing-window schedule">Source 2</a>
+            <a class="proof-chip" href="#source-4" aria-label="Open official source 4: California LLC Statement of Information fee page">Source 4</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: California bizfile Online filing portal">Source 5</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="llc" data-status="late">
+              <span class="decision-result-label">Already late</span>
+              <h3>LLC recurring filing</h3>
+              <p>Late California LLC statements can move into delinquency and suspension or forfeiture risk if the state notices are ignored.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>Every two years in the registration month, using California's six-month filing window</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$20</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Open the California filing-window schedule first, then file through bizfile Online.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: California Secretary of State business entities FAQs">Source 1</a>
+            <a class="proof-chip" href="#source-6" aria-label="Open official source 6: California SOS misleading Statement of Information solicitations alert">Source 6</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="llc" data-status="confirm">
+              <span class="decision-result-label">Need to verify</span>
+              <h3>LLC recurring filing</h3>
+              <p>Confirm that the entity is an LLC and check the odd-or-even year pattern before relying on the recurring biennial cycle.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>Every two years in the registration month, using California's six-month filing window</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$20</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Open the California filing-window schedule first, then file through bizfile Online.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: California Secretary of State business entities FAQs">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: California Statements of Information page and filing-window schedule">Source 2</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="initial-filing" data-status="standard">
+              <span class="decision-result-label">Normal rule</span>
+              <h3>Initial 90-day filing</h3>
+              <p>Both stock corporations and LLCs start with the initial 90-day Statement of Information obligation before the recurring cycle takes over.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>Within 90 days of initial registration</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$25 for stock corporations or $20 for LLCs</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Check the California SOS entity record and file through the official portal.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: California Secretary of State business entities FAQs">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: California Statements of Information page and filing-window schedule">Source 2</a>
+            <a class="proof-chip" href="#source-3" aria-label="Open official source 3: California stock corporation Statement of Information fee page">Source 3</a>
+            <a class="proof-chip" href="#source-4" aria-label="Open official source 4: California LLC Statement of Information fee page">Source 4</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: California bizfile Online filing portal">Source 5</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="initial-filing" data-status="late">
+              <span class="decision-result-label">Already late</span>
+              <h3>Initial 90-day filing</h3>
+              <p>If the initial filing was missed, use the state record and filing portal immediately instead of assuming the later recurring cycle controls.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>Within 90 days of initial registration</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$25 for stock corporations or $20 for LLCs</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Check the California SOS entity record and file through the official portal.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: California Secretary of State business entities FAQs">Source 1</a>
+            <a class="proof-chip" href="#source-6" aria-label="Open official source 6: California SOS misleading Statement of Information solicitations alert">Source 6</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="initial-filing" data-status="confirm">
+              <span class="decision-result-label">Need to verify</span>
+              <h3>Initial 90-day filing</h3>
+              <p>Confirm the registration date and entity type on the Secretary of State record before using the initial-filing rule.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>Within 90 days of initial registration</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$25 for stock corporations or $20 for LLCs</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Check the California SOS entity record and file through the official portal.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: California Secretary of State business entities FAQs">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: California Statements of Information page and filing-window schedule">Source 2</a>
+          </div>
+            </article>
+            </div>
           </div>
         </section>
 
@@ -381,37 +682,37 @@
             <h2>Sources used for this page</h2>
           </div>
           <ul class="source-list">
-            <li class="source-item">
+            <li class="source-item" id="source-1">
               <a href="https://www.sos.ca.gov/business-programs/business-entities/faqs">
                 <span class="source-kicker">Official source 1</span>
                 <strong>California Secretary of State business entities FAQs</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-2">
               <a href="https://www.sos.ca.gov/business-programs/business-entities/statements/">
                 <span class="source-kicker">Official source 2</span>
                 <strong>California Statements of Information page and filing-window schedule</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-3">
               <a href="https://www.sos.ca.gov/business-programs/cannabizfile/cannabis-forms-and-fees/corporations-and-cooperatives-california">
                 <span class="source-kicker">Official source 3</span>
                 <strong>California stock corporation Statement of Information fee page</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-4">
               <a href="https://www.sos.ca.gov/business-programs/cannabizfile/cannabis-forms-and-fees/limited-liability-companies-llc-california">
                 <span class="source-kicker">Official source 4</span>
                 <strong>California LLC Statement of Information fee page</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-5">
               <a href="https://bizfileonline.sos.ca.gov/">
                 <span class="source-kicker">Official source 5</span>
                 <strong>California bizfile Online filing portal</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-6">
               <a href="https://www.sos.ca.gov/business-programs/customer-alerts/misleading-statement-information-solicitations">
                 <span class="source-kicker">Official source 6</span>
                 <strong>California SOS misleading Statement of Information solicitations alert</strong>

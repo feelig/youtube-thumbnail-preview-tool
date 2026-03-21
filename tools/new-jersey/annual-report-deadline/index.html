@@ -95,6 +95,8 @@
           <strong>Jump to</strong>
           <div class="section-nav__links">
             <a class="section-link" href="#quick-answer">Quick answer</a>
+            <a class="section-link" href="#evidence-chain">Evidence chain</a>
+            <a class="section-link" href="#decision-tool">Decision tool</a>
             <a class="section-link" href="#decision-checks">Decision checks</a>
             <a class="section-link" href="#next-step">Next step</a>
             <a class="section-link" href="#details">Detailed rules</a>
@@ -129,6 +131,234 @@
               <span class="insight-label">If already late</span>
               <strong>After two missed reports, the business may lose authority and registration benefits</strong>
             </article>
+          </div>
+        </section>
+
+        <section class="section surface" data-evidence-chain>
+          <div id="evidence-chain"></div>
+          <div class="section__head">
+            <p class="eyebrow">Evidence chain</p>
+            <h2>Official proof for the headline answers</h2>
+            <p>
+              Each quick-answer field below points to the exact official sources that support it, so
+              the customer-facing summary can still be audited back to the state record.
+            </p>
+          </div>
+          <div class="evidence-grid">
+            <article class="evidence-card">
+              <span class="evidence-label">Filing label</span>
+              <strong>Annual report</strong>
+              <p>This uses the state's actual recurring filing label instead of flattening everything into a generic annual-report name.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Business.NJ annual report filing page">Source 1</a>
+            <a class="proof-chip" href="#source-3" aria-label="Open official source 3: New Jersey Small Business Manual PDF">Source 3</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">Who should use this page</span>
+              <strong>Corporations, LLCs, LPs, LLPs, and non-profits registered in New Jersey</strong>
+              <p>The scope comes from the entity groups named in the official sources, not just the state name.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Business.NJ annual report filing page">Source 1</a>
+            <a class="proof-chip" href="#source-3" aria-label="Open official source 3: New Jersey Small Business Manual PDF">Source 3</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">Headline due date</span>
+              <strong>Every year on the last day of the anniversary month</strong>
+              <p>This is the fast answer, but the official record still controls if the state uses anniversary, formation-month, or report-month triggers.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Business.NJ annual report filing page">Source 1</a>
+            <a class="proof-chip" href="#source-3" aria-label="Open official source 3: New Jersey Small Business Manual PDF">Source 3</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">Main amount shown</span>
+              <strong>$75 for for-profit entities and $30 for non-profit corporations</strong>
+              <p>This stays tied to the published state fee, threshold, or state-level amount rather than a private service quote.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Business.NJ annual report filing page">Source 1</a>
+            <a class="proof-chip" href="#source-4" aria-label="Open official source 4: New Jersey DORES fee schedules">Source 4</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">If already late</span>
+              <strong>After two missed reports, the business may lose authority and registration benefits</strong>
+              <p>Late-state consequences often differ from the on-time amount, so this answer is anchored separately.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Business.NJ annual report filing page">Source 1</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: New Jersey reinstatement fees guidance">Source 5</a>
+          </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section surface" data-decision-tool-root>
+          <div id="decision-tool"></div>
+          <div class="section__head">
+            <p class="eyebrow">Decision tool</p>
+            <h2>Narrow the rule to your situation</h2>
+            <p>New Jersey's anniversary-month rule is simple. The important split is the entity fee and the repeated non-filing consequence.</p>
+          </div>
+          <div class="decision-tool-layout">
+            <div class="decision-tool-controls">
+              <label class="field" for="decision-case-new-jersey">
+                <span>Which New Jersey entity type fits best?</span>
+                <select id="decision-case-new-jersey" data-decision-case>
+                  <option value="for-profit">For-profit corporation, LLC, LP, or LLP</option>
+                  <option value="nonprofit">Non-profit corporation</option>
+                </select>
+              </label>
+              <label class="field" for="decision-status-new-jersey">
+                <span>What do you need right now?</span>
+                <select id="decision-status-new-jersey" data-decision-status>
+                  <option value="standard">Normal rule</option>
+                  <option value="late">Already late</option>
+                  <option value="confirm">Need to verify</option>
+                </select>
+              </label>
+              <p class="decision-tool-note">
+                Use this to trim the page to the rule set that matters first, then finish on the
+                official sources linked on the card.
+              </p>
+            </div>
+            <div class="decision-tool-results" data-decision-tool aria-live="polite">
+            <article class="decision-result-card" data-decision-card data-case="for-profit" data-status="standard">
+              <span class="decision-result-label">Normal rule</span>
+              <h3>For-profit corporation, LLC, LP, or LLP</h3>
+              <p>New Jersey uses a recurring annual-report rule for these registered businesses, with the due date tied to the anniversary month rather than a flat calendar date.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>Every year on the last day of the anniversary month</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$75</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Business.NJ annual-report page and the online annual-reports portal before filing.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Business.NJ annual report filing page">Source 1</a>
+            <a class="proof-chip" href="#source-3" aria-label="Open official source 3: New Jersey Small Business Manual PDF">Source 3</a>
+            <a class="proof-chip" href="#source-6" aria-label="Open official source 6: New Jersey online annual reports and change services portal">Source 6</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="for-profit" data-status="late">
+              <span class="decision-result-label">Already late</span>
+              <h3>For-profit corporation, LLC, LP, or LLP</h3>
+              <p>New Jersey emphasizes loss of authority and registration benefits after repeated missed reports more than a flat late fee.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>Every year on the last day of the anniversary month</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$75</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Business.NJ annual-report page and the online annual-reports portal before filing.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Business.NJ annual report filing page">Source 1</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: New Jersey reinstatement fees guidance">Source 5</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="for-profit" data-status="confirm">
+              <span class="decision-result-label">Need to verify</span>
+              <h3>For-profit corporation, LLC, LP, or LLP</h3>
+              <p>Confirm that the entity is registered in New Jersey and use the anniversary month from the state record before relying on the summary.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>Every year on the last day of the anniversary month</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$75</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Business.NJ annual-report page and the online annual-reports portal before filing.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Business.NJ annual report filing page">Source 1</a>
+            <a class="proof-chip" href="#source-3" aria-label="Open official source 3: New Jersey Small Business Manual PDF">Source 3</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="nonprofit" data-status="standard">
+              <span class="decision-result-label">Normal rule</span>
+              <h3>Non-profit corporation</h3>
+              <p>The anniversary-month timing stays the same, but the nonprofit annual-report fee is lower than the for-profit amount.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>Every year on the last day of the anniversary month</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$30</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the New Jersey fee schedule and annual-reports portal together before filing.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Business.NJ annual report filing page">Source 1</a>
+            <a class="proof-chip" href="#source-3" aria-label="Open official source 3: New Jersey Small Business Manual PDF">Source 3</a>
+            <a class="proof-chip" href="#source-4" aria-label="Open official source 4: New Jersey DORES fee schedules">Source 4</a>
+            <a class="proof-chip" href="#source-6" aria-label="Open official source 6: New Jersey online annual reports and change services portal">Source 6</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="nonprofit" data-status="late">
+              <span class="decision-result-label">Already late</span>
+              <h3>Non-profit corporation</h3>
+              <p>The more important official risk is still status loss after repeated missed reports, not a prominently published flat late fee.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>Every year on the last day of the anniversary month</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$30</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the New Jersey fee schedule and annual-reports portal together before filing.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Business.NJ annual report filing page">Source 1</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: New Jersey reinstatement fees guidance">Source 5</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="nonprofit" data-status="confirm">
+              <span class="decision-result-label">Need to verify</span>
+              <h3>Non-profit corporation</h3>
+              <p>Confirm that the corporation is nonprofit before relying on the $30 fee answer.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>Every year on the last day of the anniversary month</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$30</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the New Jersey fee schedule and annual-reports portal together before filing.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-3" aria-label="Open official source 3: New Jersey Small Business Manual PDF">Source 3</a>
+            <a class="proof-chip" href="#source-4" aria-label="Open official source 4: New Jersey DORES fee schedules">Source 4</a>
+          </div>
+            </article>
+            </div>
           </div>
         </section>
 
@@ -399,37 +629,37 @@
             <h2>Sources used for this page</h2>
           </div>
           <ul class="source-list">
-            <li class="source-item">
+            <li class="source-item" id="source-1">
               <a href="https://account.business.nj.gov/filings/annual-report">
                 <span class="source-kicker">Official source 1</span>
                 <strong>Business.NJ annual report filing page</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-2">
               <a href="https://www.nj.gov/treasury/revenue/taxcalreminder.shtml">
                 <span class="source-kicker">Official source 2</span>
                 <strong>New Jersey DORES tax and annual-report reminder services</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-3">
               <a href="https://nj.gov/state/bac/assets/downloads/NJ_Small_Business_Manual_for_download.pdf">
                 <span class="source-kicker">Official source 3</span>
                 <strong>New Jersey Small Business Manual PDF</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-4">
               <a href="https://www.nj.gov/treasury/revenue/fees.shtml">
                 <span class="source-kicker">Official source 4</span>
                 <strong>New Jersey DORES fee schedules</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-5">
               <a href="https://www.nj.gov/treasury/revenue/reinstatefees.shtml">
                 <span class="source-kicker">Official source 5</span>
                 <strong>New Jersey reinstatement fees guidance</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-6">
               <a href="https://www.njportal.com/DOR/annualreports/">
                 <span class="source-kicker">Official source 6</span>
                 <strong>New Jersey online annual reports and change services portal</strong>

@@ -91,6 +91,8 @@
           <strong>Jump to</strong>
           <div class="section-nav__links">
             <a class="section-link" href="#quick-answer">Quick answer</a>
+            <a class="section-link" href="#evidence-chain">Evidence chain</a>
+            <a class="section-link" href="#decision-tool">Decision tool</a>
             <a class="section-link" href="#decision-checks">Decision checks</a>
             <a class="section-link" href="#next-step">Next step</a>
             <a class="section-link" href="#details">Detailed rules</a>
@@ -125,6 +127,301 @@
               <span class="insight-label">If already late</span>
               <strong>Administrative action begins in 2027, six months after due date</strong>
             </article>
+          </div>
+        </section>
+
+        <section class="section surface" data-evidence-chain>
+          <div id="evidence-chain"></div>
+          <div class="section__head">
+            <p class="eyebrow">Evidence chain</p>
+            <h2>Official proof for the headline answers</h2>
+            <p>
+              Each quick-answer field below points to the exact official sources that support it, so
+              the customer-facing summary can still be audited back to the state record.
+            </p>
+          </div>
+          <div class="evidence-grid">
+            <article class="evidence-card">
+              <span class="evidence-label">Filing label</span>
+              <strong>Annual report</strong>
+              <p>This uses the state's actual recurring filing label instead of flattening everything into a generic annual-report name.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Pennsylvania Department of State annual reports guidance">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Pennsylvania annual reports one-pager PDF">Source 2</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">Who should use this page</span>
+              <strong>Corporations, LLCs, LPs, LLPs</strong>
+              <p>The scope comes from the entity groups named in the official sources, not just the state name.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Pennsylvania Department of State annual reports guidance">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Pennsylvania annual reports one-pager PDF">Source 2</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">Headline due date</span>
+              <strong>Varies by association type</strong>
+              <p>This is the fast answer, but the official record still controls if the state uses anniversary, formation-month, or report-month triggers.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Pennsylvania Department of State annual reports guidance">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Pennsylvania annual reports one-pager PDF">Source 2</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">Main amount shown</span>
+              <strong>$7 for most business entities</strong>
+              <p>This stays tied to the published state fee, threshold, or state-level amount rather than a private service quote.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Pennsylvania Department of State annual reports guidance">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Pennsylvania annual reports one-pager PDF">Source 2</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">If already late</span>
+              <strong>Administrative action begins in 2027, six months after due date</strong>
+              <p>Late-state consequences often differ from the on-time amount, so this answer is anchored separately.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Pennsylvania Department of State annual reports guidance">Source 1</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: Pennsylvania DOS business and charities scam alerts">Source 5</a>
+          </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section surface" data-decision-tool-root>
+          <div id="decision-tool"></div>
+          <div class="section__head">
+            <p class="eyebrow">Decision tool</p>
+            <h2>Narrow the rule to your situation</h2>
+            <p>Pennsylvania is one of the states where the fee answer is simple but the filing window changes by association type, so the entity label matters more than the dollar amount.</p>
+          </div>
+          <div class="decision-tool-layout">
+            <div class="decision-tool-controls">
+              <label class="field" for="decision-case-pennsylvania">
+                <span>Which Pennsylvania association type fits best?</span>
+                <select id="decision-case-pennsylvania" data-decision-case>
+                  <option value="corporation">Corporation</option>
+                  <option value="llc">LLC</option>
+                  <option value="lp-or-llp">LP, LLP, business trust, or professional association</option>
+                </select>
+              </label>
+              <label class="field" for="decision-status-pennsylvania">
+                <span>What do you need right now?</span>
+                <select id="decision-status-pennsylvania" data-decision-status>
+                  <option value="standard">Normal rule</option>
+                  <option value="late">Already late</option>
+                  <option value="confirm">Need to verify</option>
+                </select>
+              </label>
+              <p class="decision-tool-note">
+                Use this to trim the page to the rule set that matters first, then finish on the
+                official sources linked on the card.
+              </p>
+            </div>
+            <div class="decision-tool-results" data-decision-tool aria-live="polite">
+            <article class="decision-result-card" data-decision-card data-case="corporation" data-status="standard">
+              <span class="decision-result-label">Normal rule</span>
+              <h3>Corporation</h3>
+              <p>Pennsylvania corporations now file annual reports in the January-through-June window, and the business-corporation fee is the standard $7 amount used on the state pages.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>January 1 through June 30</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$7 for business corporations or $0 for qualifying nonprofits</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Pennsylvania annual-report guidance and online filing portal together before filing.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Pennsylvania Department of State annual reports guidance">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Pennsylvania annual reports one-pager PDF">Source 2</a>
+            <a class="proof-chip" href="#source-4" aria-label="Open official source 4: Pennsylvania online filing portal">Source 4</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="corporation" data-status="late">
+              <span class="decision-result-label">Already late</span>
+              <h3>Corporation</h3>
+              <p>Pennsylvania says administrative action begins with annual reports due in 2027, six months after the due date, so missed filings should be cleared before enforcement starts.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>January 1 through June 30</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$7 for business corporations or $0 for qualifying nonprofits</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Pennsylvania annual-report guidance and online filing portal together before filing.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Pennsylvania Department of State annual reports guidance">Source 1</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: Pennsylvania DOS business and charities scam alerts">Source 5</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="corporation" data-status="confirm">
+              <span class="decision-result-label">Need to verify</span>
+              <h3>Corporation</h3>
+              <p>Confirm whether the corporation is business or qualifying nonprofit before relying on the fee number.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>January 1 through June 30</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$7 for business corporations or $0 for qualifying nonprofits</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Pennsylvania annual-report guidance and online filing portal together before filing.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Pennsylvania Department of State annual reports guidance">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Pennsylvania annual reports one-pager PDF">Source 2</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="llc" data-status="standard">
+              <span class="decision-result-label">Normal rule</span>
+              <h3>LLC</h3>
+              <p>Pennsylvania LLCs use the later September window, so they should not borrow the corporation cutoff.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>January 1 through September 30</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$7, or $0 for LLCs with a not-for-profit purpose</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Open the Pennsylvania filing guide or portal and use the LLC-specific window.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Pennsylvania Department of State annual reports guidance">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Pennsylvania annual reports one-pager PDF">Source 2</a>
+            <a class="proof-chip" href="#source-4" aria-label="Open official source 4: Pennsylvania online filing portal">Source 4</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="llc" data-status="late">
+              <span class="decision-result-label">Already late</span>
+              <h3>LLC</h3>
+              <p>The transition rule still points to enforcement beginning with annual reports due in 2027, six months after the due date.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>January 1 through September 30</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$7, or $0 for LLCs with a not-for-profit purpose</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Open the Pennsylvania filing guide or portal and use the LLC-specific window.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Pennsylvania Department of State annual reports guidance">Source 1</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: Pennsylvania DOS business and charities scam alerts">Source 5</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="llc" data-status="confirm">
+              <span class="decision-result-label">Need to verify</span>
+              <h3>LLC</h3>
+              <p>Confirm whether the LLC has a not-for-profit purpose before using the standard $7 amount.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>January 1 through September 30</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$7, or $0 for LLCs with a not-for-profit purpose</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Open the Pennsylvania filing guide or portal and use the LLC-specific window.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Pennsylvania Department of State annual reports guidance">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Pennsylvania annual reports one-pager PDF">Source 2</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="lp-or-llp" data-status="standard">
+              <span class="decision-result-label">Normal rule</span>
+              <h3>LP, LLP, business trust, or professional association</h3>
+              <p>These Pennsylvania filings use the longest annual-report window in the guide, so they should not be collapsed into the corporation or LLC timing.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>January 1 through December 31</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$7, or $0 for qualifying not-for-profit entities</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Pennsylvania annual-report guidance or one-pager before filing.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Pennsylvania Department of State annual reports guidance">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Pennsylvania annual reports one-pager PDF">Source 2</a>
+            <a class="proof-chip" href="#source-3" aria-label="Open official source 3: Pennsylvania how to file an annual report PDF">Source 3</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="lp-or-llp" data-status="late">
+              <span class="decision-result-label">Already late</span>
+              <h3>LP, LLP, business trust, or professional association</h3>
+              <p>The same 2027 enforcement timeline still matters if the filing is ignored once annual-report enforcement starts.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>January 1 through December 31</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$7, or $0 for qualifying not-for-profit entities</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Pennsylvania annual-report guidance or one-pager before filing.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Pennsylvania Department of State annual reports guidance">Source 1</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: Pennsylvania DOS business and charities scam alerts">Source 5</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="lp-or-llp" data-status="confirm">
+              <span class="decision-result-label">Need to verify</span>
+              <h3>LP, LLP, business trust, or professional association</h3>
+              <p>Confirm the exact association type before using the year-end window because Pennsylvania groups several entity labels together here.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>January 1 through December 31</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$7, or $0 for qualifying not-for-profit entities</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Pennsylvania annual-report guidance or one-pager before filing.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Pennsylvania Department of State annual reports guidance">Source 1</a>
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Pennsylvania annual reports one-pager PDF">Source 2</a>
+          </div>
+            </article>
+            </div>
           </div>
         </section>
 
@@ -315,31 +612,31 @@
             <h2>Sources used for this page</h2>
           </div>
           <ul class="source-list">
-            <li class="source-item">
+            <li class="source-item" id="source-1">
               <a href="https://www.pa.gov/agencies/dos/programs/business/types-of-filings-and-registrations/annual-reports.html">
                 <span class="source-kicker">Official source 1</span>
                 <strong>Pennsylvania Department of State annual reports guidance</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-2">
               <a href="https://www.pa.gov/content/dam/copapwp-pagov/en/dos/resources/business/graphics/annual-reports-one-pager.pdf">
                 <span class="source-kicker">Official source 2</span>
                 <strong>Pennsylvania annual reports one-pager PDF</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-3">
               <a href="https://www.pa.gov/content/dam/copapwp-pagov/en/dos/resources/business/graphics/how%20to%20file%20an%20annual%20report.pdf">
                 <span class="source-kicker">Official source 3</span>
                 <strong>Pennsylvania how to file an annual report PDF</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-4">
               <a href="https://file.dos.pa.gov/">
                 <span class="source-kicker">Official source 4</span>
                 <strong>Pennsylvania online filing portal</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-5">
               <a href="https://www.pa.gov/agencies/dos/alerts-and-notices/business-and-charities-scams">
                 <span class="source-kicker">Official source 5</span>
                 <strong>Pennsylvania DOS business and charities scam alerts</strong>

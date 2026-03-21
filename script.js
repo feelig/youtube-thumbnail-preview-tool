@@ -85,6 +85,39 @@ if (nevadaCalculator) {
   updateNevadaCalculator(checkedRadio ? checkedRadio.value : "llc");
 }
 
+const decisionToolRoots = document.querySelectorAll("[data-decision-tool-root]");
+
+decisionToolRoots.forEach((root) => {
+  const caseSelect = root.querySelector("[data-decision-case]");
+  const statusSelect = root.querySelector("[data-decision-status]");
+  const cards = Array.from(root.querySelectorAll("[data-decision-card]"));
+
+  if (!caseSelect || !statusSelect || cards.length === 0) {
+    return;
+  }
+
+  function showBestMatch() {
+    const selectedCase = caseSelect.value;
+    const selectedStatus = statusSelect.value;
+    let activeCard = cards.find(
+      (card) =>
+        card.dataset.case === selectedCase && card.dataset.status === selectedStatus
+    );
+
+    if (!activeCard) {
+      activeCard = cards.find((card) => card.dataset.case === selectedCase) || cards[0];
+    }
+
+    cards.forEach((card) => {
+      card.hidden = card !== activeCard;
+    });
+  }
+
+  caseSelect.addEventListener("change", showBestMatch);
+  statusSelect.addEventListener("change", showBestMatch);
+  showBestMatch();
+});
+
 const guideSearchInputs = document.querySelectorAll("[data-guide-search-input]");
 
 guideSearchInputs.forEach((input) => {

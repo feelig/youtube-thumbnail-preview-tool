@@ -91,6 +91,8 @@
           <strong>Jump to</strong>
           <div class="section-nav__links">
             <a class="section-link" href="#quick-answer">Quick answer</a>
+            <a class="section-link" href="#evidence-chain">Evidence chain</a>
+            <a class="section-link" href="#decision-tool">Decision tool</a>
             <a class="section-link" href="#decision-checks">Decision checks</a>
             <a class="section-link" href="#next-step">Next step</a>
             <a class="section-link" href="#details">Detailed rules</a>
@@ -125,6 +127,299 @@
               <span class="insight-label">If already late</span>
               <strong>Three-month delinquency interval, then forfeiture</strong>
             </article>
+          </div>
+        </section>
+
+        <section class="section surface" data-evidence-chain>
+          <div id="evidence-chain"></div>
+          <div class="section__head">
+            <p class="eyebrow">Evidence chain</p>
+            <h2>Official proof for the headline answers</h2>
+            <p>
+              Each quick-answer field below points to the exact official sources that support it, so
+              the customer-facing summary can still be audited back to the state record.
+            </p>
+          </div>
+          <div class="evidence-grid">
+            <article class="evidence-card">
+              <span class="evidence-label">Filing label</span>
+              <strong>Biennial information report</strong>
+              <p>This uses the state's actual recurring filing label instead of flattening everything into a generic annual-report name.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Kansas Secretary of State information reports page">Source 1</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: Kansas biennial filing information-report PDF">Source 5</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">Who should use this page</span>
+              <strong>For-profit and not-for-profit businesses on file with the Secretary of State</strong>
+              <p>The scope comes from the entity groups named in the official sources, not just the state name.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Kansas Secretary of State information reports page">Source 1</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: Kansas biennial filing information-report PDF">Source 5</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">Headline due date</span>
+              <strong>April 15 or June 15 depending on business type and formation-year parity</strong>
+              <p>This is the fast answer, but the official record still controls if the state uses anniversary, formation-month, or report-month triggers.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Kansas Secretary of State information reports page">Source 1</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: Kansas biennial filing information-report PDF">Source 5</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">Main amount shown</span>
+              <strong>$53 online or $55 paper for Kansas LLCs</strong>
+              <p>This stays tied to the published state fee, threshold, or state-level amount rather than a private service quote.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Kansas Secretary of State LLC annual report form and fee schedule">Source 2</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: Kansas biennial filing information-report PDF">Source 5</a>
+          </div>
+            </article>
+            <article class="evidence-card">
+              <span class="evidence-label">If already late</span>
+              <strong>Three-month delinquency interval, then forfeiture</strong>
+              <p>Late-state consequences often differ from the on-time amount, so this answer is anchored separately.</p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-4" aria-label="Open official source 4: Kansas reinstatement guidance for forfeited businesses">Source 4</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: Kansas biennial filing information-report PDF">Source 5</a>
+          </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section surface" data-decision-tool-root>
+          <div id="decision-tool"></div>
+          <div class="section__head">
+            <p class="eyebrow">Decision tool</p>
+            <h2>Narrow the rule to your situation</h2>
+            <p>Kansas is easier once you separate for-profit versus not-for-profit timing and stop pretending the website publishes every entity's fee on one screen.</p>
+          </div>
+          <div class="decision-tool-layout">
+            <div class="decision-tool-controls">
+              <label class="field" for="decision-case-kansas">
+                <span>Which Kansas case fits best?</span>
+                <select id="decision-case-kansas" data-decision-case>
+                  <option value="for-profit-business">For-profit business</option>
+                  <option value="not-for-profit-business">Not-for-profit business</option>
+                  <option value="kansas-llc-fee">Kansas LLC fee check</option>
+                </select>
+              </label>
+              <label class="field" for="decision-status-kansas">
+                <span>What do you need right now?</span>
+                <select id="decision-status-kansas" data-decision-status>
+                  <option value="standard">Normal rule</option>
+                  <option value="late">Already late</option>
+                  <option value="confirm">Need to verify</option>
+                </select>
+              </label>
+              <p class="decision-tool-note">
+                Use this to trim the page to the rule set that matters first, then finish on the
+                official sources linked on the card.
+              </p>
+            </div>
+            <div class="decision-tool-results" data-decision-tool aria-live="polite">
+            <article class="decision-result-card" data-decision-card data-case="for-profit-business" data-status="standard">
+              <span class="decision-result-label">Normal rule</span>
+              <h3>For-profit business</h3>
+              <p>Kansas ties the information report to odd-or-even formation-year parity, and the standard for-profit due date is April 15 in the matching filing year.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>April 15 in the matching odd or even filing year</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>Entity-specific; Kansas LLCs are $53 online or $55 paper</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Kansas information-report page first and then the matching entity form if you need an exact fee.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Kansas Secretary of State information reports page">Source 1</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: Kansas biennial filing information-report PDF">Source 5</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="for-profit-business" data-status="late">
+              <span class="decision-result-label">Already late</span>
+              <h3>For-profit business</h3>
+              <p>Kansas gives a three-month delinquency interval after the due date and then moves the business into forfeiture if it is still not filed.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>April 15 in the matching odd or even filing year</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>Entity-specific; Kansas LLCs are $53 online or $55 paper</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Kansas information-report page first and then the matching entity form if you need an exact fee.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-4" aria-label="Open official source 4: Kansas reinstatement guidance for forfeited businesses">Source 4</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: Kansas biennial filing information-report PDF">Source 5</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="for-profit-business" data-status="confirm">
+              <span class="decision-result-label">Need to verify</span>
+              <h3>For-profit business</h3>
+              <p>Confirm the formation-year parity before relying on the April 15 cycle, especially if the entity has an unusual tax-year pattern.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>April 15 in the matching odd or even filing year</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>Entity-specific; Kansas LLCs are $53 online or $55 paper</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Kansas information-report page first and then the matching entity form if you need an exact fee.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Kansas Secretary of State information reports page">Source 1</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: Kansas biennial filing information-report PDF">Source 5</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="not-for-profit-business" data-status="standard">
+              <span class="decision-result-label">Normal rule</span>
+              <h3>Not-for-profit business</h3>
+              <p>Kansas uses the same parity concept for not-for-profit businesses, but the standard due date is later than the for-profit April cycle.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>June 15 in the matching odd or even filing year</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>Confirm on the matching Kansas form if you need the exact fee</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Kansas information-report guidance and the matching nonprofit form before filing.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Kansas Secretary of State information reports page">Source 1</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: Kansas biennial filing information-report PDF">Source 5</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="not-for-profit-business" data-status="late">
+              <span class="decision-result-label">Already late</span>
+              <h3>Not-for-profit business</h3>
+              <p>The same three-month delinquency interval and later forfeiture risk apply if the report is ignored.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>June 15 in the matching odd or even filing year</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>Confirm on the matching Kansas form if you need the exact fee</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Kansas information-report guidance and the matching nonprofit form before filing.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-4" aria-label="Open official source 4: Kansas reinstatement guidance for forfeited businesses">Source 4</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: Kansas biennial filing information-report PDF">Source 5</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="not-for-profit-business" data-status="confirm">
+              <span class="decision-result-label">Need to verify</span>
+              <h3>Not-for-profit business</h3>
+              <p>Confirm the business type and matching filing year before using the June 15 rule.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>June 15 in the matching odd or even filing year</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>Confirm on the matching Kansas form if you need the exact fee</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Use the Kansas information-report guidance and the matching nonprofit form before filing.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-1" aria-label="Open official source 1: Kansas Secretary of State information reports page">Source 1</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: Kansas biennial filing information-report PDF">Source 5</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="kansas-llc-fee" data-status="standard">
+              <span class="decision-result-label">Normal rule</span>
+              <h3>Kansas LLC fee check</h3>
+              <p>The Kansas LLC form is the clearest place to confirm the exact fee, which is why this guide gives the LLC figure more precisely than some other Kansas entity types.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>Use the LLC's matching filing year; common window is January 1 through April 15 after year end</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$53 online or $55 paper</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Open the Kansas LLC form or filing portal before relying on a copied fee quote.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Kansas Secretary of State LLC annual report form and fee schedule">Source 2</a>
+            <a class="proof-chip" href="#source-3" aria-label="Open official source 3: Kansas online information-report filing portal">Source 3</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: Kansas biennial filing information-report PDF">Source 5</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="kansas-llc-fee" data-status="late">
+              <span class="decision-result-label">Already late</span>
+              <h3>Kansas LLC fee check</h3>
+              <p>If the report goes unresolved, Kansas can move the business into forfeiture after the delinquency interval.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>Use the LLC's matching filing year; common window is January 1 through April 15 after year end</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$53 online or $55 paper</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Open the Kansas LLC form or filing portal before relying on a copied fee quote.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-4" aria-label="Open official source 4: Kansas reinstatement guidance for forfeited businesses">Source 4</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: Kansas biennial filing information-report PDF">Source 5</a>
+          </div>
+            </article>
+            <article class="decision-result-card" hidden data-decision-card data-case="kansas-llc-fee" data-status="confirm">
+              <span class="decision-result-label">Need to verify</span>
+              <h3>Kansas LLC fee check</h3>
+              <p>Use the LLC form itself if the fee number matters because Kansas does not publish every entity fee on one combined page.</p>
+              <div class="decision-result-grid">
+                <div class="decision-result-stat">
+                  <span>Due date</span>
+                  <strong>Use the LLC's matching filing year; common window is January 1 through April 15 after year end</strong>
+                </div>
+                <div class="decision-result-stat">
+                  <span>Main amount</span>
+                  <strong>$53 online or $55 paper</strong>
+                </div>
+              </div>
+              <p class="decision-result-note">
+                <strong>Next official step:</strong> Open the Kansas LLC form or filing portal before relying on a copied fee quote.
+              </p>
+          <div class="proof-chip-row">
+            <a class="proof-chip" href="#source-2" aria-label="Open official source 2: Kansas Secretary of State LLC annual report form and fee schedule">Source 2</a>
+            <a class="proof-chip" href="#source-5" aria-label="Open official source 5: Kansas biennial filing information-report PDF">Source 5</a>
+          </div>
+            </article>
+            </div>
           </div>
         </section>
 
@@ -348,31 +643,31 @@
             <h2>Sources used for this page</h2>
           </div>
           <ul class="source-list">
-            <li class="source-item">
+            <li class="source-item" id="source-1">
               <a href="https://sos.ks.gov/filing-center/business/business.html">
                 <span class="source-kicker">Official source 1</span>
                 <strong>Kansas Secretary of State information reports page</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-2">
               <a href="https://www.sos.ks.gov/forms/business_services/lc.pdf">
                 <span class="source-kicker">Official source 2</span>
                 <strong>Kansas Secretary of State LLC annual report form and fee schedule</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-3">
               <a href="https://www.sos.ks.gov/eforms/user_login.aspx?frm=BS">
                 <span class="source-kicker">Official source 3</span>
                 <strong>Kansas online information-report filing portal</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-4">
               <a href="https://sos.ks.gov/businesses/reinstate-a-business.html">
                 <span class="source-kicker">Official source 4</span>
                 <strong>Kansas reinstatement guidance for forfeited businesses</strong>
               </a>
             </li>
-            <li class="source-item">
+            <li class="source-item" id="source-5">
               <a href="https://sos.ks.gov/forms/business_services/Biennial-Filing.pdf">
                 <span class="source-kicker">Official source 5</span>
                 <strong>Kansas biennial filing information-report PDF</strong>
