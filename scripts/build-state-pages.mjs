@@ -129,6 +129,10 @@ ${section.cards
         </section>`;
 }
 
+function renderStructuredRawHtmlSection(section) {
+  return section.html.trim();
+}
+
 function renderStructuredBody(sections) {
   return sections
     .map((section) => {
@@ -138,6 +142,10 @@ function renderStructuredBody(sections) {
 
       if (section.type === "detailCards") {
         return renderStructuredDetailCardsSection(section);
+      }
+
+      if (section.type === "rawHtml") {
+        return renderStructuredRawHtmlSection(section);
       }
 
       throw new Error(`Unsupported structured section type: ${section.type}`);

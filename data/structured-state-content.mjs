@@ -509,5 +509,625 @@ export const structuredStateContentByFilePath = {
         ]
       ]
     }
+  ],
+  "tools/georgia/annual-report-deadline/index.html": [
+    {
+      type: "table",
+      eyebrow: "Georgia core rules",
+      title: "What the Georgia Secretary of State says now",
+      headers: ["Question", "Current Georgia answer used on this page"],
+      rows: [
+        [
+          "When do annual registrations file?",
+          "The Georgia Secretary of State says annual registrations are filed between January 1 and April 1 each year."
+        ],
+        [
+          "When is the first filing usually due?",
+          "Georgia FAQ guidance says corporations file the first annual registration between January 1 and April 1 of the calendar year after incorporation or registration."
+        ],
+        [
+          "What fee should most customers expect first?",
+          "The current Georgia guidance shows a common $60 online total for many profit entities, with lower totals published for some nonprofits and domestic LLPs."
+        ],
+        [
+          "What happens if you miss April 1?",
+          "The state currently publishes a $25 late penalty for the annual registration."
+        ],
+        [
+          "Where should you file?",
+          "Start with the Georgia annual registration instructions, then confirm the entity and filing path through the Secretary of State portal."
+        ]
+      ]
+    },
+    {
+      type: "detailCards",
+      eyebrow: "How to read Georgia correctly",
+      title: "Why this page does not use a flat Georgia fee",
+      cards: [
+        {
+          title: "Why this page changed",
+          text: "Georgia used to be summarized on this site with a flat $50 figure. That is too simple. The current official guidance surfaces a more useful customer answer: the deadline is shared, many profit entities now see a $60 online total, and lower totals exist for at least some nonprofit and domestic LLP filings."
+        },
+        {
+          title: "What to do if you are already late",
+          text: "Go directly to the Georgia annual registration instructions and filing portal, confirm the exact entity record, and expect the published $25 late penalty to matter. If your entity type or filing path is unusual, use the SOS guidance on the live record before relying on a generic third-party fee table."
+        }
+      ]
+    }
+  ],
+  "tools/kansas/information-report-deadline/index.html": [
+    {
+      type: "table",
+      eyebrow: "Timing rules",
+      title: "What the Kansas information-report page says",
+      headers: ["Business type", "Filing cadence", "Due date", "After the due date"],
+      rows: [
+        [
+          "For-profit businesses on file with the Kansas Secretary of State",
+          "Biennial, in each succeeding odd or even year matching the formation year",
+          "April 15",
+          "Three-month delinquency interval, then forfeiture if still not filed"
+        ],
+        [
+          "Not-for-profit businesses on file with the Kansas Secretary of State",
+          "Biennial, in each succeeding odd or even year matching the formation year",
+          "June 15",
+          "Three-month delinquency interval, then forfeiture if still not filed"
+        ]
+      ]
+    },
+    {
+      type: "table",
+      eyebrow: "Kansas LLC fee detail",
+      title: "What the Kansas LLC form confirms",
+      headers: ["Item", "Official detail used on this page"],
+      rows: [
+        ["Online Kansas LLC filing fee", "$53"],
+        ["Paper Kansas LLC filing fee", "$55"],
+        [
+          "Tax closing date example on the form",
+          "If the entity's tax year ends on December 31, the report due-date period is between January 1 and April 15 after that December."
+        ],
+        [
+          "Why the page says information report",
+          "The Kansas website uses \"information report,\" while the entity form PDFs still use \"annual report\" language for the filing form itself."
+        ]
+      ]
+    },
+    {
+      type: "detailCards",
+      eyebrow: "Late and forfeiture risk",
+      title: "Kansas becomes a status problem if the report is ignored",
+      cards: [
+        {
+          title: "Delinquency and forfeiture",
+          text: "Kansas gives every business a three-month delinquency interval after the due date. Once that interval passes, the Secretary of State says the business will forfeit and will not be able to file other documents until past-due reports are submitted and the business is reinstated."
+        },
+        {
+          title: "What this page does not guess",
+          text: "The general Kansas information-report page does not publish every entity-specific fee on one screen, so this guide only states the LLC fee that is directly confirmed by the Kansas LLC form. If you need another entity's exact filing fee, confirm it from the matching Kansas form before you file."
+        }
+      ]
+    }
+  ],
+  "tools/nevada/annual-fee-calculator/index.html": [
+    {
+      type: "rawHtml",
+      html: `<section class="tool-card surface" data-nevada-calculator="">
+          <p class="eyebrow">Interactive breakdown</p>
+          <h2><span data-nevada-title="">Nevada LLC</span> recurring annual fees</h2>
+          <div class="calculator">
+            <div class="toggle-group" role="radiogroup" aria-label="Nevada entity type">
+              <label>
+                <input type="radio" name="nevada-entity" value="llc" checked="">
+                <span>LLC</span>
+              </label>
+              <label>
+                <input type="radio" name="nevada-entity" value="corporation">
+                <span>Corporation</span>
+              </label>
+            </div>
+
+            <div class="breakdown-grid">
+              <div class="breakdown-item">
+                <span>Annual list fee</span>
+                <strong data-annual-list-fee="">$150</strong>
+              </div>
+              <div class="breakdown-item">
+                <span>State business license renewal</span>
+                <strong data-business-license-fee="">$200</strong>
+              </div>
+              <div class="breakdown-item">
+                <span>Recurring state total</span>
+                <strong data-recurring-total="">$350</strong>
+              </div>
+              <div class="breakdown-item">
+                <span>Total if filed late</span>
+                <strong data-late-total="">$525</strong>
+              </div>
+            </div>
+
+            <p class="calc-note" data-nevada-note="">
+              Uses the Nevada LLC annual list fee in NRS 86.263 and the general state business
+              license renewal fee in NRS 76.130.
+            </p>
+          </div>
+        </section>`
+    },
+    {
+      type: "detailCards",
+      eyebrow: "Calculator scope",
+      title: "What the Nevada calculator includes and what it leaves out",
+      cards: [
+        {
+          title: "What the calculator includes",
+          text: "The calculator adds the annual list fee and the state business license renewal fee. It also shows the published late penalties used for overdue annual lists and overdue state business license renewal payments."
+        },
+        {
+          title: "What the calculator does not include",
+          text: "It does not include registered-agent fees, local business licenses, expedited service, amendments, reinstatement costs, or any other private-service costs. This page is only tracking the recurring state-level items shown in the source set below."
+        }
+      ]
+    },
+    {
+      type: "table",
+      eyebrow: "Statutory basis",
+      title: "Source rules behind the Nevada totals",
+      headers: ["Rule", "Published amount or timing"],
+      rows: [
+        [
+          "Nevada LLC annual list fee",
+          "$150 with the annual list due by the last day of the anniversary month"
+        ],
+        [
+          "Nevada corporation annual list fee",
+          "$150 with the annual list due by the last day of the anniversary month"
+        ],
+        [
+          "State business license renewal fee",
+          "$200 generally, or $500 for corporations organized under chapters 78, 78A, or 78B and foreign corporations under chapter 80"
+        ],
+        [
+          "Late penalties shown here",
+          "$75 annual-list penalty and $100 state-business-license late penalty"
+        ]
+      ]
+    }
+  ],
+  "tools/new-jersey/annual-report-deadline/index.html": [
+    {
+      type: "table",
+      eyebrow: "Fee split",
+      title: "New Jersey annual report fees depend mainly on entity type",
+      headers: [
+        "Entity type",
+        "Recurring filing",
+        "Main annual report fee shown by the state",
+        "Practical note"
+      ],
+      rows: [
+        [
+          "For-profit corporation",
+          "Annual report",
+          "$75",
+          "Reinstatement information shows delinquent reports plus a current annual report are due if the business falls out of status."
+        ],
+        [
+          "Limited liability company",
+          "Annual report",
+          "$75",
+          "The same $75 annual report fee appears on the DORES fee schedules and reinstatement guidance."
+        ],
+        [
+          "Limited partnership or LLP",
+          "Annual report",
+          "$75",
+          "New Jersey treats these as annual-report filers rather than splitting them into a separate annual-tax page."
+        ],
+        [
+          "Non-profit corporation",
+          "Annual report",
+          "$30",
+          "The fee schedules publish a lower annual report fee for non-profits."
+        ]
+      ]
+    },
+    {
+      type: "table",
+      eyebrow: "Timing",
+      title: "New Jersey ties the due date to the anniversary month",
+      headers: ["Question", "Official guidance used here"],
+      rows: [
+        [
+          "When is the report due?",
+          "The New Jersey Small Business Manual says the annual report is due every year on the last day of the month in which the business completed formation."
+        ],
+        [
+          "Does the rule also apply to authorized foreign entities?",
+          "The state filing tools and business portal frame annual reports as a recurring filing for registered New Jersey business entities, including those authorized to do business in the state."
+        ],
+        [
+          "Will the state send reminders?",
+          "Yes. DORES says businesses can sign up for free electronic annual-report reminders through Gov2Go, and the Treasury also promotes mobile reminder services."
+        ],
+        [
+          "Where do you file?",
+          "New Jersey directs annual report filing through the state's online annual reports and change-services portal."
+        ]
+      ]
+    },
+    {
+      type: "detailCards",
+      eyebrow: "Status risk",
+      title: "The real New Jersey risk is losing status, not a flat late fee",
+      cards: [
+        {
+          title: "What happens after repeated missed reports",
+          text: "The Business.NJ annual report page says that after two missed annual reports, a business may lose its authority to do business in New Jersey, its Business Registration Certificate may be invalidated, and it may lose access to state services such as licenses or funding opportunities."
+        },
+        {
+          title: "Why New Jersey still needs a careful page",
+          text: "The deadline rule itself is simple, but customers often confuse annual reports with tax filings or assume a missed due date only causes a minor late fee. New Jersey's official guidance emphasizes status loss and reinstatement costs instead."
+        }
+      ]
+    },
+    {
+      type: "table",
+      eyebrow: "Reinstatement and practical notes",
+      title: "What to know if the business is already behind",
+      headers: ["Question", "New Jersey answer"],
+      rows: [
+        [
+          "Is there a prominently published flat late fee?",
+          "Not on the main annual-report filing guidance. The more visible official consequence is loss of authority or deactivation after repeated missed reports."
+        ],
+        [
+          "What does reinstatement usually require?",
+          "New Jersey says reinstating a business generally requires delinquent annual reports, the current annual report, and a reinstatement filing fee, with additional tax-clearance rules in some corporation cases."
+        ],
+        [
+          "Can businesses monitor future filings more closely?",
+          "Yes. DORES also offers CorpWatch alerts so businesses can monitor filings added to the state's records."
+        ],
+        [
+          "What information does the report confirm?",
+          "The Business.NJ filing page says the annual report confirms contact information and business address details, and the DORES annual report service highlights registered-agent and public business-record information."
+        ]
+      ]
+    }
+  ],
+  "tools/virginia/annual-registration-fee-deadline/index.html": [
+    {
+      type: "table",
+      eyebrow: "Entity split",
+      title: "Virginia does not use one recurring filing rule for every entity type",
+      headers: [
+        "Entity type",
+        "Main recurring filing or fee",
+        "Deadline shown by Virginia SCC",
+        "Published amount"
+      ],
+      rows: [
+        [
+          "Stock corporation",
+          "Annual report plus annual registration fee",
+          "Last day of the month of incorporation or Virginia registration",
+          "Annual report has no fee; annual registration fee is based on authorized shares"
+        ],
+        [
+          "Nonstock corporation",
+          "Annual report plus annual registration fee",
+          "Last day of the month of incorporation or Virginia registration",
+          "No annual report fee; $25 annual registration fee"
+        ],
+        [
+          "Limited liability company",
+          "Annual registration fee",
+          "Last day of the month the LLC was organized or registered",
+          "$50"
+        ],
+        [
+          "Limited partnership or business trust",
+          "Annual registration fee",
+          "Virginia fee pages say on or before October 1, while maintenance guidance warns of cancellation by December 31 if unpaid",
+          "$50"
+        ],
+        ["LLP or LLLP", "Annual continuation report", "July 1", "$50"]
+      ]
+    },
+    {
+      type: "table",
+      eyebrow: "Late-status rules",
+      title: "What Virginia says happens when these filings are missed",
+      headers: ["Rule", "Official guidance used on this page"],
+      rows: [
+        [
+          "Corporation annual report",
+          "If a corporation does not file its annual report by the due date, Virginia says the corporation will not be in good standing and that status change will be reflected in the Commission's records."
+        ],
+        [
+          "Foreign corporation annual report or fee",
+          "Virginia says a foreign corporation's authority will be automatically revoked if the annual registration fee is not paid or the annual report is not filed by the last day of the fourth month after the due date."
+        ],
+        [
+          "LP or business trust annual registration fee",
+          "Virginia maintenance guidance says unpaid LP or business-trust registration fees lead to automatic cancellation by December 31."
+        ],
+        [
+          "LLP or LLLP continuation report",
+          "If the report is not received by September 1, Virginia sends a notice of impending cancellation. If it is still not filed by November 1, the registration is automatically canceled."
+        ]
+      ]
+    },
+    {
+      type: "detailCards",
+      eyebrow: "Why Virginia needs a split guide",
+      title: "Virginia is easy to misread if the filing labels are collapsed",
+      cards: [
+        {
+          title: "Why Virginia is easy to misread",
+          text: "Many recurring-filing sites try to compress Virginia into a single annual report or a single fee. The official SCC guidance does not work that way. Corporations, LLCs, LPs, business trusts, and LLPs use different recurring items, and the page label matters."
+        },
+        {
+          title: "How Virginia timing notices work",
+          text: "Virginia says it assesses annual registration fees and sends the notice two months before the fee is due. The annual report FAQ likewise says the Clerk's Office sends the annual report to the registered agent two months before the corporation's due date."
+        }
+      ]
+    },
+    {
+      type: "table",
+      eyebrow: "Practical notes",
+      title: "What to file online and what to verify before paying",
+      headers: ["Question", "Virginia SCC answer"],
+      rows: [
+        [
+          "Can you pay annual registration fees early?",
+          "No. Virginia says the fee may only be paid after the SCC assesses the business and issues the notice."
+        ],
+        [
+          "How do stock corporations know the amount?",
+          "The annual registration fee is based on authorized shares, and Virginia points readers to the Annual Corporation Requirements and Fee Schedule."
+        ],
+        [
+          "How should LPs and business trusts treat the due date?",
+          "One Virginia fee page uses October 1 wording while maintenance guidance frames year-end cancellation. This guide takes the conservative approach and treats the fee as something to clear no later than September 30 or October 1, not something to postpone until year-end."
+        ],
+        [
+          "Where do online filings and fee payments happen?",
+          "Virginia directs annual report filing and annual registration fee payment through the Clerk's Information System (CIS)."
+        ]
+      ]
+    }
+  ],
+  "tools/colorado/periodic-report-deadline/index.html": [
+    {
+      type: "table",
+      eyebrow: "Timing",
+      title: "Colorado centers the deadline around the periodic report month",
+      headers: ["Question", "Colorado answer used on this page"],
+      rows: [
+        [
+          "Who files a periodic report?",
+          "Colorado says reporting entities include LLCs, corporations, nonprofit corporations, foreign entities, LLPs, LLLPs, and reporting limited partnerships."
+        ],
+        [
+          "When does the filing window open?",
+          "The periodic report FAQ says the report can be filed two months before the periodic report month."
+        ],
+        [
+          "What is the practical due date?",
+          "Colorado's delinquency FAQ gives the January example: if the periodic report month is January, the report due date is March 31. That means the standard due date is the last day of the second month after the report month."
+        ],
+        [
+          "Where do businesses find the report month?",
+          "The Secretary of State says the entity's Summary page shows the periodic report month."
+        ]
+      ]
+    },
+    {
+      type: "table",
+      eyebrow: "Fees",
+      title: "Colorado publishes the regular fee, late penalty, and delinquency-cure fee separately",
+      headers: ["Item", "Published online amount", "Practical note"],
+      rows: [
+        [
+          "Periodic Report",
+          "$25.00",
+          "This is the standard recurring filing fee shown on Colorado's business fee schedule."
+        ],
+        [
+          "Periodic Report Late Filing Penalty",
+          "$50.00",
+          "Colorado lists the late penalty separately from the base filing fee."
+        ],
+        [
+          "Statement Curing Delinquency",
+          "$100.00",
+          "If the entity reaches delinquent status, the cure filing is a different filing with a higher published fee."
+        ]
+      ]
+    },
+    {
+      type: "detailCards",
+      eyebrow: "Electronic filing and late path",
+      title: "Colorado is straightforward once you separate noncompliant from delinquent status",
+      cards: [
+        {
+          title: "Electronic-only filing is the default",
+          text: "Colorado's business forms page shows online filing for both the Periodic Report and the Statement Curing Delinquency, and it marks paper filing as not available for the Periodic Report. For customers, that means the live state record is part of the filing workflow, not just a search tool."
+        },
+        {
+          title: "Colorado has a two-step late-status sequence",
+          text: "The delinquency FAQ shows the sequence clearly. If the report is not filed by the regular due date, the entity becomes noncompliant and a late report is still due. If it is still not filed by the later cure date, the entity becomes delinquent and must use a Statement Curing Delinquency to return to good standing."
+        }
+      ]
+    },
+    {
+      type: "table",
+      eyebrow: "Late status",
+      title: "Colorado's January example shows how the late path works",
+      headers: ["Stage", "What the state says"],
+      rows: [
+        ["Periodic report month is January", "The delinquency FAQ says the regular due date is March 31."],
+        [
+          "After March 31",
+          "If the report is not filed on or before March 31, the entity's status becomes noncompliant and a late report is due by May 31."
+        ],
+        [
+          "After May 31",
+          "If the report is still not filed on or before May 31, the entity's status changes to delinquent."
+        ],
+        [
+          "Returning to good standing",
+          "Colorado says a delinquent entity files a Statement Curing Delinquency to return its status to good standing."
+        ]
+      ],
+      note: "The January example is the Secretary of State's own illustration. It is useful because it turns Colorado's report-month rule into concrete dates."
+    },
+    {
+      type: "table",
+      eyebrow: "Practical notes",
+      title: "Filing details customers usually need first",
+      headers: ["Question", "Colorado answer"],
+      rows: [
+        [
+          "How do you file the periodic report?",
+          "Colorado says the report must be filed electronically through the Secretary of State website by searching the business record, opening File a form, and selecting Periodic Report."
+        ],
+        [
+          "Will the state send reminders?",
+          "Yes. Colorado says courtesy notices are sent, and the email-notification service sends a due-date email in the month before the periodic report month."
+        ],
+        [
+          "What if the entity is no longer doing business in Colorado?",
+          "The periodic report FAQ says the business may consider filing the appropriate dissolution or withdrawal instead of filing the report first."
+        ],
+        [
+          "Where do filings happen if the entity is already delinquent?",
+          "The business forms page shows the same online filing path for the Statement Curing Delinquency after you search for the entity's record."
+        ]
+      ]
+    }
+  ],
+  "tools/oregon/annual-report-deadline/index.html": [
+    {
+      type: "table",
+      eyebrow: "Fee split",
+      title: "Oregon annual report fees depend on entity type and home jurisdiction",
+      headers: ["Entity type", "Recurring filing", "Published annual fee", "Practical note"],
+      rows: [
+        [
+          "Domestic business or professional corporation",
+          "Annual report",
+          "$100",
+          "Oregon's Business Registry Fee Schedule lists domestic corporation renewal annually at $100."
+        ],
+        [
+          "Foreign business or professional corporation",
+          "Annual report",
+          "$275",
+          "The foreign corporation renewal amount is higher than the domestic amount, so Oregon should not be flattened into one number."
+        ],
+        [
+          "Domestic LLC",
+          "Annual report",
+          "$100",
+          "Domestic LLC renewal appears on the same fee schedule at $100 each year."
+        ],
+        [
+          "Foreign LLC",
+          "Annual report",
+          "$275",
+          "Foreign LLC renewals track the higher foreign-entity amount."
+        ],
+        [
+          "Domestic nonprofit corporation",
+          "Annual report",
+          "$100",
+          "The fee schedule lists annual nonprofit renewal at $100, even though the original incorporation filing fee is lower."
+        ],
+        [
+          "Foreign nonprofit corporation",
+          "Annual report",
+          "$50",
+          "Foreign nonprofit renewal is a lower exception within Oregon's annual-report fee schedule."
+        ],
+        [
+          "Domestic limited partnership",
+          "Annual report",
+          "$100",
+          "Domestic LP renewal is listed at $100 annually."
+        ],
+        [
+          "Foreign limited partnership",
+          "Annual report",
+          "$275",
+          "Foreign LP renewal is listed at $275 annually."
+        ]
+      ]
+    },
+    {
+      type: "table",
+      eyebrow: "Timing",
+      title: "Oregon ties the annual report to the original filing anniversary",
+      headers: ["Question", "Official guidance used here"],
+      rows: [
+        [
+          "When is the annual report due?",
+          "The Oregon Secretary of State FAQ says all business entity types other than assumed business names renew annually, and the renewal is due on the anniversary date of the original filing."
+        ],
+        [
+          "Will Oregon send a reminder?",
+          "Yes. Oregon says renewal notices are sent automatically about 45 days before the due date."
+        ],
+        [
+          "Can customers update addresses and officers during the renewal?",
+          "Yes. Oregon's update-registration guidance says that when the renewal is available each year, changes can be reported on the annual report while paying the renewal fee."
+        ],
+        [
+          "How do online filings post?",
+          "Oregon says online renewal confirmations arrive by email, and renewal transactions filed online are completed within minutes unless there is an issue with the filing."
+        ]
+      ]
+    },
+    {
+      type: "detailCards",
+      eyebrow: "Why the fee split matters",
+      title: "Oregon is simple on timing but not on price",
+      cards: [
+        {
+          title: "Why Oregon is still worth splitting by entity type",
+          text: "The due-date rule is simple, but the fee answer changes meaningfully between domestic and foreign filings. A customer looking at a foreign corporation or foreign LLC should not be shown the domestic $100 figure as though it were universal."
+        },
+        {
+          title: "What happens after a missed annual report",
+          text: "Oregon's reinstatement page says a business that is administratively dissolved for failure to file an annual report can seek reinstatement if eligible. The state says the filing requires correcting business information as needed and paying a reinstatement fee along with the missed annual fee or fees."
+        }
+      ]
+    },
+    {
+      type: "table",
+      eyebrow: "Practical notes",
+      title: "Useful Oregon filing details",
+      headers: ["Question", "Oregon answer"],
+      rows: [
+        [
+          "Where do you renew?",
+          "Oregon directs filers to Oregon Business Registry renewal tools, either online or by generating the annual report form from the public business record."
+        ],
+        [
+          "Can you confirm the next renewal date publicly?",
+          "Yes. Oregon says the business registry public record shows the next renewal date and the filing history."
+        ],
+        [
+          "Does Oregon allow updates outside the annual report?",
+          "Yes. The update-registration page gives a separate information-change path for office, registered-agent, officer, member, manager, and address updates."
+        ],
+        [
+          "Who is commonly eligible to reinstate online?",
+          "Oregon says LLCs, business corporations, nonprofits, and limited partnerships are usually able to reinstate online if the entity is otherwise eligible."
+        ]
+      ]
+    }
   ]
 };

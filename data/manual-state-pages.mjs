@@ -401,8 +401,8 @@ export const manualStatePages = [
         label: "Virginia SCC Clerk's Information System (CIS)"
       },
       {
-        href: "https://scc.virginia.gov/pages/Misleading-Solicitations",
-        label: "Virginia SCC warning on misleading solicitations"
+        href: "https://www.scc.virginia.gov/businesses/",
+        label: "Virginia SCC business home with third-party solicitation alert"
       }
     ],
     scriptSrc: null
