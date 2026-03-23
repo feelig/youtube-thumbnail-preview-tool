@@ -496,7 +496,7 @@ export const statePages = [
       }
     ],
     "heroTitle": "New York biennial statement fee and due date",
-    "heroSubtitle": "New York requires domestic and foreign business corporations and LLCs to file a Biennial Statement every two years with the Department of State. The key rule is not a single calendar-day deadline. The filing is due during the calendar month in which the entity's original formation or authority filing was made with the state.",
+    "heroSubtitle": "New York does not use one fixed biennial-statement deadline for every business. Most corporations and LLCs need to file every two years during the calendar month tied to the entity's original formation or authority date, using the state's $9 filing process.",
     "lastReviewed": "March 17, 2026",
     "sourceBadge": "Source: New York Department of State",
     "summaryTitle": "At a glance",
@@ -628,7 +628,7 @@ export const statePages = [
       }
     ],
     "heroTitle": "Pennsylvania annual report deadline",
-    "heroSubtitle": "Pennsylvania's annual report requirement started in 2025. The Department of State now uses different filing windows by association type, with a $7 filing fee for most business corporations, LLCs, LPs, and LLPs.",
+    "heroSubtitle": "Pennsylvania restarted annual reports in 2025, but the filing window changes by association type. This page keeps the first answers simple: which entity window applies, when most businesses use the standard $7 filing fee, and when missed reports start to matter.",
     "lastReviewed": "March 17, 2026",
     "sourceBadge": "Source: Pennsylvania Department of State and Business Filing Services",
     "summaryTitle": "At a glance",
@@ -694,7 +694,7 @@ export const statePages = [
       }
     ],
     "heroTitle": "Texas franchise tax due date and information report rules",
-    "heroSubtitle": "Texas does not use a standard annual report page for most business entities. The core annual compliance item is the franchise tax report due each May 15, along with the appropriate Public Information Report or Ownership Information Report. For report years 2024 and later, the Texas Comptroller also changed how no-tax-due entities file.",
+    "heroSubtitle": "Texas annual compliance usually centers on the franchise tax report due each May 15, plus the matching Public Information Report or Ownership Information Report. This page is built to answer the first practical questions fast: whether the entity is in the franchise-tax system, whether the current no-tax-due threshold matters, and which information report goes with the filing.",
     "lastReviewed": "March 17, 2026",
     "sourceBadge": "Source: Texas Comptroller of Public Accounts",
     "summaryTitle": "At a glance",

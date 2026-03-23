@@ -83,16 +83,16 @@ export const stateDirectory = [
     directoryCardDescription:
       "2025 launch rules, $7 filing fee, and the delayed enforcement window that begins with reports due in 2027.",
     homeComparison: {
-      focus: "LLC",
-      deadline: "January 1 to September 30",
+      focus: "Pennsylvania LLC, corporation, LP, or LLP",
+      deadline: "Window depends on association type; LLCs use January 1 to September 30",
       fee: "$7",
       lateRule: "Administrative action begins in 2027, six months after due date"
     },
     directoryComparison: {
       obligation: "Annual report",
-      entityFocus: "Corporations, LLCs, LPs, LLPs",
-      deadline: "Varies by association type",
-      amount: "$7 for most business entities"
+      entityFocus: "Corporations, LLCs, LPs, LLPs, and similar associations",
+      deadline: "Window changes by association type; LLCs use January 1 to September 30",
+      amount: "$7 standard fee for most business entities"
     }
   },
   {
@@ -185,15 +185,15 @@ export const stateDirectory = [
     directoryCardDescription:
       "May 15 filing timing, 2026 no-tax-due threshold, information-report rules, and late-report penalties.",
     homeComparison: {
-      focus: "Taxable entity filing a franchise tax report",
-      deadline: "May 15",
-      fee: "No-tax-due threshold of $2,650,000 for 2026 reports",
-      lateRule: "$50 late-report penalty plus tax penalties if tax is due"
+      focus: "Texas taxable entity filing franchise tax",
+      deadline: "May 15, or the next business day if the date falls on a weekend or holiday",
+      fee: "$2,650,000 no-tax-due threshold for 2026 reports",
+      lateRule: "$50 per late report, plus separate late-tax penalties if tax is due"
     },
     directoryComparison: {
-      obligation: "Franchise tax report and information report",
-      entityFocus: "Taxable entities filing PIR or OIR",
-      deadline: "May 15",
+      obligation: "Franchise tax report plus PIR or OIR",
+      entityFocus: "Taxable entities that must file a Texas franchise tax return",
+      deadline: "May 15, or the next business day if the date falls on a weekend or holiday",
       amount: "$2,650,000 no-tax-due threshold for 2026 reports"
     }
   },
@@ -237,16 +237,16 @@ export const stateDirectory = [
     directoryCardDescription:
       "$9 filing fee, due-month filing rule, no expedited handling, and the official past-due status consequences for corporations and LLCs.",
     homeComparison: {
-      focus: "Business corporation or LLC filing a biennial statement",
-      deadline: "During the calendar month of formation or authority, every two years",
-      fee: "$9",
-      lateRule: "No flat late fee on the DOS page; status shows as past due"
+      focus: "New York business corporation or LLC",
+      deadline: "Every two years during the calendar month of formation or authority",
+      fee: "$9 biennial statement",
+      lateRule: "No flat DOS late fee listed; the filing status shows as past due"
     },
     directoryComparison: {
       obligation: "Biennial Statement",
-      entityFocus: "Business corporations and LLCs",
-      deadline: "Calendar month of formation or authority, every two years",
-      amount: "$9"
+      entityFocus: "Domestic and foreign business corporations and LLCs",
+      deadline: "File every two years during the calendar month of formation or authority",
+      amount: "$9 filing fee"
     }
   },
   {

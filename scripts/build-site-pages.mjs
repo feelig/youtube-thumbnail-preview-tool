@@ -740,40 +740,39 @@ ${renderHeader()}
       <main class="page">
         <section class="hero hero--home">
           <div class="hero__copy surface">
-            <p class="eyebrow">Official-state-source summaries</p>
-            <h1>Find the right filing deadline, annual fee, or recurring business tax fast.</h1>
+            <p class="eyebrow">Official-state-source guides</p>
+            <h1>Find the state filing deadline, annual fee, or recurring tax that applies to your business.</h1>
             <p class="hero__subtitle">
-              Every live guide is tied to official state sources, carries a manual review date, and
-              sits behind a daily source-health scan. Every live guide now targets at least five
-              official sources so customers can see what is due, when it is due, and what it costs
-              without wading through clutter.
+              Each live guide is manually reviewed, tied to official state sources, and checked by
+              a daily source-health scan. Start with the state and filing label you need, then use
+              the linked official portal before you file or pay.
             </p>
             <div class="notice-bar">
               <strong>Important:</strong>
-              <span>Informational only. Official state instructions and filing portals still control.</span>
+              <span>Use this site to narrow the answer fast. Official state instructions and filing portals still control.</span>
             </div>
             <div class="stat-grid">
               <div class="stat-card">
                 <strong>${entries.length} live state guides</strong>
-                <span>Entity-specific pages for annual reports, annual fees, statements, and franchise-tax filings.</span>
+                <span>Pages for annual reports, fee schedules, statements, and recurring tax filings.</span>
               </div>
               <div class="stat-card">
                 <strong>Latest manual review: ${escapeHtml(latestReviewText)}</strong>
-                <span>Every live guide shows a dated review stamp.</span>
+                <span>Every live guide shows a visible review date.</span>
               </div>
               <div class="stat-card">
                 <strong>${uniqueSourceCount} official source links monitored</strong>
-                <span>Daily scans flag broken links or pages that need a fresh review.</span>
+                <span>Daily scans flag broken links and pages that may need a fresh check.</span>
               </div>
             </div>
           </div>
 
           <aside class="hero__panel surface">
             <h2>Quick state lookup</h2>
-            <p>Open the live guide for the state and filing rule you need.</p>
+            <p>Choose the guide that matches your state and filing type.</p>
             <form class="lookup-form" data-state-lookup>
               <label class="field" for="stateGuideSelect">
-                <span>Choose a live guide</span>
+                <span>Select a state guide</span>
                 <select id="stateGuideSelect" name="state-guide">
                   <option value="">Select a guide</option>
 ${renderSelectOptions(entries)}
