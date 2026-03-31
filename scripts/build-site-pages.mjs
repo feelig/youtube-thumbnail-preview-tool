@@ -89,7 +89,7 @@ function renderHeader() {
         </a>
         <nav class="site-nav" aria-label="Primary">
           <a href="/">Home</a>
-          <a href="${DIRECTORY_ROUTE}">States</a>
+          <a href="${DIRECTORY_ROUTE}">State compare</a>
           <a href="/filing-basics.html">Filing basics</a>
           <a href="/filing-help-options.html">Help options</a>
           <a href="/about.html">About</a>
@@ -108,7 +108,7 @@ function renderHomeHeader() {
         </a>
         <nav class="site-nav" aria-label="Primary">
           <a href="/">首页</a>
-          <a href="${DIRECTORY_ROUTE}">各州</a>
+          <a href="${DIRECTORY_ROUTE}">州对比</a>
           <a href="/filing-basics.html">文件归档基础知识</a>
           <a href="/filing-help-options.html">帮助选项</a>
           <a href="/about.html">关于</a>
@@ -120,7 +120,7 @@ function renderFooter() {
   return `      <footer class="site-footer">
         <nav class="footer-nav" aria-label="Footer">
           <a href="/">Home</a>
-          <a href="${DIRECTORY_ROUTE}">States</a>
+          <a href="${DIRECTORY_ROUTE}">State compare</a>
           <a href="/filing-basics.html">Filing basics</a>
           <a href="/filing-help-options.html">Help options</a>
           <a href="/about.html">About</a>
@@ -933,10 +933,10 @@ ${renderHeader()}
             <div class="breadcrumbs">
               <a href="/">Home</a>
               <span>/</span>
-              <span>State filing guides</span>
+              <span>State compare</span>
             </div>
-            <p class="eyebrow">State directory</p>
-            <h1>Browse and compare state guides</h1>
+            <p class="eyebrow">State compare</p>
+            <h1>Compare states</h1>
             <p class="hero__subtitle">
               Choose 2 or 3 states, submit the comparison, and review the filing label, deadline,
               amount, and late rule below.

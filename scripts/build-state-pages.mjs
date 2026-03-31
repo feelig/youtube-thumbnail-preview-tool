@@ -867,7 +867,7 @@ function renderPage(page) {
         </a>
         <nav class="site-nav" aria-label="Primary">
           <a href="/">Home</a>
-          <a href="/states.html">States</a>
+          <a href="/states.html">State compare</a>
           <a href="/filing-basics.html">Filing basics</a>
           <a href="/filing-help-options.html">Help options</a>
           <a href="/about.html">About</a>
@@ -916,7 +916,7 @@ ${renderSourceLinks(page.sourceLinks)}
       <footer class="site-footer">
         <nav class="footer-nav" aria-label="Footer">
           <a href="/">Home</a>
-          <a href="/states.html">States</a>
+          <a href="/states.html">State compare</a>
           <a href="/filing-basics.html">Filing basics</a>
           <a href="/filing-help-options.html">Help options</a>
           <a href="/about.html">About</a>
