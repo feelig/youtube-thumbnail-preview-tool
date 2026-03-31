@@ -51,10 +51,11 @@
               <span>/</span>
               <span>State filing guides</span>
             </div>
-            <p class="eyebrow">State guides</p>
-            <h1>Find the right state guide</h1>
+            <p class="eyebrow">State directory</p>
+            <h1>Browse and compare state guides</h1>
             <p class="hero__subtitle">
-              Search by state, filing name, or entity type, then open the matching guide.
+              Use the dropdown to open one guide fast, or filter the full list when you need to
+              compare states, filing names, or entity types.
             </p>
             <div class="badge-row">
               <span class="badge">16 state guides</span>
@@ -64,29 +65,69 @@
           </div>
 
           <aside class="summary-panel surface">
-            <h2>Search states</h2>
-            <p>Filter by state, filing name, or entity type.</p>
-            <label class="field field--search">
-              <span>Search guides</span>
-              <input
-                type="search"
-                placeholder="State, filing type, or entity"
-                data-guide-search-input
-              />
-            </label>
-            <label class="field" for="guideTypeFilter">
-              <span>Guide type</span>
-              <select id="guideTypeFilter" data-guide-bucket-select>
-                <option value="">All guide types</option>
+            <div class="panel-block">
+              <h2>Open one guide fast</h2>
+              <p>If you already know the state or filing page, use the dropdown.</p>
+              <form class="lookup-form" data-state-lookup>
+                <label class="field" for="directoryStateGuideSelect">
+                  <span>State guide</span>
+                  <select id="directoryStateGuideSelect" name="state-guide">
+                    <option value="">Choose a guide</option>
+                  <optgroup label="Annual report guides">
+                    <option value="/tools/north-carolina/annual-report-deadline/">North Carolina annual report deadline</option>
+                    <option value="/tools/pennsylvania/annual-report-deadline/">Pennsylvania annual report deadline</option>
+                    <option value="/tools/florida/annual-report-deadline/">Florida annual report fee and deadline</option>
+                    <option value="/tools/washington/annual-report-deadline-guide/">Washington annual report fee and deadline</option>
+                    <option value="/tools/connecticut/annual-report-deadline/">Connecticut annual report fee and deadline</option>
+                    <option value="/tools/new-jersey/annual-report-deadline/">New Jersey annual report fee and deadline</option>
+                    <option value="/tools/oregon/annual-report-deadline/">Oregon annual report fee and due date</option>
+                  </optgroup>
+                  <optgroup label="Annual registration and annual tax guides">
+                    <option value="/tools/georgia/annual-report-deadline/">Georgia annual registration deadline</option>
+                    <option value="/tools/delaware/annual-report-deadline/">Delaware annual report and annual tax deadline</option>
+                    <option value="/tools/virginia/annual-registration-fee-deadline/">Virginia annual registration fee and annual report deadline</option>
+                  </optgroup>
+                  <optgroup label="Recurring fee and statement tools">
+                    <option value="/tools/nevada/annual-fee-calculator/">Nevada annual fee calculator</option>
+                    <option value="/tools/texas/franchise-tax-deadline/">Texas franchise tax deadline</option>
+                    <option value="/tools/kansas/information-report-deadline/">Kansas information report deadline</option>
+                    <option value="/tools/new-york/biennial-statement-deadline/">New York biennial statement deadline</option>
+                    <option value="/tools/california/statement-of-information-deadline/">California Statement of Information deadline</option>
+                    <option value="/tools/colorado/periodic-report-deadline/">Colorado periodic report fee and due date</option>
+                  </optgroup>
+                  </select>
+                </label>
+                <button class="button button--primary" type="submit">Open guide</button>
+              </form>
+            </div>
+
+            <div class="panel-divider" aria-hidden="true"></div>
+
+            <div class="panel-block">
+              <h2>Compare and filter</h2>
+              <p>Search by state, filing name, or entity type.</p>
+              <label class="field field--search">
+                <span>Search guides</span>
+                <input
+                  type="search"
+                  placeholder="State, filing type, or entity"
+                  data-guide-search-input
+                />
+              </label>
+              <label class="field" for="guideTypeFilter">
+                <span>Guide type</span>
+                <select id="guideTypeFilter" data-guide-bucket-select>
+                  <option value="">All guide types</option>
                 <option value="annual-reports">Annual report guides (7)</option>
                 <option value="annual-registration-and-tax">Annual registration and annual tax guides (3)</option>
                 <option value="recurring-fees-and-statements">Recurring fee and statement tools (6)</option>
-              </select>
-            </label>
-            <p class="results-count" data-guide-results-count aria-live="polite">
-              Showing all 16 guides.
-            </p>
-            <p class="panel-note">If you do not know the filing label, use <a class="inline-link" href="/filing-basics.html">Filing basics</a>.</p>
+                </select>
+              </label>
+              <p class="results-count" data-guide-results-count aria-live="polite">
+                Showing all 16 guides.
+              </p>
+              <p class="panel-note">Use this page when you need to compare states or filing labels. If you do not know the filing label, start with <a class="inline-link" href="/filing-basics.html">Filing basics</a>.</p>
+            </div>
           </aside>
         </section>
 

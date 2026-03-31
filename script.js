@@ -1,6 +1,6 @@
-const lookupForm = document.querySelector("[data-state-lookup]");
+const lookupForms = document.querySelectorAll("[data-state-lookup]");
 
-if (lookupForm) {
+lookupForms.forEach((lookupForm) => {
   lookupForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const select = lookupForm.querySelector("select");
@@ -8,7 +8,7 @@ if (lookupForm) {
       window.location.href = select.value;
     }
   });
-}
+});
 
 const nevadaConfig = {
   llc: {
@@ -118,32 +118,71 @@ decisionToolRoots.forEach((root) => {
   showBestMatch();
 });
 
-const guideSearchInputs = document.querySelectorAll("[data-guide-search-input]");
+const guideDirectoryRoots = document.querySelectorAll("[data-guide-directory-root]");
 
-guideSearchInputs.forEach((input) => {
-  const section = input.closest(".section");
-  if (!section) return;
+guideDirectoryRoots.forEach((root) => {
+  const searchInputs = Array.from(root.querySelectorAll("[data-guide-search-input]"));
+  const bucketSelects = Array.from(root.querySelectorAll("[data-guide-bucket-select]"));
+  const cards = Array.from(root.querySelectorAll("[data-guide-card]"));
+  const emptyStates = Array.from(root.querySelectorAll("[data-guide-empty]"));
+  const resultCounts = Array.from(root.querySelectorAll("[data-guide-results-count]"));
 
-  const cards = Array.from(section.querySelectorAll("[data-guide-card]"));
-  const emptyState = section.querySelector("[data-guide-empty]");
+  if (cards.length === 0) {
+    return;
+  }
+
+  function syncValue(elements, source) {
+    elements.forEach((element) => {
+      if (element !== source) {
+        element.value = source.value;
+      }
+    });
+  }
 
   function updateResults() {
-    const query = input.value.trim().toLowerCase();
+    const query = (searchInputs[0]?.value || "").trim().toLowerCase();
+    const selectedBucket = bucketSelects[0]?.value || "";
     let visibleCount = 0;
 
     cards.forEach((card) => {
-      const matches = !query || (card.dataset.search || "").includes(query);
+      const matchesQuery = !query || (card.dataset.search || "").includes(query);
+      const matchesBucket =
+        !selectedBucket || card.dataset.guideBucket === selectedBucket;
+      const matches = matchesQuery && matchesBucket;
+
       card.hidden = !matches;
       if (matches) {
         visibleCount += 1;
       }
     });
 
-    if (emptyState) {
+    emptyStates.forEach((emptyState) => {
       emptyState.hidden = visibleCount !== 0;
-    }
+    });
+
+    resultCounts.forEach((resultCount) => {
+      if (visibleCount === cards.length) {
+        resultCount.textContent = `Showing all ${cards.length} guides.`;
+        return;
+      }
+
+      resultCount.textContent = `Showing ${visibleCount} of ${cards.length} guides.`;
+    });
   }
 
-  input.addEventListener("input", updateResults);
+  searchInputs.forEach((input) => {
+    input.addEventListener("input", () => {
+      syncValue(searchInputs, input);
+      updateResults();
+    });
+  });
+
+  bucketSelects.forEach((select) => {
+    select.addEventListener("change", () => {
+      syncValue(bucketSelects, select);
+      updateResults();
+    });
+  });
+
   updateResults();
 });

@@ -880,10 +880,11 @@ ${renderHeader()}
               <span>/</span>
               <span>State filing guides</span>
             </div>
-            <p class="eyebrow">State guides</p>
-            <h1>Find the right state guide</h1>
+            <p class="eyebrow">State directory</p>
+            <h1>Browse and compare state guides</h1>
             <p class="hero__subtitle">
-              Search by state, filing name, or entity type, then open the matching guide.
+              Use the dropdown to open one guide fast, or filter the full list when you need to
+              compare states, filing names, or entity types.
             </p>
             <div class="badge-row">
               <span class="badge">${entries.length} state guides</span>
@@ -893,27 +894,46 @@ ${renderHeader()}
           </div>
 
           <aside class="summary-panel surface">
-            <h2>Search states</h2>
-            <p>Filter by state, filing name, or entity type.</p>
-            <label class="field field--search">
-              <span>Search guides</span>
-              <input
-                type="search"
-                placeholder="State, filing type, or entity"
-                data-guide-search-input
-              />
-            </label>
-            <label class="field" for="guideTypeFilter">
-              <span>Guide type</span>
-              <select id="guideTypeFilter" data-guide-bucket-select>
-                <option value="">All guide types</option>
+            <div class="panel-block">
+              <h2>Open one guide fast</h2>
+              <p>If you already know the state or filing page, use the dropdown.</p>
+              <form class="lookup-form" data-state-lookup>
+                <label class="field" for="directoryStateGuideSelect">
+                  <span>State guide</span>
+                  <select id="directoryStateGuideSelect" name="state-guide">
+                    <option value="">Choose a guide</option>
+${renderLookupOptions(bucketSummaries)}
+                  </select>
+                </label>
+                <button class="button button--primary" type="submit">Open guide</button>
+              </form>
+            </div>
+
+            <div class="panel-divider" aria-hidden="true"></div>
+
+            <div class="panel-block">
+              <h2>Compare and filter</h2>
+              <p>Search by state, filing name, or entity type.</p>
+              <label class="field field--search">
+                <span>Search guides</span>
+                <input
+                  type="search"
+                  placeholder="State, filing type, or entity"
+                  data-guide-search-input
+                />
+              </label>
+              <label class="field" for="guideTypeFilter">
+                <span>Guide type</span>
+                <select id="guideTypeFilter" data-guide-bucket-select>
+                  <option value="">All guide types</option>
 ${renderGuideTypeOptions(bucketSummaries)}
-              </select>
-            </label>
-            <p class="results-count" data-guide-results-count aria-live="polite">
-              Showing all ${entries.length} guides.
-            </p>
-            <p class="panel-note">If you do not know the filing label, use <a class="inline-link" href="/filing-basics.html">Filing basics</a>.</p>
+                </select>
+              </label>
+              <p class="results-count" data-guide-results-count aria-live="polite">
+                Showing all ${entries.length} guides.
+              </p>
+              <p class="panel-note">Use this page when you need to compare states or filing labels. If you do not know the filing label, start with <a class="inline-link" href="/filing-basics.html">Filing basics</a>.</p>
+            </div>
           </aside>
         </section>
 
