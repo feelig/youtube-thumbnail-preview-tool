@@ -21,16 +21,28 @@ function escapeHtml(value) {
 const guideCompareRoots = document.querySelectorAll("[data-guide-compare-root]");
 
 guideCompareRoots.forEach((root) => {
+  const compareForm = root.querySelector("[data-compare-form]");
   const modeButtons = Array.from(root.querySelectorAll("[data-compare-mode-button]"));
   const compareSelects = Array.from(root.querySelectorAll("[data-compare-select]"));
   const thirdField = root.querySelector("[data-compare-third-field]");
   const compareStatus = root.querySelector("[data-compare-status]");
   const compareTableWrap = root.querySelector("[data-compare-table-wrap]");
   const compareTable = root.querySelector("[data-compare-table]");
+  const compareReset = root.querySelector("[data-compare-reset]");
   let compareMode = "2";
 
-  if (compareSelects.length < 2 || !compareStatus || !compareTableWrap || !compareTable) {
+  if (
+    !compareForm ||
+    compareSelects.length < 2 ||
+    !compareStatus ||
+    !compareTableWrap ||
+    !compareTable
+  ) {
     return;
+  }
+
+  function getRequiredCount() {
+    return compareMode === "3" ? 3 : 2;
   }
 
   function getSelectedEntry(select) {
@@ -50,6 +62,49 @@ guideCompareRoots.forEach((root) => {
       lateRule: option.dataset.lateRule || "",
       route: option.value
     };
+  }
+
+  function hideComparisonTable() {
+    compareTableWrap.hidden = true;
+    compareTable.innerHTML = "";
+  }
+
+  function getActiveSelects() {
+    return compareSelects.slice(0, getRequiredCount());
+  }
+
+  function getSelectionState() {
+    const selectedEntries = getActiveSelects().map(getSelectedEntry).filter(Boolean);
+    const uniqueStates = new Set(selectedEntries.map((entry) => entry.state));
+
+    return {
+      requiredCount: getRequiredCount(),
+      selectedEntries,
+      hasDuplicate: uniqueStates.size !== selectedEntries.length,
+    };
+  }
+
+  function setPendingStatus() {
+    const { requiredCount, selectedEntries, hasDuplicate } = getSelectionState();
+
+    if (selectedEntries.length < requiredCount) {
+      compareStatus.textContent = hasDuplicate
+        ? `Choose ${requiredCount} different states and click Compare states.`
+        : `Choose ${requiredCount} states and click Compare states.`;
+      hideComparisonTable();
+      return;
+    }
+
+    if (hasDuplicate) {
+      compareStatus.textContent = "Choose different states to compare.";
+      hideComparisonTable();
+      return;
+    }
+
+    compareStatus.textContent = `Ready to compare ${selectedEntries
+      .map((entry) => entry.state)
+      .join(" vs ")}. Click Compare states.`;
+    hideComparisonTable();
   }
 
   function renderComparisonTable(entries) {
@@ -95,6 +150,22 @@ ${entries
               </tbody>`;
   }
 
+  function updateComparisonUrl(entries) {
+    const url = new URL(window.location.href);
+    const routeList = entries.map((entry) => entry.route).join(",");
+
+    url.searchParams.set("compareMode", compareMode);
+    url.searchParams.set("compare", routeList);
+    window.history.pushState({}, "", url);
+  }
+
+  function clearComparisonUrl() {
+    const url = new URL(window.location.href);
+    url.searchParams.delete("compareMode");
+    url.searchParams.delete("compare");
+    window.history.pushState({}, "", url);
+  }
+
   function updateCompareModeButtons() {
     modeButtons.forEach((button) => {
       const isActive = button.dataset.mode === compareMode;
@@ -103,11 +174,7 @@ ${entries
     });
   }
 
-  function updateComparison() {
-    const requiredCount = compareMode === "3" ? 3 : 2;
-    const activeSelects = compareSelects.slice(0, requiredCount);
-    const selectedEntries = activeSelects.map(getSelectedEntry).filter(Boolean);
-
+  function syncCompareModeUi() {
     if (thirdField) {
       thirdField.hidden = compareMode !== "3";
     }
@@ -117,40 +184,115 @@ ${entries
     }
 
     updateCompareModeButtons();
+  }
 
-    if (selectedEntries.length < requiredCount) {
-      compareStatus.textContent = `Choose ${requiredCount} states to compare.`;
-      compareTableWrap.hidden = true;
-      compareTable.innerHTML = "";
-      return;
-    }
-
-    if (new Set(selectedEntries.map((entry) => entry.state)).size !== selectedEntries.length) {
-      compareStatus.textContent = "Choose different states to compare.";
-      compareTableWrap.hidden = true;
-      compareTable.innerHTML = "";
-      return;
-    }
-
-    compareStatus.textContent = `Comparing ${selectedEntries
+  function renderComparison(entries, { updateUrl = true } = {}) {
+    compareStatus.textContent = `Comparing ${entries
       .map((entry) => entry.state)
       .join(" vs ")}.`;
-    renderComparisonTable(selectedEntries);
+    renderComparisonTable(entries);
     compareTableWrap.hidden = false;
+
+    if (updateUrl) {
+      updateComparisonUrl(entries);
+    }
+  }
+
+  function submitComparison() {
+    const { requiredCount, selectedEntries, hasDuplicate } = getSelectionState();
+
+    if (selectedEntries.length < requiredCount) {
+      compareStatus.textContent = hasDuplicate
+        ? `Choose ${requiredCount} different states and click Compare states.`
+        : `Choose ${requiredCount} states and click Compare states.`;
+      hideComparisonTable();
+      return false;
+    }
+
+    if (hasDuplicate) {
+      compareStatus.textContent = "Choose different states to compare.";
+      hideComparisonTable();
+      return false;
+    }
+
+    renderComparison(selectedEntries);
+    return true;
+  }
+
+  function hydrateFromUrl() {
+    const url = new URL(window.location.href);
+    const modeFromUrl = url.searchParams.get("compareMode");
+    const compareFromUrl = url.searchParams.get("compare");
+
+    compareSelects.forEach((select) => {
+      select.value = "";
+    });
+
+    if (modeFromUrl === "3") {
+      compareMode = "3";
+    } else {
+      compareMode = "2";
+    }
+
+    syncCompareModeUi();
+
+    if (!compareFromUrl) {
+      setPendingStatus();
+      return;
+    }
+
+    const routes = compareFromUrl
+      .split(",")
+      .map((value) => value.trim())
+      .filter(Boolean);
+
+    getActiveSelects().forEach((select, index) => {
+      const route = routes[index];
+      if (route && Array.from(select.options).some((option) => option.value === route)) {
+        select.value = route;
+      }
+    });
+
+    const { requiredCount, selectedEntries, hasDuplicate } = getSelectionState();
+
+    if (hasDuplicate || selectedEntries.length < requiredCount) {
+      setPendingStatus();
+      return;
+    }
+
+    renderComparison(selectedEntries, { updateUrl: false });
   }
 
   modeButtons.forEach((button) => {
     button.addEventListener("click", () => {
       compareMode = button.dataset.mode || "2";
-      updateComparison();
+      syncCompareModeUi();
+      setPendingStatus();
     });
   });
 
   compareSelects.forEach((select) => {
-    select.addEventListener("change", updateComparison);
+    select.addEventListener("change", setPendingStatus);
   });
 
-  updateComparison();
+  compareForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    submitComparison();
+  });
+
+  compareReset?.addEventListener("click", () => {
+    compareSelects.forEach((select) => {
+      select.value = "";
+    });
+    compareMode = "2";
+    syncCompareModeUi();
+    clearComparisonUrl();
+    setPendingStatus();
+  });
+
+  window.addEventListener("popstate", hydrateFromUrl);
+
+  hydrateFromUrl();
 });
 
 const nevadaConfig = {

@@ -946,50 +946,60 @@ ${renderGuideTypeOptions(bucketSummaries)}
               rule before you open a guide.
             </p>
           </div>
-          <div class="compare-toolbar">
-            <div class="compare-mode-group" role="group" aria-label="Compare mode">
-              <button
-                class="button button--secondary compare-mode-button is-active"
-                type="button"
-                data-compare-mode-button
-                data-mode="2"
-                aria-pressed="true"
-              >
-                2 states
-              </button>
-              <button
-                class="button button--secondary compare-mode-button"
-                type="button"
-                data-compare-mode-button
-                data-mode="3"
-                aria-pressed="false"
-              >
-                3 states
+          <form class="compare-form" data-compare-form>
+            <div class="compare-toolbar">
+              <div class="compare-mode-group" role="group" aria-label="Compare mode">
+                <button
+                  class="button button--secondary compare-mode-button is-active"
+                  type="button"
+                  data-compare-mode-button
+                  data-mode="2"
+                  aria-pressed="true"
+                >
+                  2 states
+                </button>
+                <button
+                  class="button button--secondary compare-mode-button"
+                  type="button"
+                  data-compare-mode-button
+                  data-mode="3"
+                  aria-pressed="false"
+                >
+                  3 states
+                </button>
+              </div>
+              <label class="field" for="compareStateOne">
+                <span>State 1</span>
+                <select id="compareStateOne" data-compare-select>
+                  <option value="">Choose a state</option>
+${renderComparisonOptions(entries)}
+                </select>
+              </label>
+              <label class="field" for="compareStateTwo">
+                <span>State 2</span>
+                <select id="compareStateTwo" data-compare-select>
+                  <option value="">Choose a state</option>
+${renderComparisonOptions(entries)}
+                </select>
+              </label>
+              <label class="field" for="compareStateThree" data-compare-third-field hidden>
+                <span>State 3</span>
+                <select id="compareStateThree" data-compare-select>
+                  <option value="">Choose a state</option>
+${renderComparisonOptions(entries)}
+                </select>
+              </label>
+            </div>
+            <div class="compare-actions">
+              <button class="button button--primary" type="submit">Compare states</button>
+              <button class="button button--secondary" type="button" data-compare-reset>
+                Clear
               </button>
             </div>
-            <label class="field" for="compareStateOne">
-              <span>State 1</span>
-              <select id="compareStateOne" data-compare-select>
-                <option value="">Choose a state</option>
-${renderComparisonOptions(entries)}
-              </select>
-            </label>
-            <label class="field" for="compareStateTwo">
-              <span>State 2</span>
-              <select id="compareStateTwo" data-compare-select>
-                <option value="">Choose a state</option>
-${renderComparisonOptions(entries)}
-              </select>
-            </label>
-            <label class="field" for="compareStateThree" data-compare-third-field hidden>
-              <span>State 3</span>
-              <select id="compareStateThree" data-compare-select>
-                <option value="">Choose a state</option>
-${renderComparisonOptions(entries)}
-              </select>
-            </label>
-          </div>
-          <p class="compare-status" data-compare-status>Choose 2 states to compare.</p>
+          </form>
+          <p class="compare-status" data-compare-status>
+            Choose 2 states and click Compare states.
+          </p>
           <div class="table-scroll" hidden data-compare-table-wrap>
             <table class="summary-table compare-table" data-compare-table></table>
           </div>

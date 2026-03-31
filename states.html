@@ -100,575 +100,585 @@
               rule before you open a guide.
             </p>
           </div>
-          <div class="compare-toolbar">
-            <div class="compare-mode-group" role="group" aria-label="Compare mode">
-              <button
-                class="button button--secondary compare-mode-button is-active"
-                type="button"
-                data-compare-mode-button
-                data-mode="2"
-                aria-pressed="true"
-              >
-                2 states
-              </button>
-              <button
-                class="button button--secondary compare-mode-button"
-                type="button"
-                data-compare-mode-button
-                data-mode="3"
-                aria-pressed="false"
-              >
-                3 states
+          <form class="compare-form" data-compare-form>
+            <div class="compare-toolbar">
+              <div class="compare-mode-group" role="group" aria-label="Compare mode">
+                <button
+                  class="button button--secondary compare-mode-button is-active"
+                  type="button"
+                  data-compare-mode-button
+                  data-mode="2"
+                  aria-pressed="true"
+                >
+                  2 states
+                </button>
+                <button
+                  class="button button--secondary compare-mode-button"
+                  type="button"
+                  data-compare-mode-button
+                  data-mode="3"
+                  aria-pressed="false"
+                >
+                  3 states
+                </button>
+              </div>
+              <label class="field" for="compareStateOne">
+                <span>State 1</span>
+                <select id="compareStateOne" data-compare-select>
+                  <option value="">Choose a state</option>
+                  <option
+                    value="/tools/california/statement-of-information-deadline/"
+                    data-state="California"
+                    data-guide-label="California Statement of Information deadline"
+                    data-guide-type="Statement of Information guide"
+                    data-obligation="Statement of Information"
+                    data-entity-focus="Stock corporations and LLCs"
+                    data-deadline="Annual for stock corporations; every two years for LLCs, with an official six-month filing window"
+                    data-amount="$25 for stock corporations and $20 for LLCs"
+                    data-late-rule="FTB penalty and suspension or forfeiture risk after delinquency"
+                  >California</option>
+                  <option
+                    value="/tools/colorado/periodic-report-deadline/"
+                    data-state="Colorado"
+                    data-guide-label="Colorado periodic report fee and due date"
+                    data-guide-type="Periodic report guide"
+                    data-obligation="Periodic report"
+                    data-entity-focus="LLCs, corporations, nonprofits, foreign entities, LLPs, LLLPs, and reporting LPs"
+                    data-deadline="File beginning two months before the periodic report month and no later than the last day of the second month after it"
+                    data-amount="$25 filing fee, $50 late filing penalty, or $100 statement curing delinquency"
+                    data-late-rule="$50 late filing penalty, then $100 to cure delinquency"
+                  >Colorado</option>
+                  <option
+                    value="/tools/connecticut/annual-report-deadline/"
+                    data-state="Connecticut"
+                    data-guide-label="Connecticut annual report fee and deadline"
+                    data-guide-type="Annual report guide"
+                    data-obligation="Annual report"
+                    data-entity-focus="LLCs, stock and non-stock corporations, LLPs, and LPs"
+                    data-deadline="Annual; due date shown in the state filing system and reminder notices"
+                    data-amount="$80 to $435 depending on entity type"
+                    data-late-rule="Overdue entities cannot get a certificate of legal existence and may be dissolved"
+                  >Connecticut</option>
+                  <option
+                    value="/tools/delaware/annual-report-deadline/"
+                    data-state="Delaware"
+                    data-guide-label="Delaware annual report and annual tax deadline"
+                    data-guide-type="Annual report plus annual tax guide"
+                    data-obligation="Annual report or annual tax"
+                    data-entity-focus="Domestic corporations, foreign corporations, LLCs, LPs, GPs"
+                    data-deadline="March 1, June 1, or June 30 depending on entity type"
+                    data-amount="$50 annual report fee or $300 LLC annual tax"
+                    data-late-rule="$200 penalty plus 1.5% monthly interest"
+                  >Delaware</option>
+                  <option
+                    value="/tools/florida/annual-report-deadline/"
+                    data-state="Florida"
+                    data-guide-label="Florida annual report fee and deadline"
+                    data-guide-type="Annual report guide"
+                    data-obligation="Annual report"
+                    data-entity-focus="Profit and non-profit corporations, LLCs, LPs, and LLLPs"
+                    data-deadline="January 1 to May 1, then September dissolution cutoff"
+                    data-amount="$61.25 to $500.00 depending on entity type, plus a $400 late fee for most for-profit entities after May 1"
+                    data-late-rule="$400 late fee after May 1 for profit corporations, LLCs, LPs, and LLLPs; dissolution or revocation after the September cutoff"
+                  >Florida</option>
+                  <option
+                    value="/tools/georgia/annual-report-deadline/"
+                    data-state="Georgia"
+                    data-guide-label="Georgia annual registration deadline"
+                    data-guide-type="Annual registration guide"
+                    data-obligation="Annual registration"
+                    data-entity-focus="Business entities using the annual registration portal"
+                    data-deadline="April 1"
+                    data-amount="Varies by entity type; common $60 online total"
+                    data-late-rule="$25 late penalty"
+                  >Georgia</option>
+                  <option
+                    value="/tools/kansas/information-report-deadline/"
+                    data-state="Kansas"
+                    data-guide-label="Kansas information report deadline"
+                    data-guide-type="Information report guide"
+                    data-obligation="Biennial information report"
+                    data-entity-focus="For-profit and not-for-profit businesses on file with the Secretary of State"
+                    data-deadline="April 15 or June 15 depending on business type and formation-year parity"
+                    data-amount="$53 online or $55 paper for Kansas LLCs"
+                    data-late-rule="Three-month delinquency interval, then forfeiture"
+                  >Kansas</option>
+                  <option
+                    value="/tools/nevada/annual-fee-calculator/"
+                    data-state="Nevada"
+                    data-guide-label="Nevada annual fee calculator"
+                    data-guide-type="Interactive recurring-fee guide"
+                    data-obligation="Annual list and business license renewal"
+                    data-entity-focus="LLCs and corporations"
+                    data-deadline="Last day of anniversary month"
+                    data-amount="$350 recurring LLC state total before late penalties"
+                    data-late-rule="$75 annual-list penalty + $100 license penalty"
+                  >Nevada</option>
+                  <option
+                    value="/tools/new-jersey/annual-report-deadline/"
+                    data-state="New Jersey"
+                    data-guide-label="New Jersey annual report fee and deadline"
+                    data-guide-type="Annual report guide"
+                    data-obligation="Annual report"
+                    data-entity-focus="Corporations, LLCs, LPs, LLPs, and non-profits registered in New Jersey"
+                    data-deadline="Every year on the last day of the anniversary month"
+                    data-amount="$75 for for-profit entities and $30 for non-profit corporations"
+                    data-late-rule="After two missed reports, the business may lose authority and registration benefits"
+                  >New Jersey</option>
+                  <option
+                    value="/tools/new-york/biennial-statement-deadline/"
+                    data-state="New York"
+                    data-guide-label="New York biennial statement deadline"
+                    data-guide-type="Biennial statement guide"
+                    data-obligation="Biennial Statement"
+                    data-entity-focus="Domestic and foreign business corporations and LLCs"
+                    data-deadline="File every two years during the calendar month of formation or authority"
+                    data-amount="$9 filing fee"
+                    data-late-rule="No flat DOS late fee listed; the filing status shows as past due"
+                  >New York</option>
+                  <option
+                    value="/tools/north-carolina/annual-report-deadline/"
+                    data-state="North Carolina"
+                    data-guide-label="North Carolina annual report deadline"
+                    data-guide-type="Annual report guide"
+                    data-obligation="Annual report"
+                    data-entity-focus="LLCs, L3Cs, corporations, partnerships"
+                    data-deadline="April 15 for LLCs; fiscal-year-based for corporations"
+                    data-amount="$202-$203 online or $200 paper for LLCs"
+                    data-late-rule="No flat late fee stated on the due-date chart"
+                  >North Carolina</option>
+                  <option
+                    value="/tools/oregon/annual-report-deadline/"
+                    data-state="Oregon"
+                    data-guide-label="Oregon annual report fee and due date"
+                    data-guide-type="Annual report guide"
+                    data-obligation="Annual report"
+                    data-entity-focus="Corporations, LLCs, nonprofits, and limited partnerships"
+                    data-deadline="Annual on the anniversary date of the original filing"
+                    data-amount="$50 to $275 depending on entity type"
+                    data-late-rule="Administrative dissolution, then reinstatement fee plus missed annual fee(s)"
+                  >Oregon</option>
+                  <option
+                    value="/tools/pennsylvania/annual-report-deadline/"
+                    data-state="Pennsylvania"
+                    data-guide-label="Pennsylvania annual report deadline"
+                    data-guide-type="Annual report guide"
+                    data-obligation="Annual report"
+                    data-entity-focus="Corporations, LLCs, LPs, LLPs, and similar associations"
+                    data-deadline="Window changes by association type; LLCs use January 1 to September 30"
+                    data-amount="$7 standard fee for most business entities"
+                    data-late-rule="Administrative action begins in 2027, six months after due date"
+                  >Pennsylvania</option>
+                  <option
+                    value="/tools/texas/franchise-tax-deadline/"
+                    data-state="Texas"
+                    data-guide-label="Texas franchise tax deadline"
+                    data-guide-type="Franchise tax guide"
+                    data-obligation="Franchise tax report plus PIR or OIR"
+                    data-entity-focus="Taxable entities that must file a Texas franchise tax return"
+                    data-deadline="May 15, or the next business day if the date falls on a weekend or holiday"
+                    data-amount="$2,650,000 no-tax-due threshold for 2026 reports"
+                    data-late-rule="$50 per late report, plus separate late-tax penalties if tax is due"
+                  >Texas</option>
+                  <option
+                    value="/tools/virginia/annual-registration-fee-deadline/"
+                    data-state="Virginia"
+                    data-guide-label="Virginia annual registration fee and annual report deadline"
+                    data-guide-type="Annual registration and report guide"
+                    data-obligation="Annual report, annual registration fee, or continuation report"
+                    data-entity-focus="Corporations, LLCs, LPs, business trusts, LLPs, and LLLPs"
+                    data-deadline="Last day of formation month for corporations and LLCs, October 1 for LPs and business trusts, or July 1 for LLPs and LLLPs"
+                    data-amount="$50 for most non-corporate recurring filings; corporation fee varies by share count"
+                    data-late-rule="Loss of good standing, revocation, or cancellation depending on entity type"
+                  >Virginia</option>
+                  <option
+                    value="/tools/washington/annual-report-deadline-guide/"
+                    data-state="Washington"
+                    data-guide-label="Washington annual report fee and deadline"
+                    data-guide-type="Annual report guide"
+                    data-obligation="Annual report"
+                    data-entity-focus="For-profit business entities"
+                    data-deadline="End of the anniversary month"
+                    data-amount="$70 annual report or $95 with delinquency fee"
+                    data-late-rule="$25 delinquency fee, then domestic dissolution at 120 days or foreign termination at 90 days"
+                  >Washington</option>
+                </select>
+              </label>
+              <label class="field" for="compareStateTwo">
+                <span>State 2</span>
+                <select id="compareStateTwo" data-compare-select>
+                  <option value="">Choose a state</option>
+                  <option
+                    value="/tools/california/statement-of-information-deadline/"
+                    data-state="California"
+                    data-guide-label="California Statement of Information deadline"
+                    data-guide-type="Statement of Information guide"
+                    data-obligation="Statement of Information"
+                    data-entity-focus="Stock corporations and LLCs"
+                    data-deadline="Annual for stock corporations; every two years for LLCs, with an official six-month filing window"
+                    data-amount="$25 for stock corporations and $20 for LLCs"
+                    data-late-rule="FTB penalty and suspension or forfeiture risk after delinquency"
+                  >California</option>
+                  <option
+                    value="/tools/colorado/periodic-report-deadline/"
+                    data-state="Colorado"
+                    data-guide-label="Colorado periodic report fee and due date"
+                    data-guide-type="Periodic report guide"
+                    data-obligation="Periodic report"
+                    data-entity-focus="LLCs, corporations, nonprofits, foreign entities, LLPs, LLLPs, and reporting LPs"
+                    data-deadline="File beginning two months before the periodic report month and no later than the last day of the second month after it"
+                    data-amount="$25 filing fee, $50 late filing penalty, or $100 statement curing delinquency"
+                    data-late-rule="$50 late filing penalty, then $100 to cure delinquency"
+                  >Colorado</option>
+                  <option
+                    value="/tools/connecticut/annual-report-deadline/"
+                    data-state="Connecticut"
+                    data-guide-label="Connecticut annual report fee and deadline"
+                    data-guide-type="Annual report guide"
+                    data-obligation="Annual report"
+                    data-entity-focus="LLCs, stock and non-stock corporations, LLPs, and LPs"
+                    data-deadline="Annual; due date shown in the state filing system and reminder notices"
+                    data-amount="$80 to $435 depending on entity type"
+                    data-late-rule="Overdue entities cannot get a certificate of legal existence and may be dissolved"
+                  >Connecticut</option>
+                  <option
+                    value="/tools/delaware/annual-report-deadline/"
+                    data-state="Delaware"
+                    data-guide-label="Delaware annual report and annual tax deadline"
+                    data-guide-type="Annual report plus annual tax guide"
+                    data-obligation="Annual report or annual tax"
+                    data-entity-focus="Domestic corporations, foreign corporations, LLCs, LPs, GPs"
+                    data-deadline="March 1, June 1, or June 30 depending on entity type"
+                    data-amount="$50 annual report fee or $300 LLC annual tax"
+                    data-late-rule="$200 penalty plus 1.5% monthly interest"
+                  >Delaware</option>
+                  <option
+                    value="/tools/florida/annual-report-deadline/"
+                    data-state="Florida"
+                    data-guide-label="Florida annual report fee and deadline"
+                    data-guide-type="Annual report guide"
+                    data-obligation="Annual report"
+                    data-entity-focus="Profit and non-profit corporations, LLCs, LPs, and LLLPs"
+                    data-deadline="January 1 to May 1, then September dissolution cutoff"
+                    data-amount="$61.25 to $500.00 depending on entity type, plus a $400 late fee for most for-profit entities after May 1"
+                    data-late-rule="$400 late fee after May 1 for profit corporations, LLCs, LPs, and LLLPs; dissolution or revocation after the September cutoff"
+                  >Florida</option>
+                  <option
+                    value="/tools/georgia/annual-report-deadline/"
+                    data-state="Georgia"
+                    data-guide-label="Georgia annual registration deadline"
+                    data-guide-type="Annual registration guide"
+                    data-obligation="Annual registration"
+                    data-entity-focus="Business entities using the annual registration portal"
+                    data-deadline="April 1"
+                    data-amount="Varies by entity type; common $60 online total"
+                    data-late-rule="$25 late penalty"
+                  >Georgia</option>
+                  <option
+                    value="/tools/kansas/information-report-deadline/"
+                    data-state="Kansas"
+                    data-guide-label="Kansas information report deadline"
+                    data-guide-type="Information report guide"
+                    data-obligation="Biennial information report"
+                    data-entity-focus="For-profit and not-for-profit businesses on file with the Secretary of State"
+                    data-deadline="April 15 or June 15 depending on business type and formation-year parity"
+                    data-amount="$53 online or $55 paper for Kansas LLCs"
+                    data-late-rule="Three-month delinquency interval, then forfeiture"
+                  >Kansas</option>
+                  <option
+                    value="/tools/nevada/annual-fee-calculator/"
+                    data-state="Nevada"
+                    data-guide-label="Nevada annual fee calculator"
+                    data-guide-type="Interactive recurring-fee guide"
+                    data-obligation="Annual list and business license renewal"
+                    data-entity-focus="LLCs and corporations"
+                    data-deadline="Last day of anniversary month"
+                    data-amount="$350 recurring LLC state total before late penalties"
+                    data-late-rule="$75 annual-list penalty + $100 license penalty"
+                  >Nevada</option>
+                  <option
+                    value="/tools/new-jersey/annual-report-deadline/"
+                    data-state="New Jersey"
+                    data-guide-label="New Jersey annual report fee and deadline"
+                    data-guide-type="Annual report guide"
+                    data-obligation="Annual report"
+                    data-entity-focus="Corporations, LLCs, LPs, LLPs, and non-profits registered in New Jersey"
+                    data-deadline="Every year on the last day of the anniversary month"
+                    data-amount="$75 for for-profit entities and $30 for non-profit corporations"
+                    data-late-rule="After two missed reports, the business may lose authority and registration benefits"
+                  >New Jersey</option>
+                  <option
+                    value="/tools/new-york/biennial-statement-deadline/"
+                    data-state="New York"
+                    data-guide-label="New York biennial statement deadline"
+                    data-guide-type="Biennial statement guide"
+                    data-obligation="Biennial Statement"
+                    data-entity-focus="Domestic and foreign business corporations and LLCs"
+                    data-deadline="File every two years during the calendar month of formation or authority"
+                    data-amount="$9 filing fee"
+                    data-late-rule="No flat DOS late fee listed; the filing status shows as past due"
+                  >New York</option>
+                  <option
+                    value="/tools/north-carolina/annual-report-deadline/"
+                    data-state="North Carolina"
+                    data-guide-label="North Carolina annual report deadline"
+                    data-guide-type="Annual report guide"
+                    data-obligation="Annual report"
+                    data-entity-focus="LLCs, L3Cs, corporations, partnerships"
+                    data-deadline="April 15 for LLCs; fiscal-year-based for corporations"
+                    data-amount="$202-$203 online or $200 paper for LLCs"
+                    data-late-rule="No flat late fee stated on the due-date chart"
+                  >North Carolina</option>
+                  <option
+                    value="/tools/oregon/annual-report-deadline/"
+                    data-state="Oregon"
+                    data-guide-label="Oregon annual report fee and due date"
+                    data-guide-type="Annual report guide"
+                    data-obligation="Annual report"
+                    data-entity-focus="Corporations, LLCs, nonprofits, and limited partnerships"
+                    data-deadline="Annual on the anniversary date of the original filing"
+                    data-amount="$50 to $275 depending on entity type"
+                    data-late-rule="Administrative dissolution, then reinstatement fee plus missed annual fee(s)"
+                  >Oregon</option>
+                  <option
+                    value="/tools/pennsylvania/annual-report-deadline/"
+                    data-state="Pennsylvania"
+                    data-guide-label="Pennsylvania annual report deadline"
+                    data-guide-type="Annual report guide"
+                    data-obligation="Annual report"
+                    data-entity-focus="Corporations, LLCs, LPs, LLPs, and similar associations"
+                    data-deadline="Window changes by association type; LLCs use January 1 to September 30"
+                    data-amount="$7 standard fee for most business entities"
+                    data-late-rule="Administrative action begins in 2027, six months after due date"
+                  >Pennsylvania</option>
+                  <option
+                    value="/tools/texas/franchise-tax-deadline/"
+                    data-state="Texas"
+                    data-guide-label="Texas franchise tax deadline"
+                    data-guide-type="Franchise tax guide"
+                    data-obligation="Franchise tax report plus PIR or OIR"
+                    data-entity-focus="Taxable entities that must file a Texas franchise tax return"
+                    data-deadline="May 15, or the next business day if the date falls on a weekend or holiday"
+                    data-amount="$2,650,000 no-tax-due threshold for 2026 reports"
+                    data-late-rule="$50 per late report, plus separate late-tax penalties if tax is due"
+                  >Texas</option>
+                  <option
+                    value="/tools/virginia/annual-registration-fee-deadline/"
+                    data-state="Virginia"
+                    data-guide-label="Virginia annual registration fee and annual report deadline"
+                    data-guide-type="Annual registration and report guide"
+                    data-obligation="Annual report, annual registration fee, or continuation report"
+                    data-entity-focus="Corporations, LLCs, LPs, business trusts, LLPs, and LLLPs"
+                    data-deadline="Last day of formation month for corporations and LLCs, October 1 for LPs and business trusts, or July 1 for LLPs and LLLPs"
+                    data-amount="$50 for most non-corporate recurring filings; corporation fee varies by share count"
+                    data-late-rule="Loss of good standing, revocation, or cancellation depending on entity type"
+                  >Virginia</option>
+                  <option
+                    value="/tools/washington/annual-report-deadline-guide/"
+                    data-state="Washington"
+                    data-guide-label="Washington annual report fee and deadline"
+                    data-guide-type="Annual report guide"
+                    data-obligation="Annual report"
+                    data-entity-focus="For-profit business entities"
+                    data-deadline="End of the anniversary month"
+                    data-amount="$70 annual report or $95 with delinquency fee"
+                    data-late-rule="$25 delinquency fee, then domestic dissolution at 120 days or foreign termination at 90 days"
+                  >Washington</option>
+                </select>
+              </label>
+              <label class="field" for="compareStateThree" data-compare-third-field hidden>
+                <span>State 3</span>
+                <select id="compareStateThree" data-compare-select>
+                  <option value="">Choose a state</option>
+                  <option
+                    value="/tools/california/statement-of-information-deadline/"
+                    data-state="California"
+                    data-guide-label="California Statement of Information deadline"
+                    data-guide-type="Statement of Information guide"
+                    data-obligation="Statement of Information"
+                    data-entity-focus="Stock corporations and LLCs"
+                    data-deadline="Annual for stock corporations; every two years for LLCs, with an official six-month filing window"
+                    data-amount="$25 for stock corporations and $20 for LLCs"
+                    data-late-rule="FTB penalty and suspension or forfeiture risk after delinquency"
+                  >California</option>
+                  <option
+                    value="/tools/colorado/periodic-report-deadline/"
+                    data-state="Colorado"
+                    data-guide-label="Colorado periodic report fee and due date"
+                    data-guide-type="Periodic report guide"
+                    data-obligation="Periodic report"
+                    data-entity-focus="LLCs, corporations, nonprofits, foreign entities, LLPs, LLLPs, and reporting LPs"
+                    data-deadline="File beginning two months before the periodic report month and no later than the last day of the second month after it"
+                    data-amount="$25 filing fee, $50 late filing penalty, or $100 statement curing delinquency"
+                    data-late-rule="$50 late filing penalty, then $100 to cure delinquency"
+                  >Colorado</option>
+                  <option
+                    value="/tools/connecticut/annual-report-deadline/"
+                    data-state="Connecticut"
+                    data-guide-label="Connecticut annual report fee and deadline"
+                    data-guide-type="Annual report guide"
+                    data-obligation="Annual report"
+                    data-entity-focus="LLCs, stock and non-stock corporations, LLPs, and LPs"
+                    data-deadline="Annual; due date shown in the state filing system and reminder notices"
+                    data-amount="$80 to $435 depending on entity type"
+                    data-late-rule="Overdue entities cannot get a certificate of legal existence and may be dissolved"
+                  >Connecticut</option>
+                  <option
+                    value="/tools/delaware/annual-report-deadline/"
+                    data-state="Delaware"
+                    data-guide-label="Delaware annual report and annual tax deadline"
+                    data-guide-type="Annual report plus annual tax guide"
+                    data-obligation="Annual report or annual tax"
+                    data-entity-focus="Domestic corporations, foreign corporations, LLCs, LPs, GPs"
+                    data-deadline="March 1, June 1, or June 30 depending on entity type"
+                    data-amount="$50 annual report fee or $300 LLC annual tax"
+                    data-late-rule="$200 penalty plus 1.5% monthly interest"
+                  >Delaware</option>
+                  <option
+                    value="/tools/florida/annual-report-deadline/"
+                    data-state="Florida"
+                    data-guide-label="Florida annual report fee and deadline"
+                    data-guide-type="Annual report guide"
+                    data-obligation="Annual report"
+                    data-entity-focus="Profit and non-profit corporations, LLCs, LPs, and LLLPs"
+                    data-deadline="January 1 to May 1, then September dissolution cutoff"
+                    data-amount="$61.25 to $500.00 depending on entity type, plus a $400 late fee for most for-profit entities after May 1"
+                    data-late-rule="$400 late fee after May 1 for profit corporations, LLCs, LPs, and LLLPs; dissolution or revocation after the September cutoff"
+                  >Florida</option>
+                  <option
+                    value="/tools/georgia/annual-report-deadline/"
+                    data-state="Georgia"
+                    data-guide-label="Georgia annual registration deadline"
+                    data-guide-type="Annual registration guide"
+                    data-obligation="Annual registration"
+                    data-entity-focus="Business entities using the annual registration portal"
+                    data-deadline="April 1"
+                    data-amount="Varies by entity type; common $60 online total"
+                    data-late-rule="$25 late penalty"
+                  >Georgia</option>
+                  <option
+                    value="/tools/kansas/information-report-deadline/"
+                    data-state="Kansas"
+                    data-guide-label="Kansas information report deadline"
+                    data-guide-type="Information report guide"
+                    data-obligation="Biennial information report"
+                    data-entity-focus="For-profit and not-for-profit businesses on file with the Secretary of State"
+                    data-deadline="April 15 or June 15 depending on business type and formation-year parity"
+                    data-amount="$53 online or $55 paper for Kansas LLCs"
+                    data-late-rule="Three-month delinquency interval, then forfeiture"
+                  >Kansas</option>
+                  <option
+                    value="/tools/nevada/annual-fee-calculator/"
+                    data-state="Nevada"
+                    data-guide-label="Nevada annual fee calculator"
+                    data-guide-type="Interactive recurring-fee guide"
+                    data-obligation="Annual list and business license renewal"
+                    data-entity-focus="LLCs and corporations"
+                    data-deadline="Last day of anniversary month"
+                    data-amount="$350 recurring LLC state total before late penalties"
+                    data-late-rule="$75 annual-list penalty + $100 license penalty"
+                  >Nevada</option>
+                  <option
+                    value="/tools/new-jersey/annual-report-deadline/"
+                    data-state="New Jersey"
+                    data-guide-label="New Jersey annual report fee and deadline"
+                    data-guide-type="Annual report guide"
+                    data-obligation="Annual report"
+                    data-entity-focus="Corporations, LLCs, LPs, LLPs, and non-profits registered in New Jersey"
+                    data-deadline="Every year on the last day of the anniversary month"
+                    data-amount="$75 for for-profit entities and $30 for non-profit corporations"
+                    data-late-rule="After two missed reports, the business may lose authority and registration benefits"
+                  >New Jersey</option>
+                  <option
+                    value="/tools/new-york/biennial-statement-deadline/"
+                    data-state="New York"
+                    data-guide-label="New York biennial statement deadline"
+                    data-guide-type="Biennial statement guide"
+                    data-obligation="Biennial Statement"
+                    data-entity-focus="Domestic and foreign business corporations and LLCs"
+                    data-deadline="File every two years during the calendar month of formation or authority"
+                    data-amount="$9 filing fee"
+                    data-late-rule="No flat DOS late fee listed; the filing status shows as past due"
+                  >New York</option>
+                  <option
+                    value="/tools/north-carolina/annual-report-deadline/"
+                    data-state="North Carolina"
+                    data-guide-label="North Carolina annual report deadline"
+                    data-guide-type="Annual report guide"
+                    data-obligation="Annual report"
+                    data-entity-focus="LLCs, L3Cs, corporations, partnerships"
+                    data-deadline="April 15 for LLCs; fiscal-year-based for corporations"
+                    data-amount="$202-$203 online or $200 paper for LLCs"
+                    data-late-rule="No flat late fee stated on the due-date chart"
+                  >North Carolina</option>
+                  <option
+                    value="/tools/oregon/annual-report-deadline/"
+                    data-state="Oregon"
+                    data-guide-label="Oregon annual report fee and due date"
+                    data-guide-type="Annual report guide"
+                    data-obligation="Annual report"
+                    data-entity-focus="Corporations, LLCs, nonprofits, and limited partnerships"
+                    data-deadline="Annual on the anniversary date of the original filing"
+                    data-amount="$50 to $275 depending on entity type"
+                    data-late-rule="Administrative dissolution, then reinstatement fee plus missed annual fee(s)"
+                  >Oregon</option>
+                  <option
+                    value="/tools/pennsylvania/annual-report-deadline/"
+                    data-state="Pennsylvania"
+                    data-guide-label="Pennsylvania annual report deadline"
+                    data-guide-type="Annual report guide"
+                    data-obligation="Annual report"
+                    data-entity-focus="Corporations, LLCs, LPs, LLPs, and similar associations"
+                    data-deadline="Window changes by association type; LLCs use January 1 to September 30"
+                    data-amount="$7 standard fee for most business entities"
+                    data-late-rule="Administrative action begins in 2027, six months after due date"
+                  >Pennsylvania</option>
+                  <option
+                    value="/tools/texas/franchise-tax-deadline/"
+                    data-state="Texas"
+                    data-guide-label="Texas franchise tax deadline"
+                    data-guide-type="Franchise tax guide"
+                    data-obligation="Franchise tax report plus PIR or OIR"
+                    data-entity-focus="Taxable entities that must file a Texas franchise tax return"
+                    data-deadline="May 15, or the next business day if the date falls on a weekend or holiday"
+                    data-amount="$2,650,000 no-tax-due threshold for 2026 reports"
+                    data-late-rule="$50 per late report, plus separate late-tax penalties if tax is due"
+                  >Texas</option>
+                  <option
+                    value="/tools/virginia/annual-registration-fee-deadline/"
+                    data-state="Virginia"
+                    data-guide-label="Virginia annual registration fee and annual report deadline"
+                    data-guide-type="Annual registration and report guide"
+                    data-obligation="Annual report, annual registration fee, or continuation report"
+                    data-entity-focus="Corporations, LLCs, LPs, business trusts, LLPs, and LLLPs"
+                    data-deadline="Last day of formation month for corporations and LLCs, October 1 for LPs and business trusts, or July 1 for LLPs and LLLPs"
+                    data-amount="$50 for most non-corporate recurring filings; corporation fee varies by share count"
+                    data-late-rule="Loss of good standing, revocation, or cancellation depending on entity type"
+                  >Virginia</option>
+                  <option
+                    value="/tools/washington/annual-report-deadline-guide/"
+                    data-state="Washington"
+                    data-guide-label="Washington annual report fee and deadline"
+                    data-guide-type="Annual report guide"
+                    data-obligation="Annual report"
+                    data-entity-focus="For-profit business entities"
+                    data-deadline="End of the anniversary month"
+                    data-amount="$70 annual report or $95 with delinquency fee"
+                    data-late-rule="$25 delinquency fee, then domestic dissolution at 120 days or foreign termination at 90 days"
+                  >Washington</option>
+                </select>
+              </label>
+            </div>
+            <div class="compare-actions">
+              <button class="button button--primary" type="submit">Compare states</button>
+              <button class="button button--secondary" type="button" data-compare-reset>
+                Clear
               </button>
             </div>
-            <label class="field" for="compareStateOne">
-              <span>State 1</span>
-              <select id="compareStateOne" data-compare-select>
-                <option value="">Choose a state</option>
-                  <option
-                    value="/tools/california/statement-of-information-deadline/"
-                    data-state="California"
-                    data-guide-label="California Statement of Information deadline"
-                    data-guide-type="Statement of Information guide"
-                    data-obligation="Statement of Information"
-                    data-entity-focus="Stock corporations and LLCs"
-                    data-deadline="Annual for stock corporations; every two years for LLCs, with an official six-month filing window"
-                    data-amount="$25 for stock corporations and $20 for LLCs"
-                    data-late-rule="FTB penalty and suspension or forfeiture risk after delinquency"
-                  >California</option>
-                  <option
-                    value="/tools/colorado/periodic-report-deadline/"
-                    data-state="Colorado"
-                    data-guide-label="Colorado periodic report fee and due date"
-                    data-guide-type="Periodic report guide"
-                    data-obligation="Periodic report"
-                    data-entity-focus="LLCs, corporations, nonprofits, foreign entities, LLPs, LLLPs, and reporting LPs"
-                    data-deadline="File beginning two months before the periodic report month and no later than the last day of the second month after it"
-                    data-amount="$25 filing fee, $50 late filing penalty, or $100 statement curing delinquency"
-                    data-late-rule="$50 late filing penalty, then $100 to cure delinquency"
-                  >Colorado</option>
-                  <option
-                    value="/tools/connecticut/annual-report-deadline/"
-                    data-state="Connecticut"
-                    data-guide-label="Connecticut annual report fee and deadline"
-                    data-guide-type="Annual report guide"
-                    data-obligation="Annual report"
-                    data-entity-focus="LLCs, stock and non-stock corporations, LLPs, and LPs"
-                    data-deadline="Annual; due date shown in the state filing system and reminder notices"
-                    data-amount="$80 to $435 depending on entity type"
-                    data-late-rule="Overdue entities cannot get a certificate of legal existence and may be dissolved"
-                  >Connecticut</option>
-                  <option
-                    value="/tools/delaware/annual-report-deadline/"
-                    data-state="Delaware"
-                    data-guide-label="Delaware annual report and annual tax deadline"
-                    data-guide-type="Annual report plus annual tax guide"
-                    data-obligation="Annual report or annual tax"
-                    data-entity-focus="Domestic corporations, foreign corporations, LLCs, LPs, GPs"
-                    data-deadline="March 1, June 1, or June 30 depending on entity type"
-                    data-amount="$50 annual report fee or $300 LLC annual tax"
-                    data-late-rule="$200 penalty plus 1.5% monthly interest"
-                  >Delaware</option>
-                  <option
-                    value="/tools/florida/annual-report-deadline/"
-                    data-state="Florida"
-                    data-guide-label="Florida annual report fee and deadline"
-                    data-guide-type="Annual report guide"
-                    data-obligation="Annual report"
-                    data-entity-focus="Profit and non-profit corporations, LLCs, LPs, and LLLPs"
-                    data-deadline="January 1 to May 1, then September dissolution cutoff"
-                    data-amount="$61.25 to $500.00 depending on entity type, plus a $400 late fee for most for-profit entities after May 1"
-                    data-late-rule="$400 late fee after May 1 for profit corporations, LLCs, LPs, and LLLPs; dissolution or revocation after the September cutoff"
-                  >Florida</option>
-                  <option
-                    value="/tools/georgia/annual-report-deadline/"
-                    data-state="Georgia"
-                    data-guide-label="Georgia annual registration deadline"
-                    data-guide-type="Annual registration guide"
-                    data-obligation="Annual registration"
-                    data-entity-focus="Business entities using the annual registration portal"
-                    data-deadline="April 1"
-                    data-amount="Varies by entity type; common $60 online total"
-                    data-late-rule="$25 late penalty"
-                  >Georgia</option>
-                  <option
-                    value="/tools/kansas/information-report-deadline/"
-                    data-state="Kansas"
-                    data-guide-label="Kansas information report deadline"
-                    data-guide-type="Information report guide"
-                    data-obligation="Biennial information report"
-                    data-entity-focus="For-profit and not-for-profit businesses on file with the Secretary of State"
-                    data-deadline="April 15 or June 15 depending on business type and formation-year parity"
-                    data-amount="$53 online or $55 paper for Kansas LLCs"
-                    data-late-rule="Three-month delinquency interval, then forfeiture"
-                  >Kansas</option>
-                  <option
-                    value="/tools/nevada/annual-fee-calculator/"
-                    data-state="Nevada"
-                    data-guide-label="Nevada annual fee calculator"
-                    data-guide-type="Interactive recurring-fee guide"
-                    data-obligation="Annual list and business license renewal"
-                    data-entity-focus="LLCs and corporations"
-                    data-deadline="Last day of anniversary month"
-                    data-amount="$350 recurring LLC state total before late penalties"
-                    data-late-rule="$75 annual-list penalty + $100 license penalty"
-                  >Nevada</option>
-                  <option
-                    value="/tools/new-jersey/annual-report-deadline/"
-                    data-state="New Jersey"
-                    data-guide-label="New Jersey annual report fee and deadline"
-                    data-guide-type="Annual report guide"
-                    data-obligation="Annual report"
-                    data-entity-focus="Corporations, LLCs, LPs, LLPs, and non-profits registered in New Jersey"
-                    data-deadline="Every year on the last day of the anniversary month"
-                    data-amount="$75 for for-profit entities and $30 for non-profit corporations"
-                    data-late-rule="After two missed reports, the business may lose authority and registration benefits"
-                  >New Jersey</option>
-                  <option
-                    value="/tools/new-york/biennial-statement-deadline/"
-                    data-state="New York"
-                    data-guide-label="New York biennial statement deadline"
-                    data-guide-type="Biennial statement guide"
-                    data-obligation="Biennial Statement"
-                    data-entity-focus="Domestic and foreign business corporations and LLCs"
-                    data-deadline="File every two years during the calendar month of formation or authority"
-                    data-amount="$9 filing fee"
-                    data-late-rule="No flat DOS late fee listed; the filing status shows as past due"
-                  >New York</option>
-                  <option
-                    value="/tools/north-carolina/annual-report-deadline/"
-                    data-state="North Carolina"
-                    data-guide-label="North Carolina annual report deadline"
-                    data-guide-type="Annual report guide"
-                    data-obligation="Annual report"
-                    data-entity-focus="LLCs, L3Cs, corporations, partnerships"
-                    data-deadline="April 15 for LLCs; fiscal-year-based for corporations"
-                    data-amount="$202-$203 online or $200 paper for LLCs"
-                    data-late-rule="No flat late fee stated on the due-date chart"
-                  >North Carolina</option>
-                  <option
-                    value="/tools/oregon/annual-report-deadline/"
-                    data-state="Oregon"
-                    data-guide-label="Oregon annual report fee and due date"
-                    data-guide-type="Annual report guide"
-                    data-obligation="Annual report"
-                    data-entity-focus="Corporations, LLCs, nonprofits, and limited partnerships"
-                    data-deadline="Annual on the anniversary date of the original filing"
-                    data-amount="$50 to $275 depending on entity type"
-                    data-late-rule="Administrative dissolution, then reinstatement fee plus missed annual fee(s)"
-                  >Oregon</option>
-                  <option
-                    value="/tools/pennsylvania/annual-report-deadline/"
-                    data-state="Pennsylvania"
-                    data-guide-label="Pennsylvania annual report deadline"
-                    data-guide-type="Annual report guide"
-                    data-obligation="Annual report"
-                    data-entity-focus="Corporations, LLCs, LPs, LLPs, and similar associations"
-                    data-deadline="Window changes by association type; LLCs use January 1 to September 30"
-                    data-amount="$7 standard fee for most business entities"
-                    data-late-rule="Administrative action begins in 2027, six months after due date"
-                  >Pennsylvania</option>
-                  <option
-                    value="/tools/texas/franchise-tax-deadline/"
-                    data-state="Texas"
-                    data-guide-label="Texas franchise tax deadline"
-                    data-guide-type="Franchise tax guide"
-                    data-obligation="Franchise tax report plus PIR or OIR"
-                    data-entity-focus="Taxable entities that must file a Texas franchise tax return"
-                    data-deadline="May 15, or the next business day if the date falls on a weekend or holiday"
-                    data-amount="$2,650,000 no-tax-due threshold for 2026 reports"
-                    data-late-rule="$50 per late report, plus separate late-tax penalties if tax is due"
-                  >Texas</option>
-                  <option
-                    value="/tools/virginia/annual-registration-fee-deadline/"
-                    data-state="Virginia"
-                    data-guide-label="Virginia annual registration fee and annual report deadline"
-                    data-guide-type="Annual registration and report guide"
-                    data-obligation="Annual report, annual registration fee, or continuation report"
-                    data-entity-focus="Corporations, LLCs, LPs, business trusts, LLPs, and LLLPs"
-                    data-deadline="Last day of formation month for corporations and LLCs, October 1 for LPs and business trusts, or July 1 for LLPs and LLLPs"
-                    data-amount="$50 for most non-corporate recurring filings; corporation fee varies by share count"
-                    data-late-rule="Loss of good standing, revocation, or cancellation depending on entity type"
-                  >Virginia</option>
-                  <option
-                    value="/tools/washington/annual-report-deadline-guide/"
-                    data-state="Washington"
-                    data-guide-label="Washington annual report fee and deadline"
-                    data-guide-type="Annual report guide"
-                    data-obligation="Annual report"
-                    data-entity-focus="For-profit business entities"
-                    data-deadline="End of the anniversary month"
-                    data-amount="$70 annual report or $95 with delinquency fee"
-                    data-late-rule="$25 delinquency fee, then domestic dissolution at 120 days or foreign termination at 90 days"
-                  >Washington</option>
-              </select>
-            </label>
-            <label class="field" for="compareStateTwo">
-              <span>State 2</span>
-              <select id="compareStateTwo" data-compare-select>
-                <option value="">Choose a state</option>
-                  <option
-                    value="/tools/california/statement-of-information-deadline/"
-                    data-state="California"
-                    data-guide-label="California Statement of Information deadline"
-                    data-guide-type="Statement of Information guide"
-                    data-obligation="Statement of Information"
-                    data-entity-focus="Stock corporations and LLCs"
-                    data-deadline="Annual for stock corporations; every two years for LLCs, with an official six-month filing window"
-                    data-amount="$25 for stock corporations and $20 for LLCs"
-                    data-late-rule="FTB penalty and suspension or forfeiture risk after delinquency"
-                  >California</option>
-                  <option
-                    value="/tools/colorado/periodic-report-deadline/"
-                    data-state="Colorado"
-                    data-guide-label="Colorado periodic report fee and due date"
-                    data-guide-type="Periodic report guide"
-                    data-obligation="Periodic report"
-                    data-entity-focus="LLCs, corporations, nonprofits, foreign entities, LLPs, LLLPs, and reporting LPs"
-                    data-deadline="File beginning two months before the periodic report month and no later than the last day of the second month after it"
-                    data-amount="$25 filing fee, $50 late filing penalty, or $100 statement curing delinquency"
-                    data-late-rule="$50 late filing penalty, then $100 to cure delinquency"
-                  >Colorado</option>
-                  <option
-                    value="/tools/connecticut/annual-report-deadline/"
-                    data-state="Connecticut"
-                    data-guide-label="Connecticut annual report fee and deadline"
-                    data-guide-type="Annual report guide"
-                    data-obligation="Annual report"
-                    data-entity-focus="LLCs, stock and non-stock corporations, LLPs, and LPs"
-                    data-deadline="Annual; due date shown in the state filing system and reminder notices"
-                    data-amount="$80 to $435 depending on entity type"
-                    data-late-rule="Overdue entities cannot get a certificate of legal existence and may be dissolved"
-                  >Connecticut</option>
-                  <option
-                    value="/tools/delaware/annual-report-deadline/"
-                    data-state="Delaware"
-                    data-guide-label="Delaware annual report and annual tax deadline"
-                    data-guide-type="Annual report plus annual tax guide"
-                    data-obligation="Annual report or annual tax"
-                    data-entity-focus="Domestic corporations, foreign corporations, LLCs, LPs, GPs"
-                    data-deadline="March 1, June 1, or June 30 depending on entity type"
-                    data-amount="$50 annual report fee or $300 LLC annual tax"
-                    data-late-rule="$200 penalty plus 1.5% monthly interest"
-                  >Delaware</option>
-                  <option
-                    value="/tools/florida/annual-report-deadline/"
-                    data-state="Florida"
-                    data-guide-label="Florida annual report fee and deadline"
-                    data-guide-type="Annual report guide"
-                    data-obligation="Annual report"
-                    data-entity-focus="Profit and non-profit corporations, LLCs, LPs, and LLLPs"
-                    data-deadline="January 1 to May 1, then September dissolution cutoff"
-                    data-amount="$61.25 to $500.00 depending on entity type, plus a $400 late fee for most for-profit entities after May 1"
-                    data-late-rule="$400 late fee after May 1 for profit corporations, LLCs, LPs, and LLLPs; dissolution or revocation after the September cutoff"
-                  >Florida</option>
-                  <option
-                    value="/tools/georgia/annual-report-deadline/"
-                    data-state="Georgia"
-                    data-guide-label="Georgia annual registration deadline"
-                    data-guide-type="Annual registration guide"
-                    data-obligation="Annual registration"
-                    data-entity-focus="Business entities using the annual registration portal"
-                    data-deadline="April 1"
-                    data-amount="Varies by entity type; common $60 online total"
-                    data-late-rule="$25 late penalty"
-                  >Georgia</option>
-                  <option
-                    value="/tools/kansas/information-report-deadline/"
-                    data-state="Kansas"
-                    data-guide-label="Kansas information report deadline"
-                    data-guide-type="Information report guide"
-                    data-obligation="Biennial information report"
-                    data-entity-focus="For-profit and not-for-profit businesses on file with the Secretary of State"
-                    data-deadline="April 15 or June 15 depending on business type and formation-year parity"
-                    data-amount="$53 online or $55 paper for Kansas LLCs"
-                    data-late-rule="Three-month delinquency interval, then forfeiture"
-                  >Kansas</option>
-                  <option
-                    value="/tools/nevada/annual-fee-calculator/"
-                    data-state="Nevada"
-                    data-guide-label="Nevada annual fee calculator"
-                    data-guide-type="Interactive recurring-fee guide"
-                    data-obligation="Annual list and business license renewal"
-                    data-entity-focus="LLCs and corporations"
-                    data-deadline="Last day of anniversary month"
-                    data-amount="$350 recurring LLC state total before late penalties"
-                    data-late-rule="$75 annual-list penalty + $100 license penalty"
-                  >Nevada</option>
-                  <option
-                    value="/tools/new-jersey/annual-report-deadline/"
-                    data-state="New Jersey"
-                    data-guide-label="New Jersey annual report fee and deadline"
-                    data-guide-type="Annual report guide"
-                    data-obligation="Annual report"
-                    data-entity-focus="Corporations, LLCs, LPs, LLPs, and non-profits registered in New Jersey"
-                    data-deadline="Every year on the last day of the anniversary month"
-                    data-amount="$75 for for-profit entities and $30 for non-profit corporations"
-                    data-late-rule="After two missed reports, the business may lose authority and registration benefits"
-                  >New Jersey</option>
-                  <option
-                    value="/tools/new-york/biennial-statement-deadline/"
-                    data-state="New York"
-                    data-guide-label="New York biennial statement deadline"
-                    data-guide-type="Biennial statement guide"
-                    data-obligation="Biennial Statement"
-                    data-entity-focus="Domestic and foreign business corporations and LLCs"
-                    data-deadline="File every two years during the calendar month of formation or authority"
-                    data-amount="$9 filing fee"
-                    data-late-rule="No flat DOS late fee listed; the filing status shows as past due"
-                  >New York</option>
-                  <option
-                    value="/tools/north-carolina/annual-report-deadline/"
-                    data-state="North Carolina"
-                    data-guide-label="North Carolina annual report deadline"
-                    data-guide-type="Annual report guide"
-                    data-obligation="Annual report"
-                    data-entity-focus="LLCs, L3Cs, corporations, partnerships"
-                    data-deadline="April 15 for LLCs; fiscal-year-based for corporations"
-                    data-amount="$202-$203 online or $200 paper for LLCs"
-                    data-late-rule="No flat late fee stated on the due-date chart"
-                  >North Carolina</option>
-                  <option
-                    value="/tools/oregon/annual-report-deadline/"
-                    data-state="Oregon"
-                    data-guide-label="Oregon annual report fee and due date"
-                    data-guide-type="Annual report guide"
-                    data-obligation="Annual report"
-                    data-entity-focus="Corporations, LLCs, nonprofits, and limited partnerships"
-                    data-deadline="Annual on the anniversary date of the original filing"
-                    data-amount="$50 to $275 depending on entity type"
-                    data-late-rule="Administrative dissolution, then reinstatement fee plus missed annual fee(s)"
-                  >Oregon</option>
-                  <option
-                    value="/tools/pennsylvania/annual-report-deadline/"
-                    data-state="Pennsylvania"
-                    data-guide-label="Pennsylvania annual report deadline"
-                    data-guide-type="Annual report guide"
-                    data-obligation="Annual report"
-                    data-entity-focus="Corporations, LLCs, LPs, LLPs, and similar associations"
-                    data-deadline="Window changes by association type; LLCs use January 1 to September 30"
-                    data-amount="$7 standard fee for most business entities"
-                    data-late-rule="Administrative action begins in 2027, six months after due date"
-                  >Pennsylvania</option>
-                  <option
-                    value="/tools/texas/franchise-tax-deadline/"
-                    data-state="Texas"
-                    data-guide-label="Texas franchise tax deadline"
-                    data-guide-type="Franchise tax guide"
-                    data-obligation="Franchise tax report plus PIR or OIR"
-                    data-entity-focus="Taxable entities that must file a Texas franchise tax return"
-                    data-deadline="May 15, or the next business day if the date falls on a weekend or holiday"
-                    data-amount="$2,650,000 no-tax-due threshold for 2026 reports"
-                    data-late-rule="$50 per late report, plus separate late-tax penalties if tax is due"
-                  >Texas</option>
-                  <option
-                    value="/tools/virginia/annual-registration-fee-deadline/"
-                    data-state="Virginia"
-                    data-guide-label="Virginia annual registration fee and annual report deadline"
-                    data-guide-type="Annual registration and report guide"
-                    data-obligation="Annual report, annual registration fee, or continuation report"
-                    data-entity-focus="Corporations, LLCs, LPs, business trusts, LLPs, and LLLPs"
-                    data-deadline="Last day of formation month for corporations and LLCs, October 1 for LPs and business trusts, or July 1 for LLPs and LLLPs"
-                    data-amount="$50 for most non-corporate recurring filings; corporation fee varies by share count"
-                    data-late-rule="Loss of good standing, revocation, or cancellation depending on entity type"
-                  >Virginia</option>
-                  <option
-                    value="/tools/washington/annual-report-deadline-guide/"
-                    data-state="Washington"
-                    data-guide-label="Washington annual report fee and deadline"
-                    data-guide-type="Annual report guide"
-                    data-obligation="Annual report"
-                    data-entity-focus="For-profit business entities"
-                    data-deadline="End of the anniversary month"
-                    data-amount="$70 annual report or $95 with delinquency fee"
-                    data-late-rule="$25 delinquency fee, then domestic dissolution at 120 days or foreign termination at 90 days"
-                  >Washington</option>
-              </select>
-            </label>
-            <label class="field" for="compareStateThree" data-compare-third-field hidden>
-              <span>State 3</span>
-              <select id="compareStateThree" data-compare-select>
-                <option value="">Choose a state</option>
-                  <option
-                    value="/tools/california/statement-of-information-deadline/"
-                    data-state="California"
-                    data-guide-label="California Statement of Information deadline"
-                    data-guide-type="Statement of Information guide"
-                    data-obligation="Statement of Information"
-                    data-entity-focus="Stock corporations and LLCs"
-                    data-deadline="Annual for stock corporations; every two years for LLCs, with an official six-month filing window"
-                    data-amount="$25 for stock corporations and $20 for LLCs"
-                    data-late-rule="FTB penalty and suspension or forfeiture risk after delinquency"
-                  >California</option>
-                  <option
-                    value="/tools/colorado/periodic-report-deadline/"
-                    data-state="Colorado"
-                    data-guide-label="Colorado periodic report fee and due date"
-                    data-guide-type="Periodic report guide"
-                    data-obligation="Periodic report"
-                    data-entity-focus="LLCs, corporations, nonprofits, foreign entities, LLPs, LLLPs, and reporting LPs"
-                    data-deadline="File beginning two months before the periodic report month and no later than the last day of the second month after it"
-                    data-amount="$25 filing fee, $50 late filing penalty, or $100 statement curing delinquency"
-                    data-late-rule="$50 late filing penalty, then $100 to cure delinquency"
-                  >Colorado</option>
-                  <option
-                    value="/tools/connecticut/annual-report-deadline/"
-                    data-state="Connecticut"
-                    data-guide-label="Connecticut annual report fee and deadline"
-                    data-guide-type="Annual report guide"
-                    data-obligation="Annual report"
-                    data-entity-focus="LLCs, stock and non-stock corporations, LLPs, and LPs"
-                    data-deadline="Annual; due date shown in the state filing system and reminder notices"
-                    data-amount="$80 to $435 depending on entity type"
-                    data-late-rule="Overdue entities cannot get a certificate of legal existence and may be dissolved"
-                  >Connecticut</option>
-                  <option
-                    value="/tools/delaware/annual-report-deadline/"
-                    data-state="Delaware"
-                    data-guide-label="Delaware annual report and annual tax deadline"
-                    data-guide-type="Annual report plus annual tax guide"
-                    data-obligation="Annual report or annual tax"
-                    data-entity-focus="Domestic corporations, foreign corporations, LLCs, LPs, GPs"
-                    data-deadline="March 1, June 1, or June 30 depending on entity type"
-                    data-amount="$50 annual report fee or $300 LLC annual tax"
-                    data-late-rule="$200 penalty plus 1.5% monthly interest"
-                  >Delaware</option>
-                  <option
-                    value="/tools/florida/annual-report-deadline/"
-                    data-state="Florida"
-                    data-guide-label="Florida annual report fee and deadline"
-                    data-guide-type="Annual report guide"
-                    data-obligation="Annual report"
-                    data-entity-focus="Profit and non-profit corporations, LLCs, LPs, and LLLPs"
-                    data-deadline="January 1 to May 1, then September dissolution cutoff"
-                    data-amount="$61.25 to $500.00 depending on entity type, plus a $400 late fee for most for-profit entities after May 1"
-                    data-late-rule="$400 late fee after May 1 for profit corporations, LLCs, LPs, and LLLPs; dissolution or revocation after the September cutoff"
-                  >Florida</option>
-                  <option
-                    value="/tools/georgia/annual-report-deadline/"
-                    data-state="Georgia"
-                    data-guide-label="Georgia annual registration deadline"
-                    data-guide-type="Annual registration guide"
-                    data-obligation="Annual registration"
-                    data-entity-focus="Business entities using the annual registration portal"
-                    data-deadline="April 1"
-                    data-amount="Varies by entity type; common $60 online total"
-                    data-late-rule="$25 late penalty"
-                  >Georgia</option>
-                  <option
-                    value="/tools/kansas/information-report-deadline/"
-                    data-state="Kansas"
-                    data-guide-label="Kansas information report deadline"
-                    data-guide-type="Information report guide"
-                    data-obligation="Biennial information report"
-                    data-entity-focus="For-profit and not-for-profit businesses on file with the Secretary of State"
-                    data-deadline="April 15 or June 15 depending on business type and formation-year parity"
-                    data-amount="$53 online or $55 paper for Kansas LLCs"
-                    data-late-rule="Three-month delinquency interval, then forfeiture"
-                  >Kansas</option>
-                  <option
-                    value="/tools/nevada/annual-fee-calculator/"
-                    data-state="Nevada"
-                    data-guide-label="Nevada annual fee calculator"
-                    data-guide-type="Interactive recurring-fee guide"
-                    data-obligation="Annual list and business license renewal"
-                    data-entity-focus="LLCs and corporations"
-                    data-deadline="Last day of anniversary month"
-                    data-amount="$350 recurring LLC state total before late penalties"
-                    data-late-rule="$75 annual-list penalty + $100 license penalty"
-                  >Nevada</option>
-                  <option
-                    value="/tools/new-jersey/annual-report-deadline/"
-                    data-state="New Jersey"
-                    data-guide-label="New Jersey annual report fee and deadline"
-                    data-guide-type="Annual report guide"
-                    data-obligation="Annual report"
-                    data-entity-focus="Corporations, LLCs, LPs, LLPs, and non-profits registered in New Jersey"
-                    data-deadline="Every year on the last day of the anniversary month"
-                    data-amount="$75 for for-profit entities and $30 for non-profit corporations"
-                    data-late-rule="After two missed reports, the business may lose authority and registration benefits"
-                  >New Jersey</option>
-                  <option
-                    value="/tools/new-york/biennial-statement-deadline/"
-                    data-state="New York"
-                    data-guide-label="New York biennial statement deadline"
-                    data-guide-type="Biennial statement guide"
-                    data-obligation="Biennial Statement"
-                    data-entity-focus="Domestic and foreign business corporations and LLCs"
-                    data-deadline="File every two years during the calendar month of formation or authority"
-                    data-amount="$9 filing fee"
-                    data-late-rule="No flat DOS late fee listed; the filing status shows as past due"
-                  >New York</option>
-                  <option
-                    value="/tools/north-carolina/annual-report-deadline/"
-                    data-state="North Carolina"
-                    data-guide-label="North Carolina annual report deadline"
-                    data-guide-type="Annual report guide"
-                    data-obligation="Annual report"
-                    data-entity-focus="LLCs, L3Cs, corporations, partnerships"
-                    data-deadline="April 15 for LLCs; fiscal-year-based for corporations"
-                    data-amount="$202-$203 online or $200 paper for LLCs"
-                    data-late-rule="No flat late fee stated on the due-date chart"
-                  >North Carolina</option>
-                  <option
-                    value="/tools/oregon/annual-report-deadline/"
-                    data-state="Oregon"
-                    data-guide-label="Oregon annual report fee and due date"
-                    data-guide-type="Annual report guide"
-                    data-obligation="Annual report"
-                    data-entity-focus="Corporations, LLCs, nonprofits, and limited partnerships"
-                    data-deadline="Annual on the anniversary date of the original filing"
-                    data-amount="$50 to $275 depending on entity type"
-                    data-late-rule="Administrative dissolution, then reinstatement fee plus missed annual fee(s)"
-                  >Oregon</option>
-                  <option
-                    value="/tools/pennsylvania/annual-report-deadline/"
-                    data-state="Pennsylvania"
-                    data-guide-label="Pennsylvania annual report deadline"
-                    data-guide-type="Annual report guide"
-                    data-obligation="Annual report"
-                    data-entity-focus="Corporations, LLCs, LPs, LLPs, and similar associations"
-                    data-deadline="Window changes by association type; LLCs use January 1 to September 30"
-                    data-amount="$7 standard fee for most business entities"
-                    data-late-rule="Administrative action begins in 2027, six months after due date"
-                  >Pennsylvania</option>
-                  <option
-                    value="/tools/texas/franchise-tax-deadline/"
-                    data-state="Texas"
-                    data-guide-label="Texas franchise tax deadline"
-                    data-guide-type="Franchise tax guide"
-                    data-obligation="Franchise tax report plus PIR or OIR"
-                    data-entity-focus="Taxable entities that must file a Texas franchise tax return"
-                    data-deadline="May 15, or the next business day if the date falls on a weekend or holiday"
-                    data-amount="$2,650,000 no-tax-due threshold for 2026 reports"
-                    data-late-rule="$50 per late report, plus separate late-tax penalties if tax is due"
-                  >Texas</option>
-                  <option
-                    value="/tools/virginia/annual-registration-fee-deadline/"
-                    data-state="Virginia"
-                    data-guide-label="Virginia annual registration fee and annual report deadline"
-                    data-guide-type="Annual registration and report guide"
-                    data-obligation="Annual report, annual registration fee, or continuation report"
-                    data-entity-focus="Corporations, LLCs, LPs, business trusts, LLPs, and LLLPs"
-                    data-deadline="Last day of formation month for corporations and LLCs, October 1 for LPs and business trusts, or July 1 for LLPs and LLLPs"
-                    data-amount="$50 for most non-corporate recurring filings; corporation fee varies by share count"
-                    data-late-rule="Loss of good standing, revocation, or cancellation depending on entity type"
-                  >Virginia</option>
-                  <option
-                    value="/tools/washington/annual-report-deadline-guide/"
-                    data-state="Washington"
-                    data-guide-label="Washington annual report fee and deadline"
-                    data-guide-type="Annual report guide"
-                    data-obligation="Annual report"
-                    data-entity-focus="For-profit business entities"
-                    data-deadline="End of the anniversary month"
-                    data-amount="$70 annual report or $95 with delinquency fee"
-                    data-late-rule="$25 delinquency fee, then domestic dissolution at 120 days or foreign termination at 90 days"
-                  >Washington</option>
-              </select>
-            </label>
-          </div>
-          <p class="compare-status" data-compare-status>Choose 2 states to compare.</p>
+          </form>
+          <p class="compare-status" data-compare-status>
+            Choose 2 states and click Compare states.
+          </p>
           <div class="table-scroll" hidden data-compare-table-wrap>
             <table class="summary-table compare-table" data-compare-table></table>
           </div>

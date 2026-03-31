@@ -435,6 +435,11 @@ h3 {
   align-items: end;
 }
 
+.compare-form {
+  display: grid;
+  gap: 16px;
+}
+
 .compare-mode-group {
   display: flex;
   flex-wrap: wrap;
@@ -449,6 +454,12 @@ h3 {
   background: linear-gradient(135deg, var(--accent), var(--accent-dark));
   color: #fff;
   box-shadow: 0 14px 28px rgba(10, 53, 88, 0.18);
+}
+
+.compare-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .compare-status {
