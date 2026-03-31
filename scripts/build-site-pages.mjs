@@ -891,7 +891,7 @@ ${renderSiteHead({
     <div class="site-shell">
 ${renderHeader()}
 
-      <main class="page" data-guide-directory-root>
+      <main class="page" data-guide-compare-root>
         <section class="hero hero--page">
           <div class="hero__copy surface">
             <div class="breadcrumbs">
@@ -902,8 +902,8 @@ ${renderHeader()}
             <p class="eyebrow">State directory</p>
             <h1>Browse and compare state guides</h1>
             <p class="hero__subtitle">
-              Use the dropdown to open one guide fast, or filter the full list when you need to
-              compare states, filing names, or entity types.
+              Choose 2 or 3 states, submit the comparison, and review the filing label, deadline,
+              amount, and late rule below.
             </p>
             <div class="badge-row">
               <span class="badge">${entries.length} state guides</span>
@@ -913,40 +913,10 @@ ${renderHeader()}
           </div>
 
           <aside class="summary-panel surface">
-            <h2>Filter all guides</h2>
-            <p>Search by state, filing name, or entity type.</p>
-            <label class="field field--search">
-              <span>Search guides</span>
-              <input
-                type="search"
-                placeholder="State, filing type, or entity"
-                data-guide-search-input
-              />
-            </label>
-            <label class="field" for="guideTypeFilter">
-              <span>Guide type</span>
-              <select id="guideTypeFilter" data-guide-bucket-select>
-                <option value="">All guide types</option>
-${renderGuideTypeOptions(bucketSummaries)}
-              </select>
-            </label>
-            <p class="results-count" data-guide-results-count aria-live="polite">
-              Showing all ${entries.length} guides.
-            </p>
-            <p class="panel-note">Use the compare bar below for side-by-side comparison. If you do not know the filing label, start with <a class="inline-link" href="/filing-basics.html">Filing basics</a>.</p>
-          </aside>
-        </section>
-
-        <section class="section surface" data-guide-compare-root>
-          <div class="section__head">
             <p class="eyebrow">Compare states</p>
-            <h2>Compare 2 or 3 states side by side</h2>
-            <p>
-              Pick two or three states to compare the filing label, deadline, amount, and late
-              rule before you open a guide.
-            </p>
-          </div>
-          <form class="compare-form" data-compare-form>
+            <h2>Compare 2 or 3 states</h2>
+            <p>Pick your states here, then read the generated comparison table below.</p>
+            <form class="compare-form" data-compare-form>
             <div class="compare-toolbar">
               <div class="compare-mode-group" role="group" aria-label="Compare mode">
                 <button
@@ -996,7 +966,20 @@ ${renderComparisonOptions(entries)}
                 Clear
               </button>
             </div>
-          </form>
+            </form>
+            <p class="panel-note">Need help with filing labels first? Start with <a class="inline-link" href="/filing-basics.html">Filing basics</a>.</p>
+          </aside>
+        </section>
+
+        <section class="section surface">
+          <div class="section__head">
+            <p class="eyebrow">Comparison results</p>
+            <h2>State comparison results</h2>
+            <p>
+              This result table is generated from the states you selected above and links back to
+              each full guide.
+            </p>
+          </div>
           <p class="compare-status" data-compare-status>
             Choose 2 states and click Compare states.
           </p>
@@ -1013,10 +996,6 @@ ${renderComparisonOptions(entries)}
           <div class="state-grid state-grid--directory">
 ${renderStateCards(entries, "directory")}
           </div>
-          <p class="empty-state" hidden data-guide-empty>
-            No match yet. Try a state, filing name, or entity type. If you are unsure about the
-            filing label, start with <a class="inline-link" href="/filing-basics.html">Filing basics</a>.
-          </p>
         </section>
       </main>
 

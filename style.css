@@ -440,6 +440,14 @@ h3 {
   gap: 16px;
 }
 
+.summary-panel .compare-form {
+  margin-top: 4px;
+}
+
+.summary-panel .compare-toolbar {
+  grid-template-columns: 1fr;
+}
+
 .compare-mode-group {
   display: flex;
   flex-wrap: wrap;
@@ -460,6 +468,10 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+}
+
+.summary-panel .compare-actions {
+  justify-content: flex-start;
 }
 
 .compare-status {
