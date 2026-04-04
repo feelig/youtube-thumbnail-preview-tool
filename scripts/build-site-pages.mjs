@@ -32,9 +32,9 @@ const ORGANIZATION_ID = `${SITE_ORIGIN}/#organization`;
 const WEBSITE_ID = `${SITE_ORIGIN}/#website`;
 const CONTACT_EMAIL = "feeligfeelig@gmail.com";
 const homeLookupGroupLabels = {
-  "annual-reports": "年度报告指南",
-  "annual-registration-and-tax": "年度注册和年度税务指南",
-  "recurring-fees-and-statements": "定期费用和报表工具"
+  "annual-reports": "Annual report guides",
+  "annual-registration-and-tax": "Annual registration and tax guides",
+  "recurring-fees-and-statements": "Recurring fee and statement tools"
 };
 
 async function buildAssetVersion() {
@@ -160,22 +160,7 @@ function renderHeader() {
 }
 
 function renderHomeHeader() {
-  return `      <header class="site-header">
-        <a class="brand" href="${HOME_ROUTE}">
-          <span class="brand__mark">FH</span>
-          <span>
-            <strong>FinLogic Hub</strong>
-            <small>各州备案费指南</small>
-          </span>
-        </a>
-        <nav class="site-nav" aria-label="Primary">
-          <a href="${HOME_ROUTE}">首页</a>
-          <a href="${DIRECTORY_ROUTE}">州对比</a>
-          <a href="${FILING_BASICS_ROUTE}">文件归档基础知识</a>
-          <a href="${FILING_HELP_OPTIONS_ROUTE}">帮助选项</a>
-          <a href="${ABOUT_ROUTE}">关于</a>
-        </nav>
-      </header>`;
+  return renderHeader();
 }
 
 function renderFooter() {
@@ -941,12 +926,12 @@ ${renderFooter()}
 
 function renderHomePage({
   entries,
-  latestReviewChineseText,
+  latestReviewText,
   uniqueSourceCount,
   bucketSummaries
 }) {
   return `<!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
 ${renderSiteHead({
   title: "State Filing Deadlines and Recurring Business Fees | FinLogic Hub",
@@ -966,43 +951,43 @@ ${renderHomeHeader()}
       <main class="page">
         <section class="hero hero--home">
           <div class="hero__copy surface">
-            <p class="eyebrow">官方州来源指南</p>
-            <h1>查找适用于您企业的州申报截止日期、年费或定期税款。</h1>
+            <p class="eyebrow">Official-source filing guides</p>
+            <h1>Find the state filing deadline, annual fee, or recurring tax your business needs to handle.</h1>
             <p class="hero__subtitle">
-              每份在线指南均经过人工审核，并与官方州政府信息来源关联，且每日进行来源健康检查。请选择您需要的州和申报标签，然后在提交或付款前使用链接的官方门户网站。
+              Every live guide is manually reviewed, linked to the responsible state source, and checked daily for source health. Choose the state and filing topic you need, then confirm the final instruction on the linked state portal before you file or pay.
             </p>
             <div class="notice-bar">
-              <strong>重要的:</strong>
-              <span>使用此网站可以快速缩小答案范围。官方州政府的指示和申报门户网站仍然具有决定性意义。</span>
+              <strong>Important:</strong>
+              <span>This site helps you narrow the answer quickly, but the official state filing instructions and payment portal are still the final authority.</span>
             </div>
             <div class="stat-grid">
               <div class="stat-card">
-                <strong>${entries.length} 个实时州指南</strong>
-                <span>用于年度报告、费用表、报表和定期税务申报的页面。</span>
+                <strong>${entries.length} live state guides</strong>
+                <span>Coverage for annual reports, recurring fees, required statements, and recurring tax filings.</span>
               </div>
               <div class="stat-card">
-                <strong>最新人工审核日期: ${latestReviewChineseText}</strong>
-                <span>每个在线指南都会显示可见的审核日期。</span>
+                <strong>Latest manual review: ${latestReviewText}</strong>
+                <span>Every live guide shows its review date directly on the page.</span>
               </div>
               <div class="stat-card">
-                <strong>监测到 ${uniqueSourceCount} 个官方来源链接</strong>
-                <span>每日扫描会标记出失效链接和可能需要重新检查的页面。</span>
+                <strong>${uniqueSourceCount} official source links monitored</strong>
+                <span>Daily scans flag broken links and guides that may need a fresh review.</span>
               </div>
             </div>
           </div>
 
           <aside class="hero__panel surface">
-            <h2>快速查找指南</h2>
-            <p>选择与您所在州和申报类型相符的指南。</p>
+            <h2>Quick guide lookup</h2>
+            <p>Select the guide that matches your state and filing requirement.</p>
             <form class="lookup-form" data-state-lookup>
               <label class="field" for="stateGuideSelect">
-                <span>选择州指南</span>
+                <span>Select a state guide</span>
                 <select id="stateGuideSelect" name="state-guide">
-                  <option value="">选择一份指南</option>
+                  <option value="">Choose a guide</option>
 ${renderLookupOptions(bucketSummaries, homeLookupGroupLabels)}
                 </select>
               </label>
-              <button class="button button--primary" type="submit">打开指南</button>
+              <button class="button button--primary" type="submit">Open guide</button>
             </form>
           </aside>
         </section>
@@ -1168,7 +1153,6 @@ const latestReviewDate = new Date(
   Math.max(...entries.map((entry) => parseReviewDate(entry.page.lastReviewed).getTime()))
 );
 const latestReviewText = formatLongDate(latestReviewDate);
-const latestReviewChineseText = `${latestReviewDate.getUTCFullYear()}年${latestReviewDate.getUTCMonth() + 1}月${latestReviewDate.getUTCDate()}日`;
 const uniqueSourceCount = new Set(
   entries.flatMap((entry) => entry.page.sourceLinks.map((link) => link.href))
 ).size;
@@ -1180,7 +1164,7 @@ await fs.writeFile(
   path.join(ROOT, "index.html"),
   renderHomePage({
     entries,
-    latestReviewChineseText,
+    latestReviewText,
     uniqueSourceCount,
     bucketSummaries
   })
