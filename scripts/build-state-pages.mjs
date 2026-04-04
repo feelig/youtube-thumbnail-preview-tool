@@ -19,6 +19,18 @@ import {
 
 const ROOT = process.cwd();
 const SITE_ORIGIN = "https://finlogichub5.com";
+const HOME_ROUTE = "/";
+const DIRECTORY_ROUTE = "/states";
+const FILING_BASICS_ROUTE = "/filing-basics";
+const FILING_HELP_OPTIONS_ROUTE = "/filing-help-options";
+const ABOUT_ROUTE = "/about";
+const PRIVACY_ROUTE = "/privacy";
+const CONTACT_ROUTE = "/contact";
+const TERMS_ROUTE = "/terms";
+const ORGANIZATION_ID = `${SITE_ORIGIN}/#organization`;
+const WEBSITE_ID = `${SITE_ORIGIN}/#website`;
+const EDITORIAL_TEAM_NAME = "FinLogic Hub Editorial Team";
+const CONTACT_EMAIL = "feeligfeelig@gmail.com";
 const GENERATED_AT = new Date();
 const ASSET_VERSION = await buildAssetVersion();
 const STYLE_ASSET_PATH = `/style.css?v=${ASSET_VERSION}`;
@@ -27,6 +39,15 @@ const directoryByRoute = new Map(stateDirectory.map((entry) => [entry.route, ent
 const decisionToolByRoute = new Map(Object.entries(guideDecisionToolByRoute));
 const evidenceByRoute = new Map(Object.entries(guideEvidenceByRoute));
 const structuredBodyByFilePath = new Map(Object.entries(structuredStateContentByFilePath));
+const STATIC_ROUTE_MAP = new Map([
+  ["/states.html", DIRECTORY_ROUTE],
+  ["/filing-basics.html", FILING_BASICS_ROUTE],
+  ["/filing-help-options.html", FILING_HELP_OPTIONS_ROUTE],
+  ["/about.html", ABOUT_ROUTE],
+  ["/privacy.html", PRIVACY_ROUTE],
+  ["/contact.html", CONTACT_ROUTE],
+  ["/terms.html", TERMS_ROUTE]
+]);
 
 async function buildAssetVersion() {
   const [scriptContent, styleContent] = await Promise.all([
@@ -157,11 +178,62 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;");
 }
 
+function toSiteUrl(pathname) {
+  return new URL(pathname, SITE_ORIGIN).toString();
+}
+
+function normalizeSiteHref(href) {
+  if (!href) {
+    return href;
+  }
+
+  if (STATIC_ROUTE_MAP.has(href)) {
+    return STATIC_ROUTE_MAP.get(href);
+  }
+
+  if (/^https?:\/\//u.test(href)) {
+    const url = new URL(href);
+    const normalizedPath = STATIC_ROUTE_MAP.get(url.pathname);
+
+    if (url.origin === SITE_ORIGIN && normalizedPath) {
+      return toSiteUrl(normalizedPath);
+    }
+  }
+
+  return href;
+}
+
+function buildOrganizationStructuredData() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": ORGANIZATION_ID,
+    name: "FinLogic Hub",
+    url: SITE_ORIGIN,
+    email: CONTACT_EMAIL,
+    description:
+      "Official-source filing deadline, recurring fee, and compliance guide content for U.S. business entities."
+  };
+}
+
+function buildWebSiteStructuredData() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": WEBSITE_ID,
+    url: SITE_ORIGIN,
+    name: "FinLogic Hub",
+    publisher: {
+      "@id": ORGANIZATION_ID
+    }
+  };
+}
+
 function renderBreadcrumbs(items) {
   return items
     .map((item) => {
       if (item.href) {
-        return `<a href="${escapeHtml(item.href)}">${escapeHtml(item.label)}</a>`;
+        return `<a href="${escapeHtml(normalizeSiteHref(item.href))}">${escapeHtml(item.label)}</a>`;
       }
 
       return `<span>${escapeHtml(item.label)}</span>`;
@@ -289,7 +361,7 @@ function personalizePrimaryStructuredSection(section, page) {
 
   return {
     ...section,
-    eyebrow: "Main rules",
+    eyebrow: "What to know first",
     title: `What to check before you file in ${page.state}`,
     headers: Array.isArray(section.headers)
       ? normalizeStructuredHeaders(section.headers)
@@ -299,17 +371,19 @@ function personalizePrimaryStructuredSection(section, page) {
 
 function renderStructuredBody(sections) {
   return sections
-    .map((section) => {
+    .map((section, index) => {
+      const anchor = index === 0 ? '          <div id="quick-answer"></div>\n' : "";
+
       if (section.type === "table") {
-        return renderStructuredTableSection(section);
+        return `${anchor}${renderStructuredTableSection(section)}`;
       }
 
       if (section.type === "detailCards") {
-        return renderStructuredDetailCardsSection(section);
+        return `${anchor}${renderStructuredDetailCardsSection(section)}`;
       }
 
       if (section.type === "rawHtml") {
-        return renderStructuredRawHtmlSection(section);
+        return `${anchor}${renderStructuredRawHtmlSection(section)}`;
       }
 
       throw new Error(`Unsupported structured section type: ${section.type}`);
@@ -672,13 +746,13 @@ function renderCustomerActionSection(page, entry) {
       text: "Open the controlling state page or filing portal before filing or paying."
     },
     {
-      href: "/states.html",
+      href: DIRECTORY_ROUTE,
       kicker: "Compare live guides",
       label: "Compare another state or filing label",
       text: "Use the directory if you are checking another state, entity type, or filing label."
     },
     {
-      href: "/filing-help-options.html",
+      href: FILING_HELP_OPTIONS_ROUTE,
       kicker: "Help options",
       label: "Review self-serve and assisted filing paths",
       text: "Compare the official do-it-yourself path with help options before paying a third-party service."
@@ -793,7 +867,7 @@ function renderStructuredData(page) {
       "@type": "ListItem",
       position: index + 1,
       name: item.label,
-      item: item.href ? new URL(item.href, SITE_ORIGIN).toString() : page.canonicalUrl
+      item: item.href ? new URL(normalizeSiteHref(item.href), SITE_ORIGIN).toString() : page.canonicalUrl
     }))
   };
 
@@ -809,13 +883,33 @@ function renderStructuredData(page) {
       name: page.state
     },
     isPartOf: {
-      "@type": "WebSite",
-      name: "FinLogic Hub",
-      url: SITE_ORIGIN
+      "@id": WEBSITE_ID
     }
   };
 
-  return `\n    <script type="application/ld+json">${serializeJsonLd(breadcrumbData)}</script>\n    <script type="application/ld+json">${serializeJsonLd(webPageData)}</script>`;
+  const articleData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: page.heroTitle,
+    description: page.metaDescription,
+    url: page.canonicalUrl,
+    mainEntityOfPage: page.canonicalUrl,
+    dateModified: formatReviewDate(page.lastReviewed),
+    about: {
+      "@type": "AdministrativeArea",
+      name: page.state
+    },
+    author: {
+      "@type": "Organization",
+      name: EDITORIAL_TEAM_NAME,
+      url: toSiteUrl(ABOUT_ROUTE)
+    },
+    publisher: {
+      "@id": ORGANIZATION_ID
+    }
+  };
+
+  return `\n    <script type="application/ld+json">${serializeJsonLd(buildOrganizationStructuredData())}</script>\n    <script type="application/ld+json">${serializeJsonLd(buildWebSiteStructuredData())}</script>\n    <script type="application/ld+json">${serializeJsonLd(breadcrumbData)}</script>\n    <script type="application/ld+json">${serializeJsonLd(webPageData)}</script>\n    <script type="application/ld+json">${serializeJsonLd(articleData)}</script>`;
 }
 
 function renderPage(page) {
@@ -839,6 +933,7 @@ function renderPage(page) {
       name="description"
       content="${escapeHtml(page.metaDescription)}"
     />
+    <meta name="author" content="${EDITORIAL_TEAM_NAME}" />
     <link rel="canonical" href="${escapeHtml(page.canonicalUrl)}" />
     <meta property="og:title" content="${escapeHtml(page.ogTitle)}" />
     <meta
@@ -846,6 +941,7 @@ function renderPage(page) {
       content="${escapeHtml(page.ogDescription)}"
     />
     <meta property="og:type" content="article" />
+    <meta property="article:modified_time" content="${formatReviewDate(page.lastReviewed)}" />
     <meta property="og:image" content="https://finlogichub5.com/social-preview.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -858,7 +954,7 @@ function renderPage(page) {
   <body>
     <div class="site-shell">
       <header class="site-header">
-        <a class="brand" href="/">
+        <a class="brand" href="${HOME_ROUTE}">
           <span class="brand__mark">FH</span>
           <span>
             <strong>FinLogic Hub</strong>
@@ -866,11 +962,11 @@ function renderPage(page) {
           </span>
         </a>
         <nav class="site-nav" aria-label="Primary">
-          <a href="/">Home</a>
-          <a href="/states.html">State compare</a>
-          <a href="/filing-basics.html">Filing basics</a>
-          <a href="/filing-help-options.html">Help options</a>
-          <a href="/about.html">About</a>
+          <a href="${HOME_ROUTE}">Home</a>
+          <a href="${DIRECTORY_ROUTE}">State compare</a>
+          <a href="${FILING_BASICS_ROUTE}">Filing basics</a>
+          <a href="${FILING_HELP_OPTIONS_ROUTE}">Help options</a>
+          <a href="${ABOUT_ROUTE}">About</a>
         </nav>
       </header>
 
@@ -888,6 +984,7 @@ function renderPage(page) {
             <div class="badge-row">
               <span class="badge${getBadgeToneClass(reviewStatus.tone)}">${escapeHtml(reviewStatus.label)}</span>
               <span class="badge">Checked: ${escapeHtml(page.lastReviewed)}</span>
+              <span class="badge">Reviewed by ${EDITORIAL_TEAM_NAME}</span>
               <span class="badge">${page.sourceLinks.length} official ${pluralize(page.sourceLinks.length, "source")}</span>
               <span class="badge">${escapeHtml(page.sourceBadge)}</span>
             </div>
@@ -915,14 +1012,14 @@ ${renderSourceLinks(page.sourceLinks)}
 
       <footer class="site-footer">
         <nav class="footer-nav" aria-label="Footer">
-          <a href="/">Home</a>
-          <a href="/states.html">State compare</a>
-          <a href="/filing-basics.html">Filing basics</a>
-          <a href="/filing-help-options.html">Help options</a>
-          <a href="/about.html">About</a>
-          <a href="/privacy.html">Privacy</a>
-          <a href="/contact.html">Contact</a>
-          <a href="/terms.html">Terms</a>
+          <a href="${HOME_ROUTE}">Home</a>
+          <a href="${DIRECTORY_ROUTE}">State compare</a>
+          <a href="${FILING_BASICS_ROUTE}">Filing basics</a>
+          <a href="${FILING_HELP_OPTIONS_ROUTE}">Help options</a>
+          <a href="${ABOUT_ROUTE}">About</a>
+          <a href="${PRIVACY_ROUTE}">Privacy</a>
+          <a href="${CONTACT_ROUTE}">Contact</a>
+          <a href="${TERMS_ROUTE}">Terms</a>
         </nav>
         <p>&copy; 2026 FinLogic Hub. For planning only. Confirm on the official state site before you file.</p>
       </footer>

@@ -6,6 +6,7 @@ import { parseReviewDate } from "./lib/state-page-utils.mjs";
 
 const ROOT = process.cwd();
 const SITEMAP_FILE = path.join(ROOT, "sitemap.xml");
+const SITE_ORIGIN = "https://finlogichub5.com";
 
 function formatDate(value) {
   return value.toISOString().slice(0, 10);
@@ -27,44 +28,44 @@ const latestStateReview = new Date(
 
 const staticPages = [
   {
-    loc: "https://finlogichub5.com/",
+    loc: `${SITE_ORIGIN}/`,
     changefreq: "weekly",
     priority: "1.0",
     lastmod: formatDate(latestStateReview)
   },
   {
-    loc: "https://finlogichub5.com/about.html",
+    loc: `${SITE_ORIGIN}/about`,
     changefreq: "monthly",
     priority: "0.6"
   },
   {
-    loc: "https://finlogichub5.com/states.html",
+    loc: `${SITE_ORIGIN}/states`,
     changefreq: "weekly",
     priority: "0.8",
     lastmod: formatDate(latestStateReview)
   },
   {
-    loc: "https://finlogichub5.com/filing-basics.html",
+    loc: `${SITE_ORIGIN}/filing-basics`,
     changefreq: "monthly",
     priority: "0.7"
   },
   {
-    loc: "https://finlogichub5.com/filing-help-options.html",
+    loc: `${SITE_ORIGIN}/filing-help-options`,
     changefreq: "monthly",
     priority: "0.7"
   },
   {
-    loc: "https://finlogichub5.com/privacy.html",
+    loc: `${SITE_ORIGIN}/privacy`,
     changefreq: "monthly",
     priority: "0.4"
   },
   {
-    loc: "https://finlogichub5.com/contact.html",
+    loc: `${SITE_ORIGIN}/contact`,
     changefreq: "monthly",
     priority: "0.4"
   },
   {
-    loc: "https://finlogichub5.com/terms.html",
+    loc: `${SITE_ORIGIN}/terms`,
     changefreq: "monthly",
     priority: "0.4"
   }

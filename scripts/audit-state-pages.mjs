@@ -65,7 +65,7 @@ function parsePage(file, html) {
     canonical,
     contentModel,
     sourceUrls,
-    hasQuickAnswer: /What to know first/i.test(html),
+    hasQuickAnswer: /What to know first/i.test(html) || /id="quick-answer"/i.test(html),
     hasMainRules: /What to check before you file in/i.test(html) || /data-nevada-calculator/i.test(html),
     hasSourcesHeading: /Where this page data comes from/i.test(html),
     hasFooterNav: /<nav class="footer-nav" aria-label="Footer">/i.test(html),

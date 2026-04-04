@@ -9,9 +9,9 @@ const SITEMAP_FILE = path.join(ROOT, "sitemap.xml");
 const SITE_ORIGIN = "https://finlogichub5.com";
 const REQUIRED_STATIC_URLS = [
   `${SITE_ORIGIN}/`,
-  `${SITE_ORIGIN}/states.html`,
-  `${SITE_ORIGIN}/filing-basics.html`,
-  `${SITE_ORIGIN}/filing-help-options.html`
+  `${SITE_ORIGIN}/states`,
+  `${SITE_ORIGIN}/filing-basics`,
+  `${SITE_ORIGIN}/filing-help-options`
 ];
 
 function extractLocs(xml) {

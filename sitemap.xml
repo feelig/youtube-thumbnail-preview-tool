@@ -7,38 +7,38 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://finlogichub5.com/about.html</loc>
+    <loc>https://finlogichub5.com/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://finlogichub5.com/states.html</loc>
+    <loc>https://finlogichub5.com/states</loc>
     <lastmod>2026-03-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://finlogichub5.com/filing-basics.html</loc>
+    <loc>https://finlogichub5.com/filing-basics</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://finlogichub5.com/filing-help-options.html</loc>
+    <loc>https://finlogichub5.com/filing-help-options</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://finlogichub5.com/privacy.html</loc>
+    <loc>https://finlogichub5.com/privacy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://finlogichub5.com/contact.html</loc>
+    <loc>https://finlogichub5.com/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://finlogichub5.com/terms.html</loc>
+    <loc>https://finlogichub5.com/terms</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>

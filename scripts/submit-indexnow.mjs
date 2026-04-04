@@ -84,6 +84,10 @@ function toPublicUrl(origin, filePath) {
     return `${origin}/${routePath}/`;
   }
 
+  if (!normalizedPath.includes("/")) {
+    return `${origin}/${normalizedPath.slice(0, -".html".length)}`;
+  }
+
   return `${origin}/${normalizedPath}`;
 }
 

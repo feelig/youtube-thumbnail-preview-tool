@@ -13,13 +13,24 @@ import {
 } from "./lib/state-page-utils.mjs";
 
 const ROOT = process.cwd();
-const DIRECTORY_ROUTE = "/states.html";
-const OPERATIONS_ROUTE = "/operations.html";
+const SITE_ORIGIN = "https://finlogichub5.com";
+const HOME_ROUTE = "/";
+const DIRECTORY_ROUTE = "/states";
+const OPERATIONS_ROUTE = "/operations";
+const FILING_BASICS_ROUTE = "/filing-basics";
+const FILING_HELP_OPTIONS_ROUTE = "/filing-help-options";
+const ABOUT_ROUTE = "/about";
+const PRIVACY_ROUTE = "/privacy";
+const CONTACT_ROUTE = "/contact";
+const TERMS_ROUTE = "/terms";
 const OPERATIONS_REPORT = path.join(ROOT, "reports", "daily-source-scan.json");
 const ASSET_VERSION = await buildAssetVersion();
 const STYLE_ASSET_PATH = `/style.css?v=${ASSET_VERSION}`;
 const SCRIPT_ASSET_PATH = `/script.js?v=${ASSET_VERSION}`;
 const YANDEX_VERIFICATION_TOKEN = "ee96a1c002059a3e";
+const ORGANIZATION_ID = `${SITE_ORIGIN}/#organization`;
+const WEBSITE_ID = `${SITE_ORIGIN}/#website`;
+const CONTACT_EMAIL = "feeligfeelig@gmail.com";
 const homeLookupGroupLabels = {
   "annual-reports": "年度报告指南",
   "annual-registration-and-tax": "年度注册和年度税务指南",
@@ -47,13 +58,60 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;");
 }
 
+function toSiteUrl(pathname) {
+  return new URL(pathname, SITE_ORIGIN).toString();
+}
+
+function serializeJsonLd(value) {
+  return JSON.stringify(value).replaceAll("<", "\\u003c");
+}
+
+function renderStructuredDataScripts(structuredData = []) {
+  if (!structuredData.length) {
+    return "";
+  }
+
+  return `\n${structuredData
+    .map(
+      (entry) => `    <script type="application/ld+json">${serializeJsonLd(entry)}</script>`
+    )
+    .join("\n")}`;
+}
+
+function buildOrganizationStructuredData() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": ORGANIZATION_ID,
+    name: "FinLogic Hub",
+    url: SITE_ORIGIN,
+    email: CONTACT_EMAIL,
+    description:
+      "Official-source filing deadline, recurring fee, and compliance guide content for U.S. business entities."
+  };
+}
+
+function buildWebSiteStructuredData() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": WEBSITE_ID,
+    url: SITE_ORIGIN,
+    name: "FinLogic Hub",
+    publisher: {
+      "@id": ORGANIZATION_ID
+    }
+  };
+}
+
 function renderSiteHead({
   title,
   description,
   canonical,
   ogTitle,
   ogDescription,
-  robotsContent = null
+  robotsContent = null,
+  structuredData = []
 }) {
   return `    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -77,12 +135,14 @@ function renderSiteHead({
       href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;family=Source+Serif+4:wght@600;700&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="${STYLE_ASSET_PATH}" />`;
+    <link rel="stylesheet" href="${STYLE_ASSET_PATH}" />${renderStructuredDataScripts(
+      structuredData
+    )}`;
 }
 
 function renderHeader() {
   return `      <header class="site-header">
-        <a class="brand" href="/">
+        <a class="brand" href="${HOME_ROUTE}">
           <span class="brand__mark">FH</span>
           <span>
             <strong>FinLogic Hub</strong>
@@ -90,18 +150,18 @@ function renderHeader() {
           </span>
         </a>
         <nav class="site-nav" aria-label="Primary">
-          <a href="/">Home</a>
+          <a href="${HOME_ROUTE}">Home</a>
           <a href="${DIRECTORY_ROUTE}">State compare</a>
-          <a href="/filing-basics.html">Filing basics</a>
-          <a href="/filing-help-options.html">Help options</a>
-          <a href="/about.html">About</a>
+          <a href="${FILING_BASICS_ROUTE}">Filing basics</a>
+          <a href="${FILING_HELP_OPTIONS_ROUTE}">Help options</a>
+          <a href="${ABOUT_ROUTE}">About</a>
         </nav>
       </header>`;
 }
 
 function renderHomeHeader() {
   return `      <header class="site-header">
-        <a class="brand" href="/">
+        <a class="brand" href="${HOME_ROUTE}">
           <span class="brand__mark">FH</span>
           <span>
             <strong>FinLogic Hub</strong>
@@ -109,11 +169,11 @@ function renderHomeHeader() {
           </span>
         </a>
         <nav class="site-nav" aria-label="Primary">
-          <a href="/">首页</a>
+          <a href="${HOME_ROUTE}">首页</a>
           <a href="${DIRECTORY_ROUTE}">州对比</a>
-          <a href="/filing-basics.html">文件归档基础知识</a>
-          <a href="/filing-help-options.html">帮助选项</a>
-          <a href="/about.html">关于</a>
+          <a href="${FILING_BASICS_ROUTE}">文件归档基础知识</a>
+          <a href="${FILING_HELP_OPTIONS_ROUTE}">帮助选项</a>
+          <a href="${ABOUT_ROUTE}">关于</a>
         </nav>
       </header>`;
 }
@@ -121,17 +181,59 @@ function renderHomeHeader() {
 function renderFooter() {
   return `      <footer class="site-footer">
         <nav class="footer-nav" aria-label="Footer">
-          <a href="/">Home</a>
+          <a href="${HOME_ROUTE}">Home</a>
           <a href="${DIRECTORY_ROUTE}">State compare</a>
-          <a href="/filing-basics.html">Filing basics</a>
-          <a href="/filing-help-options.html">Help options</a>
-          <a href="/about.html">About</a>
-          <a href="/privacy.html">Privacy</a>
-          <a href="/contact.html">Contact</a>
-          <a href="/terms.html">Terms</a>
+          <a href="${FILING_BASICS_ROUTE}">Filing basics</a>
+          <a href="${FILING_HELP_OPTIONS_ROUTE}">Help options</a>
+          <a href="${ABOUT_ROUTE}">About</a>
+          <a href="${PRIVACY_ROUTE}">Privacy</a>
+          <a href="${CONTACT_ROUTE}">Contact</a>
+          <a href="${TERMS_ROUTE}">Terms</a>
         </nav>
         <p>&copy; 2026 FinLogic Hub. For planning only. Confirm on the official state site before you file.</p>
       </footer>`;
+}
+
+function buildHomeStructuredData() {
+  return [
+    buildOrganizationStructuredData(),
+    buildWebSiteStructuredData(),
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      url: toSiteUrl(HOME_ROUTE),
+      name: "State Filing Deadlines and Recurring Business Fees | FinLogic Hub",
+      description:
+        "State filing guides for annual report deadlines, franchise tax due dates, recurring filing fees, and late-payment rules.",
+      isPartOf: {
+        "@id": WEBSITE_ID
+      },
+      about: {
+        "@id": ORGANIZATION_ID
+      }
+    }
+  ];
+}
+
+function buildStatesStructuredData() {
+  return [
+    buildOrganizationStructuredData(),
+    buildWebSiteStructuredData(),
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      url: toSiteUrl(DIRECTORY_ROUTE),
+      name: "State Filing Guides | FinLogic Hub",
+      description:
+        "Browse state filing guides for annual report deadlines, franchise tax due dates, annual taxes, recurring business fees, and late-payment rules by state.",
+      isPartOf: {
+        "@id": WEBSITE_ID
+      },
+      about: {
+        "@id": ORGANIZATION_ID
+      }
+    }
+  ];
 }
 
 function renderCardMeta(entry) {
@@ -661,7 +763,7 @@ function renderStartPathCards() {
       text: "Use the full directory if you need to compare more than one state or filing rule."
     },
     {
-      href: "/filing-basics.html",
+      href: FILING_BASICS_ROUTE,
       kicker: "I am not sure yet",
       label: "Read the filing basics",
       text: "Start there if you need help understanding the filing label before opening a guide."
@@ -694,7 +796,7 @@ ${renderSiteHead({
   title: "Operations Review Board | FinLogic Hub",
   description:
     "Internal monitoring board for FinLogic Hub showing the latest source scan snapshot, review freshness, and state-guide follow-up priorities.",
-  canonical: `https://finlogichub5.com${OPERATIONS_ROUTE}`,
+  canonical: toSiteUrl(OPERATIONS_ROUTE),
   ogTitle: "Operations Review Board | FinLogic Hub",
   ogDescription:
     "Internal monitoring board for source health, review freshness, and state-guide follow-up priorities.",
@@ -709,7 +811,7 @@ ${renderHeader()}
         <section class="hero hero--page">
           <div class="hero__copy surface">
             <div class="breadcrumbs">
-              <a href="/">Home</a>
+              <a href="${HOME_ROUTE}">Home</a>
               <span>/</span>
               <span>Operations review board</span>
             </div>
@@ -850,10 +952,11 @@ ${renderSiteHead({
   title: "State Filing Deadlines and Recurring Business Fees | FinLogic Hub",
   description:
     "State filing guides for annual report deadlines, franchise tax due dates, recurring filing fees, and late-payment rules.",
-  canonical: "https://finlogichub5.com/",
+  canonical: toSiteUrl(HOME_ROUTE),
   ogTitle: "State Filing Deadlines and Recurring Business Fees | FinLogic Hub",
   ogDescription:
-    "Customer-friendly state filing guides with official-source links for deadlines, fees, annual taxes, and late-payment rules."
+    "Customer-friendly state filing guides with official-source links for deadlines, fees, annual taxes, and late-payment rules.",
+  structuredData: buildHomeStructuredData()
 })}
   </head>
   <body>
@@ -919,10 +1022,11 @@ ${renderSiteHead({
   title: "State Filing Guides | FinLogic Hub",
   description:
     "Browse state filing guides for annual report deadlines, franchise tax due dates, annual taxes, recurring business fees, and late-payment rules by state.",
-  canonical: `https://finlogichub5.com${DIRECTORY_ROUTE}`,
+  canonical: toSiteUrl(DIRECTORY_ROUTE),
   ogTitle: "State Filing Guides | FinLogic Hub",
   ogDescription:
-    "State-by-state filing guides covering annual reports, franchise tax due dates, annual taxes, recurring fees, and official filing links."
+    "State-by-state filing guides covering annual reports, franchise tax due dates, annual taxes, recurring fees, and official filing links.",
+  structuredData: buildStatesStructuredData()
 })}
   </head>
   <body>
@@ -933,7 +1037,7 @@ ${renderHeader()}
         <section class="hero hero--page">
           <div class="hero__copy surface">
             <div class="breadcrumbs">
-              <a href="/">Home</a>
+              <a href="${HOME_ROUTE}">Home</a>
               <span>/</span>
               <span>State compare</span>
             </div>
@@ -1005,7 +1109,7 @@ ${renderComparisonOptions(entries)}
               </button>
             </div>
             </form>
-            <p class="panel-note">Need help with filing labels first? Start with <a class="inline-link" href="/filing-basics.html">Filing basics</a>.</p>
+            <p class="panel-note">Need help with filing labels first? Start with <a class="inline-link" href="${FILING_BASICS_ROUTE}">Filing basics</a>.</p>
           </aside>
         </section>
 
