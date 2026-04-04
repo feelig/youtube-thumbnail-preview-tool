@@ -19,6 +19,7 @@ const OPERATIONS_REPORT = path.join(ROOT, "reports", "daily-source-scan.json");
 const ASSET_VERSION = await buildAssetVersion();
 const STYLE_ASSET_PATH = `/style.css?v=${ASSET_VERSION}`;
 const SCRIPT_ASSET_PATH = `/script.js?v=${ASSET_VERSION}`;
+const YANDEX_VERIFICATION_TOKEN = "ee96a1c002059a3e";
 const homeLookupGroupLabels = {
   "annual-reports": "年度报告指南",
   "annual-registration-and-tax": "年度注册和年度税务指南",
@@ -62,6 +63,7 @@ function renderSiteHead({
       content="${escapeHtml(description)}"
     />
     <link rel="canonical" href="${escapeHtml(canonical)}" />
+    <meta name="yandex-verification" content="${YANDEX_VERIFICATION_TOKEN}" />
     <meta property="og:title" content="${escapeHtml(ogTitle)}" />
     <meta
       property="og:description"
