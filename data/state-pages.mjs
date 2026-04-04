@@ -297,13 +297,25 @@ export const statePages = [
         "href": "/states.html"
       },
       {
-        "label": "Georgia annual registration deadline",
+        "label": "Georgia annual report and registration deadline",
         "href": null
       }
     ],
     "heroTitle": "Georgia annual report and annual registration deadline",
     "heroSubtitle": "Georgia calls this filing an annual registration. Use this page if you need the Georgia annual report deadline or fee. Most customers start with the January 1 to April 1 window, the common $60 online total for many profit entities, and the $25 late penalty.",
-    "lastReviewed": "March 17, 2026",
+    "heroActions": [
+      {
+        "href": "https://sos.ga.gov/how-to-guide/how-file-annual-registration",
+        "label": "Open official filing guide",
+        "variant": "primary"
+      },
+      {
+        "href": "https://sos.ga.gov/reference-filing-fees-effective-962025",
+        "label": "Check official fee table",
+        "variant": "secondary"
+      }
+    ],
+    "lastReviewed": "April 4, 2026",
     "sourceBadge": "Source: Georgia Secretary of State",
     "summaryTitle": "At a glance",
     "metrics": [
@@ -321,6 +333,23 @@ export const statePages = [
       }
     ],
     "summaryNoteHtml": "<p class=\"table-note\">\n              Georgia is one of the states where a single flat fee is misleading. The deadline is\n              shared, but the total depends on entity type and filing method.\n            </p>",
+    "caseCards": [
+      {
+        "label": "Most profit entities",
+        "title": "Start with the common $60 online total",
+        "text": "Many domestic and foreign profit entities see a $60 online total, but confirm the exact entity before you rely on that amount."
+      },
+      {
+        "label": "Nonprofits and domestic LLPs",
+        "title": "Use the lower published totals when they apply",
+        "text": "Georgia publishes lower totals for nonprofits and domestic LLPs, so do not assume every record uses the common profit-entity fee."
+      },
+      {
+        "label": "Already late",
+        "title": "Add the $25 late penalty before you file",
+        "text": "If the annual registration is past April 1, confirm the official record first and expect the published $25 late penalty."
+      }
+    ],
     "sourceLinks": [
       {
         "href": "https://sos.ga.gov/how-to-guide/how-file-annual-registration",
@@ -431,7 +460,19 @@ export const statePages = [
     ],
     "heroTitle": "Nevada annual fee calculator",
     "heroSubtitle": "Use this page if you need the recurring Nevada state total for an LLC or corporation. The calculator combines the annual list fee, the state business license renewal fee, and the published late penalties.",
-    "lastReviewed": "March 17, 2026",
+    "heroActions": [
+      {
+        "href": "https://www.leg.state.nv.us/NRS/NRS-086.html#NRS086Sec263",
+        "label": "Open LLC annual list law",
+        "variant": "primary"
+      },
+      {
+        "href": "https://www.leg.state.nv.us/NRS/NRS-076.html#NRS076Sec130",
+        "label": "Check license fee law",
+        "variant": "secondary"
+      }
+    ],
+    "lastReviewed": "April 4, 2026",
     "sourceBadge": "Source: Nevada Revised Statutes",
     "summaryTitle": "At a glance",
     "metrics": [
@@ -449,6 +490,23 @@ export const statePages = [
       }
     ],
     "summaryNoteHtml": null,
+    "caseCards": [
+      {
+        "label": "Nevada LLC",
+        "title": "Plan for the $350 recurring state total",
+        "text": "Most Nevada LLC owners start with the $150 annual list fee plus the $200 state business license renewal fee before any late penalty."
+      },
+      {
+        "label": "Nevada corporation",
+        "title": "Use the higher $650 recurring total",
+        "text": "Corporations typically combine a $500 annual list fee with the $150 state business license renewal fee before any late charge."
+      },
+      {
+        "label": "Already late",
+        "title": "Expect both annual-list and license penalties",
+        "text": "Nevada can stack the annual-list penalty with the business-license late fee, so confirm both before you rely on one total."
+      }
+    ],
     "sourceLinks": [
       {
         "href": "https://www.leg.state.nv.us/NRS/NRS-086.html#NRS086Sec263",
@@ -557,13 +615,25 @@ export const statePages = [
         "href": "/states.html"
       },
       {
-        "label": "North Carolina annual report deadline",
+        "label": "North Carolina annual report fee and deadline",
         "href": null
       }
     ],
     "heroTitle": "North Carolina annual report fee and deadline for LLCs and corporations",
     "heroSubtitle": "Use this page if you need the North Carolina annual report fee or deadline. LLCs and L3Cs usually file by April 15 with a $203 online fee or $200 paper fee, while corporations use a fiscal-year deadline.",
-    "lastReviewed": "March 17, 2026",
+    "heroActions": [
+      {
+        "href": "https://www.sosnc.gov/divisions/business_registration/annual_report/12819032",
+        "label": "Open official filing guide",
+        "variant": "primary"
+      },
+      {
+        "href": "https://b2b.sosnc.gov/fees/by_title/_Business_Registration",
+        "label": "Check official fee table",
+        "variant": "secondary"
+      }
+    ],
+    "lastReviewed": "April 4, 2026",
     "sourceBadge": "Source: NC Secretary of State",
     "summaryTitle": "At a glance",
     "metrics": [
@@ -581,6 +651,23 @@ export const statePages = [
       }
     ],
     "summaryNoteHtml": "<p class=\"table-note\">\n              North Carolina is one of the states where the online total changes slightly depending\n              on whether the payment is made by ACH or credit card.\n            </p>",
+    "caseCards": [
+      {
+        "label": "LLC or L3C",
+        "title": "Most LLCs start with the April 15 deadline",
+        "text": "Use the LLC or L3C rule if the business is domestic or foreign in that category, then confirm whether you are paying by paper, ACH, or card."
+      },
+      {
+        "label": "Corporation",
+        "title": "Use the fiscal-year deadline instead",
+        "text": "North Carolina corporations do not follow the LLC April 15 rule by default, so check the fiscal-year timing before you quote a due date."
+      },
+      {
+        "label": "Partnership or other record",
+        "title": "Do not default to the LLC fee",
+        "text": "Some partnerships and foreign registrations use different rules or totals, so match the entity on the SOS record before you rely on the LLC number."
+      }
+    ],
     "sourceLinks": [
       {
         "href": "https://www.sosnc.gov/divisions/business_registration/annual_report_due_dates",
@@ -623,13 +710,25 @@ export const statePages = [
         "href": "/states.html"
       },
       {
-        "label": "Pennsylvania annual report deadline",
+        "label": "Pennsylvania annual report fee and deadline",
         "href": null
       }
     ],
     "heroTitle": "Pennsylvania annual report fee and deadline",
     "heroSubtitle": "Use this page if you need the Pennsylvania annual report window or the standard $7 filing fee. Start with the entity type, because the filing window changes across corporations, LLCs, and other associations.",
-    "lastReviewed": "March 17, 2026",
+    "heroActions": [
+      {
+        "href": "https://file.dos.pa.gov/",
+        "label": "Open official filing portal",
+        "variant": "primary"
+      },
+      {
+        "href": "https://www.pa.gov/agencies/dos/programs/business/types-of-filings-and-registrations/annual-reports.html",
+        "label": "Check annual report guide",
+        "variant": "secondary"
+      }
+    ],
+    "lastReviewed": "April 4, 2026",
     "sourceBadge": "Source: Pennsylvania Department of State and Business Filing Services",
     "summaryTitle": "At a glance",
     "metrics": [
@@ -647,6 +746,23 @@ export const statePages = [
       }
     ],
     "summaryNoteHtml": null,
+    "caseCards": [
+      {
+        "label": "Pennsylvania LLC",
+        "title": "Use the January 1 to September 30 window",
+        "text": "If the record is an LLC, start with the long January through September filing window and then confirm the filing in the state portal."
+      },
+      {
+        "label": "Corporation or association",
+        "title": "Do not assume the LLC window applies",
+        "text": "Pennsylvania shifts the filing window by association type, so corporations and other associations should verify the matching month range first."
+      },
+      {
+        "label": "Fee and late timing",
+        "title": "The standard fee is $7, but enforcement starts later",
+        "text": "The state lists a $7 standard filing fee, while administrative action begins with reports due in 2027 rather than the first filing year."
+      }
+    ],
     "sourceLinks": [
       {
         "href": "https://www.pa.gov/agencies/dos/programs/business/types-of-filings-and-registrations/annual-reports.html",

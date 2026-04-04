@@ -211,12 +211,24 @@ export const manualStatePages = [
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "States", href: "/states.html" },
-      { label: "Oregon annual report", href: null }
+      { label: "Oregon annual report fee and due date", href: null }
     ],
     heroTitle: "Oregon annual report fee and due date",
     heroSubtitle:
       "Use this page if you need the Oregon annual report deadline or renewal fee. Most businesses start with the anniversary-date rule, then confirm whether the entity uses the domestic or foreign fee.",
-    lastReviewed: "March 17, 2026",
+    heroActions: [
+      {
+        href: "https://sos.oregon.gov/business/Pages/renewal-help.aspx",
+        label: "Open official renewal help",
+        variant: "primary"
+      },
+      {
+        href: "https://sos.oregon.gov/business/Documents/business-registry-forms/br-fee-schedule.pdf",
+        label: "Check official fee schedule",
+        variant: "secondary"
+      }
+    ],
+    lastReviewed: "April 4, 2026",
     sourceBadge: "Source: Oregon Secretary of State Corporation Division",
     summaryTitle: "At a glance",
     metrics: [
@@ -238,6 +250,23 @@ export const manualStatePages = [
               fee schedule still has enough entity-level variation that a one-line answer would be
               misleading.
             </p>`,
+    caseCards: [
+      {
+        label: "Domestic entity",
+        title: "Most domestic reports start with the $100 annual fee",
+        text: "Domestic business corporations, LLCs, and several other Oregon entities commonly renew at $100 on the anniversary date."
+      },
+      {
+        label: "Foreign entity",
+        title: "Many foreign reports use the $275 fee instead",
+        text: "Foreign business corporations, LLCs, and several other foreign entities often use the higher $275 renewal fee on the same anniversary rule."
+      },
+      {
+        label: "Foreign nonprofit or missed filing",
+        title: "Check the exception before you rely on the common fee",
+        text: "Foreign nonprofits can use a lower annual renewal, and missed reports move you into reinstatement with separate fees."
+      }
+    ],
     sourceLinks: [
       {
         href: "https://sos.oregon.gov/business/Pages/faq.aspx",

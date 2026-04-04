@@ -252,6 +252,22 @@ function renderMetrics(metrics) {
     .join("\n");
 }
 
+function renderHeroActions(actions = []) {
+  if (!actions.length) {
+    return "";
+  }
+
+  return `            <div class="hero-action-row">
+${actions
+  .map(
+    (action) => `              <a class="button ${escapeHtml(
+      action.variant === "secondary" ? "button--secondary" : "button--primary"
+    )}" href="${escapeHtml(action.href)}">${escapeHtml(action.label)}</a>`
+  )
+  .join("\n")}
+            </div>`;
+}
+
 function renderSourceLinks(links) {
   return links
     .map(
@@ -903,6 +919,31 @@ ${items
         </section>`;
 }
 
+function renderCaseGuideSection(page) {
+  if (!page.caseCards || page.caseCards.length === 0) {
+    return "";
+  }
+
+  return `        <section class="section surface">
+          <div class="section__head">
+            <p class="eyebrow">Pick your case first</p>
+            <h2>Start with the entity type that matches your record</h2>
+            <p>Use the matching case below before you rely on a fee, filing path, or due date.</p>
+          </div>
+          <div class="mini-grid">
+${page.caseCards
+  .map(
+    (card) => `            <article class="mini-card">
+              <span>${escapeHtml(card.label)}</span>
+              <strong>${escapeHtml(card.title)}</strong>
+              <p>${escapeHtml(card.text)}</p>
+            </article>`
+  )
+  .join("\n")}
+          </div>
+        </section>`;
+}
+
 function renderStateNextStepsSection() {
   const cards = [
     {
@@ -1088,7 +1129,7 @@ function renderPage(page) {
             <h1>${escapeHtml(page.heroTitle)}</h1>
             <p class="hero__subtitle">
               ${escapeHtml(page.heroSubtitle)}
-            </p>
+            </p>${page.heroActions ? `\n${renderHeroActions(page.heroActions)}` : ""}
             <div class="badge-row">
               <span class="badge${getBadgeToneClass(reviewStatus.tone)}">${escapeHtml(reviewStatus.label)}</span>
               <span class="badge">Checked: ${escapeHtml(page.lastReviewed)}</span>
@@ -1105,6 +1146,7 @@ ${renderMetrics(page.metrics)}
             </div>${summaryNote}
           </aside>
         </section>
+${renderCaseGuideSection(page)}
 ${pageBody}
 
 ${renderStateFaqSection(page, entry)}

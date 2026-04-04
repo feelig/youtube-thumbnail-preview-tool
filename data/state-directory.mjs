@@ -23,7 +23,7 @@ export const stateDirectory = [
   {
     state: "North Carolina",
     route: "/tools/north-carolina/annual-report-deadline/",
-    guideLabel: "North Carolina annual report deadline",
+    guideLabel: "North Carolina annual report fee and deadline",
     chipLabel: "NC LLCs",
     guideType: "Annual report guide",
     coverageBucket: "annual-reports",
@@ -48,7 +48,7 @@ export const stateDirectory = [
   {
     state: "Georgia",
     route: "/tools/georgia/annual-report-deadline/",
-    guideLabel: "Georgia annual registration deadline",
+    guideLabel: "Georgia annual report and registration deadline",
     chipLabel: "Georgia registration",
     guideType: "Annual registration guide",
     coverageBucket: "annual-registration-and-tax",
@@ -73,7 +73,7 @@ export const stateDirectory = [
   {
     state: "Pennsylvania",
     route: "/tools/pennsylvania/annual-report-deadline/",
-    guideLabel: "Pennsylvania annual report deadline",
+    guideLabel: "Pennsylvania annual report fee and deadline",
     chipLabel: "PA annual reports",
     guideType: "Annual report guide",
     coverageBucket: "annual-reports",

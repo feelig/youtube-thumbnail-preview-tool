@@ -391,10 +391,14 @@ h3 {
 }
 
 .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: 0;
   border-radius: 16px;
   cursor: pointer;
   padding: 13px 18px;
+  text-decoration: none;
   font-weight: 700;
   transition: transform 160ms ease, box-shadow 160ms ease;
 }
@@ -410,12 +414,8 @@ h3 {
 }
 
 .button--secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   background: #eef4fb;
   color: var(--accent-dark);
-  text-decoration: none;
   box-shadow: inset 0 0 0 1px rgba(15, 79, 130, 0.08);
 }
 
@@ -870,6 +870,13 @@ h3 {
 .task-panel {
   display: grid;
   gap: 16px;
+}
+
+.hero-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
 }
 
 .action-list {
