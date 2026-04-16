@@ -1,11 +1,7 @@
 {
   "version": 1,
   "include": [
-    "/tools/delaware/annual-fee-calculator",
-    "/methodology",
-    "/pillar/asset-allocation-method",
-    "/pillar/market-risk-framework",
-    "/tools/washington/annual-report-deadline"
+    "/*"
   ],
   "exclude": []
 }

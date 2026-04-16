@@ -3,7 +3,8 @@ export function goneResponse() {
     status: 410,
     headers: {
       "content-type": "text/plain; charset=UTF-8",
-      "cache-control": "public, max-age=0, must-revalidate"
+      "cache-control": "public, max-age=0, must-revalidate",
+      "x-robots-tag": "noindex"
     }
   });
 }
