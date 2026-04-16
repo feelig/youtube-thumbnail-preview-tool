@@ -1,3 +1,8 @@
+import {
+  expansionGuideDecisionToolByRoute,
+  expansionGuideEvidenceByRoute
+} from "./state-expansion.mjs";
+
 const STANDARD_STATUSES = [
   {
     value: "standard",
@@ -54,7 +59,7 @@ function decisionTool({ caseLabel, intro, cases }) {
   };
 }
 
-export const guideEvidenceByRoute = {
+const baseGuideEvidenceByRoute = {
   "/tools/california/statement-of-information-deadline/": {
     filingLabel: [1, 2],
     whoShouldUse: [1, 2],
@@ -190,7 +195,12 @@ export const guideEvidenceByRoute = {
   }
 };
 
-export const guideDecisionToolByRoute = {
+export const guideEvidenceByRoute = {
+  ...baseGuideEvidenceByRoute,
+  ...expansionGuideEvidenceByRoute
+};
+
+const baseGuideDecisionToolByRoute = {
   "/tools/california/statement-of-information-deadline/": decisionTool({
     caseLabel: "Which California filing case fits best?",
     intro:
@@ -1242,4 +1252,9 @@ export const guideDecisionToolByRoute = {
       })
     ]
   })
+};
+
+export const guideDecisionToolByRoute = {
+  ...baseGuideDecisionToolByRoute,
+  ...expansionGuideDecisionToolByRoute
 };

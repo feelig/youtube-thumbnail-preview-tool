@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://finlogichub5.com/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -13,7 +13,7 @@
   </url>
   <url>
     <loc>https://finlogichub5.com/states</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -41,6 +41,18 @@
     <loc>https://finlogichub5.com/terms</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://finlogichub5.com/tools/arizona/annual-report-deadline/</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://finlogichub5.com/tools/arkansas/franchise-tax-deadline/</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://finlogichub5.com/tools/california/statement-of-information-deadline/</loc>
@@ -79,6 +91,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://finlogichub5.com/tools/indiana/business-entity-report-deadline/</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://finlogichub5.com/tools/kansas/information-report-deadline/</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
@@ -93,6 +111,12 @@
   <url>
     <loc>https://finlogichub5.com/tools/maryland/annual-report-deadline/</loc>
     <lastmod>2026-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://finlogichub5.com/tools/michigan/annual-report-deadline/</loc>
+    <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -135,6 +159,12 @@
   <url>
     <loc>https://finlogichub5.com/tools/texas/franchise-tax-deadline/</loc>
     <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://finlogichub5.com/tools/utah/annual-renewal-deadline/</loc>
+    <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

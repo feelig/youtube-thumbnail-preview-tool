@@ -1,3 +1,5 @@
+import { expansionStateDirectory } from "./state-expansion.mjs";
+
 export const coverageBuckets = [
   {
     key: "annual-reports",
@@ -19,7 +21,7 @@ export const coverageBuckets = [
   }
 ];
 
-export const stateDirectory = [
+const baseStateDirectory = [
   {
     state: "North Carolina",
     route: "/tools/north-carolina/annual-report-deadline/",
@@ -519,3 +521,5 @@ export const stateDirectory = [
     }
   }
 ];
+
+export const stateDirectory = [...baseStateDirectory, ...expansionStateDirectory];

@@ -1,4 +1,6 @@
-export const statePages = [
+import { expansionStatePages } from "./state-expansion.mjs";
+
+const baseStatePages = [
   {
     "filePath": "tools/california/statement-of-information-deadline/index.html",
     "titleTag": "California Statement of Information Fee and Due Date | FinLogic Hub",
@@ -928,3 +930,5 @@ export const statePages = [
     "scriptSrc": null
   }
 ];
+
+export const statePages = [...baseStatePages, ...expansionStatePages];

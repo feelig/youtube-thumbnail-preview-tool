@@ -1,4 +1,6 @@
-export const structuredStateContentByFilePath = {
+import { expansionStructuredStateContentByFilePath } from "./state-expansion.mjs";
+
+const baseStructuredStateContentByFilePath = {
   "tools/california/statement-of-information-deadline/index.html": [
     {
       type: "table",
@@ -1372,4 +1374,9 @@ export const structuredStateContentByFilePath = {
       ]
     }
   ]
+};
+
+export const structuredStateContentByFilePath = {
+  ...baseStructuredStateContentByFilePath,
+  ...expansionStructuredStateContentByFilePath
 };
