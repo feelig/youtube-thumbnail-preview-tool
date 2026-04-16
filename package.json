@@ -8,6 +8,7 @@
     "build:state-pages": "node scripts/build-state-pages.mjs",
     "build:site-pages": "node scripts/build-site-pages.mjs",
     "build:sitemap": "node scripts/build-sitemap.mjs",
+    "seo:actions": "node scripts/build-search-console-actions.mjs",
     "indexnow:submit": "node scripts/submit-indexnow.mjs",
     "indexnow:submit:all": "node scripts/submit-indexnow.mjs --all",
     "audit:indexing": "node scripts/audit-indexing.mjs",
