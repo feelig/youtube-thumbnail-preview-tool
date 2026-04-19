@@ -17,7 +17,7 @@ export const manualStatePages = [
     heroTitle: "New Jersey annual report fee and due date",
     heroSubtitle:
       "Use this page if you need the New Jersey annual report deadline or fee. Most customers start with the last day of the anniversary month, then confirm whether the entity uses the $75 for-profit fee or the $30 non-profit fee.",
-    lastReviewed: "March 17, 2026",
+    lastReviewed: "April 18, 2026",
     sourceBadge: "Source: New Jersey Division of Revenue and Enterprise Services",
     summaryTitle: "At a glance",
     metrics: [
@@ -84,7 +84,7 @@ export const manualStatePages = [
     heroTitle: "Virginia annual registration fee and annual report deadline",
     heroSubtitle:
       "Use this page if you need the Virginia recurring filing rule. The first step is matching the entity type, because corporations, LLCs, LPs, business trusts, and LLPs do not all use the same filing label or due date.",
-    lastReviewed: "March 17, 2026",
+    lastReviewed: "April 18, 2026",
     sourceBadge: "Source: Virginia State Corporation Commission",
     summaryTitle: "At a glance",
     metrics: [
@@ -152,7 +152,7 @@ export const manualStatePages = [
     heroTitle: "Colorado periodic report fee and due date",
     heroSubtitle:
       "Use this page if you need the Colorado periodic report fee, filing window, or late cost. Start with the $25 filing fee, then use the periodic report month to confirm the filing window and any late charges.",
-    lastReviewed: "March 17, 2026",
+    lastReviewed: "April 18, 2026",
     sourceBadge: "Source: Colorado Secretary of State",
     summaryTitle: "At a glance",
     metrics: [
@@ -192,8 +192,8 @@ export const manualStatePages = [
         label: "Colorado business forms and filing instructions"
       },
       {
-        href: "https://www.coloradosos.gov/biz/businessFunctionsEmailNotification.do",
-        label: "Colorado SOS business email notification service"
+        href: "https://www.coloradosos.gov/pubs/business/FAQs/email.html",
+        label: "Colorado SOS email and text notification FAQ"
       }
     ],
     scriptSrc: null
@@ -218,8 +218,8 @@ export const manualStatePages = [
       "Use this page if you need the Oregon annual report deadline or renewal fee. Most businesses start with the anniversary-date rule, then confirm whether the entity uses the domestic or foreign fee.",
     heroActions: [
       {
-        href: "https://sos.oregon.gov/business/Pages/renewal-help.aspx",
-        label: "Open official renewal help",
+        href: "https://sos.oregon.gov/business/Pages/obr-annual-report-renewal.aspx",
+        label: "Open annual report guide",
         variant: "primary"
       },
       {
@@ -228,7 +228,7 @@ export const manualStatePages = [
         variant: "secondary"
       }
     ],
-    lastReviewed: "April 4, 2026",
+    lastReviewed: "April 18, 2026",
     sourceBadge: "Source: Oregon Secretary of State Corporation Division",
     summaryTitle: "At a glance",
     metrics: [
@@ -273,8 +273,8 @@ export const manualStatePages = [
         label: "Oregon SOS business registration FAQ"
       },
       {
-        href: "https://sos.oregon.gov/business/Pages/renewal-help.aspx",
-        label: "Oregon SOS renewal help"
+        href: "https://sos.oregon.gov/business/Pages/obr-annual-report-renewal.aspx",
+        label: "Oregon SOS annual report or renewal guidance"
       },
       {
         href: "https://sos.oregon.gov/business/Pages/update-registration.aspx",
@@ -309,7 +309,7 @@ export const manualStatePages = [
     heroTitle: "Maine annual report fee and due date",
     heroSubtitle:
       "Use this page if you need the Maine annual report deadline or fee. Most businesses start with the June 1 due date, then confirm whether the entity uses the domestic, foreign, or nonprofit fee.",
-    lastReviewed: "March 30, 2026",
+    lastReviewed: "April 18, 2026",
     sourceBadge: "Source: Maine Secretary of State, Bureau of Corporations, Elections and Commissions",
     summaryTitle: "At a glance",
     metrics: [
@@ -373,7 +373,7 @@ export const manualStatePages = [
     heroTitle: "Maryland annual report and personal property return deadline",
     heroSubtitle:
       "Use this page if you need the Maryland annual report deadline, the common filing fee, or the personal property return trigger. Most businesses start with April 15, then confirm whether Form 1 also needs the personal property section.",
-    lastReviewed: "March 30, 2026",
+    lastReviewed: "April 18, 2026",
     sourceBadge: "Source: Maryland Department of Assessments and Taxation",
     summaryTitle: "At a glance",
     metrics: [
@@ -413,8 +413,8 @@ export const manualStatePages = [
         label: "Maryland 2026 Form 1 instructions"
       },
       {
-        href: "https://pprextensions.dat.maryland.gov/temp_defs.aspx",
-        label: "Maryland extension request form and filing glossary"
+        href: "https://dat.maryland.gov/Businesses",
+        label: "Maryland business services annual report and extension guidance"
       },
       {
         href: "https://regs.maryland.gov/us/md/exec/comar/18.04.03.01",
@@ -445,7 +445,7 @@ export const manualStatePages = [
     heroTitle: "Wyoming annual report fee and due date",
     heroSubtitle:
       "Use this page if you need the Wyoming annual report deadline or annual license tax rule. Most customers start with the first day of the anniversary month, then confirm whether the entity uses the $60 minimum license tax or one of Wyoming's flat annual report fees.",
-    lastReviewed: "March 30, 2026",
+    lastReviewed: "April 18, 2026",
     sourceBadge: "Source: Wyoming Secretary of State, Business Division",
     summaryTitle: "At a glance",
     metrics: [

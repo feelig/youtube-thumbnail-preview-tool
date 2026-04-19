@@ -10,6 +10,7 @@ const staleCount = Array.isArray(report.stalePages) ? report.stalePages.length :
 const blockedCount = report.linkHealth?.blocked ?? 0;
 const timedOutCount = report.linkHealth?.timedOut ?? 0;
 const transportCount = report.linkHealth?.transportIssues ?? 0;
+const changedCount = report.linkHealth?.changed ?? 0;
 
 console.log(`Source scan timestamp: ${report.scannedAt ?? "unknown"}`);
 console.log(`Pages scanned: ${report.pagesScanned ?? 0}`);
@@ -19,6 +20,7 @@ console.log(`Stale pages: ${staleCount}`);
 console.log(`Blocked links: ${blockedCount}`);
 console.log(`Timed out links: ${timedOutCount}`);
 console.log(`Transport issues: ${transportCount}`);
+console.log(`Changed links since previous scan: ${changedCount}`);
 
 if (brokenCount === 0 && staleCount === 0) {
   console.log("");

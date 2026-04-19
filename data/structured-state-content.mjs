@@ -1,4 +1,5 @@
 import { expansionStructuredStateContentByFilePath } from "./state-expansion.mjs";
+import { extraExpansionStructuredStateContentByFilePath } from "./state-expansion-extra.mjs";
 
 const baseStructuredStateContentByFilePath = {
   "tools/california/statement-of-information-deadline/index.html": [
@@ -415,7 +416,7 @@ const baseStructuredStateContentByFilePath = {
         ],
         [
           "Late penalties",
-          "$50 on each report filed after the due date. If tax is paid 1 to 30 days late, the tax penalty is 5%. If tax is paid more than 30 days late, the tax penalty is 10%."
+          "$50 on each late franchise-tax report. The Comptroller says there is no $50 penalty for filing a late PIR or OIR by itself. If tax is paid 1 to 30 days late, the tax penalty is 5%. If tax is paid more than 30 days late, the tax penalty is 10%."
         ]
       ]
     },
@@ -450,7 +451,7 @@ const baseStructuredStateContentByFilePath = {
         },
         {
           title: "What happens if you ignore it",
-          text: "The clearest flat number is the $50 penalty for each late report. The Comptroller also states that tax paid late carries percentage penalties. If the issue continues, the state can move into forfeiture and reinstatement steps, so overdue entities should use the official filing and notice pages instead of guessing."
+          text: "The clearest flat number is the $50 penalty for each late franchise-tax report. The Comptroller separately says there is no $50 penalty for filing a late PIR or OIR by itself. Tax paid late also carries percentage penalties. If the issue continues, the state can move into forfeiture and reinstatement steps, so overdue entities should use the official filing and notice pages instead of guessing."
         }
       ]
     }
@@ -529,7 +530,7 @@ const baseStructuredStateContentByFilePath = {
         ],
         [
           "What fee should most customers expect first?",
-          "The current Georgia guidance shows a common $60 online total for many profit entities, with lower totals published for some nonprofits and domestic LLPs."
+          "The current Georgia guidance shows a common $60 online total for many profit entities, with lower totals published for some nonprofits and foreign LLPs."
         ],
         [
           "What happens if you miss April 1?",
@@ -548,7 +549,7 @@ const baseStructuredStateContentByFilePath = {
       cards: [
         {
           title: "Why this page changed",
-          text: "Georgia used to be summarized on this site with a flat $50 figure. That is too simple. The current official guidance surfaces a more useful customer answer: the deadline is shared, many profit entities now see a $60 online total, and lower totals exist for at least some nonprofit and domestic LLP filings."
+          text: "Georgia used to be summarized on this site with a flat $50 figure. That is too simple. The current official guidance surfaces a more useful customer answer: the deadline is shared, many profit entities now see a $60 online total, and lower totals exist for at least some nonprofit and foreign LLP filings."
         },
         {
           title: "What to do if you are already late",
@@ -1378,5 +1379,6 @@ const baseStructuredStateContentByFilePath = {
 
 export const structuredStateContentByFilePath = {
   ...baseStructuredStateContentByFilePath,
-  ...expansionStructuredStateContentByFilePath
+  ...expansionStructuredStateContentByFilePath,
+  ...extraExpansionStructuredStateContentByFilePath
 };

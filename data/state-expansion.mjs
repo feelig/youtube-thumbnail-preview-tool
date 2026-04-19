@@ -71,7 +71,7 @@ export const expansionStatePages = [
     heroTitle: "Arizona annual report fee and deadline",
     heroSubtitle:
       "Use this page if you need the Arizona corporation annual report due date, fee, or extension rule. Start by confirming the record is a corporation, because Arizona LLCs do not file annual reports with the Arizona Corporation Commission.",
-    lastReviewed: "April 10, 2026",
+    lastReviewed: "April 18, 2026",
     sourceBadge: "Source: Arizona Corporation Commission",
     summaryTitle: "At a glance",
     metrics: [
@@ -152,7 +152,7 @@ export const expansionStatePages = [
     heroTitle: "Arkansas franchise tax deadline and annual report fees",
     heroSubtitle:
       "Use this page if you need the Arkansas franchise tax deadline or the correct annual report form lane. Start with the entity type, because stock corporations, nonstock corporations, and LLCs do not use the same published amount.",
-    lastReviewed: "April 10, 2026",
+    lastReviewed: "April 18, 2026",
     sourceBadge: "Source: Arkansas Secretary of State",
     summaryTitle: "At a glance",
     metrics: [
@@ -249,7 +249,7 @@ export const expansionStatePages = [
     heroTitle: "Indiana business entity report fee and due date",
     heroSubtitle:
       "Use this page if you need the Indiana business entity report due date or filing fee. The first step is knowing this is a biennial Secretary of State filing, not a tax payment, and the report is tied to the anniversary month of formation or registration.",
-    lastReviewed: "April 10, 2026",
+    lastReviewed: "April 18, 2026",
     sourceBadge: "Source: Indiana Secretary of State and INBiz",
     summaryTitle: "At a glance",
     metrics: [
@@ -342,7 +342,7 @@ export const expansionStatePages = [
     heroTitle: "Michigan annual report and annual statement fees and due dates",
     heroSubtitle:
       "Use this page if you need the Michigan annual filing deadline or fee. Start with the entity type, because LLCs, corporations, PLLCs, and nonprofit corporations do not share the same due date or the same late-fee rule.",
-    lastReviewed: "April 10, 2026",
+    lastReviewed: "April 18, 2026",
     sourceBadge: "Source: Michigan LARA Corporations Division",
     summaryTitle: "At a glance",
     metrics: [
@@ -435,7 +435,7 @@ export const expansionStatePages = [
     heroTitle: "Utah annual renewal fee and deadline",
     heroSubtitle:
       "Use this page if you need the Utah annual report or renewal due date. Start with the anniversary date and then confirm whether the entity is domestic or foreign before you rely on the reinstatement path.",
-    lastReviewed: "April 10, 2026",
+    lastReviewed: "April 18, 2026",
     sourceBadge: "Source: Utah Division of Corporations and Commercial Code",
     summaryTitle: "At a glance",
     metrics: [
@@ -504,7 +504,7 @@ export const expansionStatePages = [
         label: "Utah reinstate a business general instructions"
       },
       {
-        href: "https://corporations.utah.gov/2025/07/01/advisory-for-business-registrants-important-mail-alert/",
+        href: "https://commerce.utah.gov/2025/07/01/advisory-for-business-registrants-important-mail-alert-2/",
         label: "Utah business renewal mail alert"
       }
     ],

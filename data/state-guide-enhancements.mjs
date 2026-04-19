@@ -2,6 +2,10 @@ import {
   expansionGuideDecisionToolByRoute,
   expansionGuideEvidenceByRoute
 } from "./state-expansion.mjs";
+import {
+  extraExpansionGuideDecisionToolByRoute,
+  extraExpansionGuideEvidenceByRoute
+} from "./state-expansion-extra.mjs";
 
 const STANDARD_STATUSES = [
   {
@@ -197,7 +201,8 @@ const baseGuideEvidenceByRoute = {
 
 export const guideEvidenceByRoute = {
   ...baseGuideEvidenceByRoute,
-  ...expansionGuideEvidenceByRoute
+  ...expansionGuideEvidenceByRoute,
+  ...extraExpansionGuideEvidenceByRoute
 };
 
 const baseGuideDecisionToolByRoute = {
@@ -491,11 +496,11 @@ const baseGuideDecisionToolByRoute = {
       }),
       decisionCase({
         value: "llp-or-other",
-        label: "Domestic LLP or another Georgia entity with a special fee",
+        label: "Foreign LLP or another Georgia entity with a special fee",
         deadline: "January 1 through April 1",
         amount: "Fee varies by entity type on the Georgia fee schedule",
         normalRule:
-          "Georgia says some domestic LLP and other entity filings fall below the common $60 total, so use the live fee schedule instead of a flat-number shortcut.",
+          "Georgia says some foreign LLP and other entity filings fall below the common $60 total, so use the live fee schedule instead of a flat-number shortcut.",
         lateRule:
           "The published $25 late penalty is still the practical late-state number to expect if the filing slips.",
         confirmRule:
@@ -760,7 +765,7 @@ const baseGuideDecisionToolByRoute = {
         normalRule:
           "Even when no franchise tax is due under the threshold rule, Texas still expects the appropriate Public Information Report or Ownership Information Report.",
         lateRule:
-          "Texas publishes a $50 penalty for each late report, and overdue accounts can still move into additional enforcement steps.",
+          "Texas can still escalate overdue no-tax-due accounts, but the Comptroller says there is no $50 penalty for filing a late PIR or OIR by itself.",
         confirmRule:
           "Confirm the report year and threshold before relying on the no-tax-due reading because Texas changed the reporting rules for returns due on or after January 1, 2024.",
         nextAction:
@@ -777,7 +782,7 @@ const baseGuideDecisionToolByRoute = {
         normalRule:
           "The normal Texas filing path here is still May 15, but the entity must handle both the tax calculation and the related information report.",
         lateRule:
-          "Texas says late reports draw a $50 penalty, and late tax can carry 5% or 10% tax penalties depending on how late the payment is.",
+          "Texas applies a $50 penalty to each late franchise-tax report, and late tax can carry 5% or 10% tax penalties depending on how late the payment is.",
         confirmRule:
           "Confirm whether tax is actually due before filing because the information-report obligation still continues either way.",
         nextAction:
@@ -794,7 +799,7 @@ const baseGuideDecisionToolByRoute = {
         normalRule:
           "Texas splits the information report into PIR versus OIR, and using the wrong report type is one of the easiest ways to under-read the filing requirement.",
         lateRule:
-          "If the report is late, Texas still applies the late-report penalty and can escalate the account if it stays unresolved.",
+          "If the only missing item is a late PIR or OIR, the Comptroller says the $50 late-report penalty does not apply, but the account can still escalate if it stays unresolved.",
         confirmRule:
           "Match the entity type to the Comptroller's PIR and OIR guidance before filing, especially for trusts, associations, or combined-group members.",
         nextAction:
@@ -1256,5 +1261,6 @@ const baseGuideDecisionToolByRoute = {
 
 export const guideDecisionToolByRoute = {
   ...baseGuideDecisionToolByRoute,
-  ...expansionGuideDecisionToolByRoute
+  ...expansionGuideDecisionToolByRoute,
+  ...extraExpansionGuideDecisionToolByRoute
 };

@@ -553,6 +553,7 @@ function buildFallbackScan(entries) {
   return {
     scannedAt: null,
     readableDate: "No scan snapshot yet",
+    fingerprintStatus: "baseline-established",
     staleReviewThresholdDays: 45,
     pagesScanned: entries.length,
     sourceLinksChecked: new Set(entries.flatMap((entry) => entry.page.sourceLinks.map((link) => link.href))).size,
@@ -561,7 +562,8 @@ function buildFallbackScan(entries) {
       blocked: 0,
       timedOut: 0,
       transportIssues: 0,
-      brokenOrError: 0
+      brokenOrError: 0,
+      changed: 0
     },
     stalePages: [],
     thinCoveragePages: [],
@@ -570,8 +572,11 @@ function buildFallbackScan(entries) {
       route: entry.route,
       lastReviewed: entry.page.lastReviewed,
       reviewAgeDays: 0,
-      sourceCount: entry.page.sourceLinks.length
+      sourceCount: entry.page.sourceLinks.length,
+      changedSourceCount: 0
     })),
+    changedStates: [],
+    changedLinks: [],
     brokenLinks: [],
     blockedLinks: [],
     timedOutLinks: [],
@@ -621,7 +626,11 @@ function getOperationsPriority(row, staleReviewThresholdDays) {
     };
   }
 
-  if (row.blockedCount > 0 || row.reviewAgeDays >= Math.max(staleReviewThresholdDays - 10, 0)) {
+  if (
+    row.blockedCount > 0 ||
+    row.changedCount > 0 ||
+    row.reviewAgeDays >= Math.max(staleReviewThresholdDays - 10, 0)
+  ) {
     return {
       rank: 1,
       label: "Watch closely",
@@ -641,6 +650,7 @@ function getOperationsPriority(row, staleReviewThresholdDays) {
 function renderIssueSummary(row) {
   const parts = [];
 
+  if (row.changedCount > 0) parts.push(`${row.changedCount} changed`);
   if (row.brokenCount > 0) parts.push(`${row.brokenCount} broken`);
   if (row.timedOutCount > 0) parts.push(`${row.timedOutCount} timeout`);
   if (row.transportCount > 0) parts.push(`${row.transportCount} transport`);
@@ -664,10 +674,11 @@ function buildOperationsModel(entries, snapshot) {
   const routeCounts = new Map(
     entries.map((entry) => [
       entry.route,
-      { brokenCount: 0, blockedCount: 0, timedOutCount: 0, transportCount: 0 }
+      { changedCount: 0, brokenCount: 0, blockedCount: 0, timedOutCount: 0, transportCount: 0 }
     ])
   );
   const issueSets = [
+    { key: "changedCount", label: "Source content changed", items: snapshot.changedLinks ?? [] },
     { key: "brokenCount", label: "Broken or error", items: snapshot.brokenLinks ?? [] },
     { key: "timedOutCount", label: "Timed out", items: snapshot.timedOutLinks ?? [] },
     { key: "transportCount", label: "Transport issue", items: snapshot.transportIssueLinks ?? [] },
@@ -694,13 +705,15 @@ function buildOperationsModel(entries, snapshot) {
           item.note ||
           (item.finalUrl && item.finalUrl !== item.url ? `Redirected to ${item.finalUrl}` : ""),
         sortRank:
-          issueSet.label === "Broken or error"
+          issueSet.label === "Source content changed"
             ? 0
-            : issueSet.label === "Timed out"
+            : issueSet.label === "Broken or error"
               ? 1
-              : issueSet.label === "Transport issue"
-                ? 2
-                : 3
+            : issueSet.label === "Timed out"
+              ? 2
+            : issueSet.label === "Transport issue"
+              ? 3
+              : 4
       });
     }
   }
@@ -715,6 +728,7 @@ function buildOperationsModel(entries, snapshot) {
         sourceCount: entry.page.sourceLinks.length
       };
       const counts = routeCounts.get(entry.route) ?? {
+        changedCount: 0,
         brokenCount: 0,
         blockedCount: 0,
         timedOutCount: 0,
@@ -775,7 +789,7 @@ function renderOperationsMetrics(snapshot, attentionRows, pagesAtBaselineCoverag
     },
     {
       label: "Link health",
-      text: `${snapshot.sourceLinksChecked} checked | ${snapshot.linkHealth.brokenOrError} broken/error | ${snapshot.linkHealth.blocked} blocked`
+      text: `${snapshot.sourceLinksChecked} checked | ${snapshot.linkHealth.brokenOrError} broken/error | ${snapshot.linkHealth.blocked} blocked | ${snapshot.linkHealth.changed ?? 0} changed`
     },
     {
       label: "Pages needing attention",
@@ -799,7 +813,7 @@ function renderOperationsAttentionCards(rows) {
             <article class="mini-card">
               <span>Stable snapshot</span>
               <strong>No pages are calling for immediate follow-up right now.</strong>
-              <p>The latest scan is not surfacing stale reviews, broken links, timeouts, or transport issues on any live state page.</p>
+              <p>The latest scan is not surfacing stale reviews, broken links, source-content changes, timeouts, or transport issues on any live state page.</p>
             </article>
           </div>`;
   }
