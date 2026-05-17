@@ -1,5 +1,6 @@
 import { expansionStatePages } from "./state-expansion.mjs";
 import { extraExpansionStatePages } from "./state-expansion-extra.mjs";
+import { mayExpansionStatePages } from "./state-expansion-may-2026.mjs";
 
 const baseStatePages = [
   {
@@ -26,7 +27,7 @@ const baseStatePages = [
     ],
     "heroTitle": "California Statement of Information fee and due date",
     "heroSubtitle": "Use this page if you need the California Statement of Information deadline or fee. Most businesses start with the 90-day initial filing rule, then confirm whether the entity follows the corporation schedule or the LLC every-two-years schedule.",
-    "lastReviewed": "April 18, 2026",
+    "lastReviewed": "May 17, 2026",
     "sourceBadge": "Source: California Secretary of State",
     "summaryTitle": "At a glance",
     "metrics": [
@@ -96,7 +97,7 @@ const baseStatePages = [
     ],
     "heroTitle": "Connecticut annual report fee and due date",
     "heroSubtitle": "Use this page if you need the Connecticut annual report fee, due-date lookup, or missed-report risk. Start with the entity type, then confirm the due date in the state system and the matching fee before you pay.",
-    "lastReviewed": "April 18, 2026",
+    "lastReviewed": "May 17, 2026",
     "sourceBadge": "Source: Connecticut Secretary of the State",
     "summaryTitle": "At a glance",
     "metrics": [
@@ -170,7 +171,7 @@ const baseStatePages = [
     ],
     "heroTitle": "Delaware annual report deadline and LLC annual tax",
     "heroSubtitle": "Use this page if you need the right Delaware recurring filing. Corporations and Delaware LLCs do not use the same rule, so this page separates the corporation report deadline from the Delaware LLC annual tax.",
-    "lastReviewed": "April 18, 2026",
+    "lastReviewed": "May 17, 2026",
     "sourceBadge": "Source: Delaware Division of Corporations",
     "summaryTitle": "At a glance",
     "metrics": [
@@ -236,7 +237,7 @@ const baseStatePages = [
     ],
     "heroTitle": "Florida annual report fee and due date",
     "heroSubtitle": "Use this page if you need the Florida annual report fee, May 1 deadline, or late-fee rule. Most customers start with the filing window, the entity-specific fee, and the $400 late fee that applies to most for-profit entities after May 1.",
-    "lastReviewed": "April 18, 2026",
+    "lastReviewed": "May 17, 2026",
     "sourceBadge": "Source: Florida Department of State",
     "summaryTitle": "At a glance",
     "metrics": [
@@ -318,7 +319,7 @@ const baseStatePages = [
         "variant": "secondary"
       }
     ],
-    "lastReviewed": "April 18, 2026",
+    "lastReviewed": "May 17, 2026",
     "sourceBadge": "Source: Georgia Secretary of State",
     "summaryTitle": "At a glance",
     "metrics": [
@@ -401,7 +402,7 @@ const baseStatePages = [
     ],
     "heroTitle": "Kansas information report deadline and LLC filing fee",
     "heroSubtitle": "Use this page if you need the Kansas information report deadline or LLC filing fee. Start with whether the business files in an odd or even year, then confirm the due date and the fee that matches the entity.",
-    "lastReviewed": "April 18, 2026",
+    "lastReviewed": "May 17, 2026",
     "sourceBadge": "Source: Kansas Secretary of State",
     "summaryTitle": "At a glance",
     "metrics": [
@@ -475,7 +476,7 @@ const baseStatePages = [
         "variant": "secondary"
       }
     ],
-    "lastReviewed": "April 18, 2026",
+    "lastReviewed": "May 17, 2026",
     "sourceBadge": "Source: Nevada Revised Statutes",
     "summaryTitle": "At a glance",
     "metrics": [
@@ -558,7 +559,7 @@ const baseStatePages = [
     ],
     "heroTitle": "New York biennial statement fee and due date",
     "heroSubtitle": "Use this page if you need the New York biennial statement due month or $9 filing fee. The key rule is that the filing is tied to the formation or authority month, not one fixed statewide deadline.",
-    "lastReviewed": "April 18, 2026",
+    "lastReviewed": "May 17, 2026",
     "sourceBadge": "Source: New York Department of State",
     "summaryTitle": "At a glance",
     "metrics": [
@@ -636,7 +637,7 @@ const baseStatePages = [
         "variant": "secondary"
       }
     ],
-    "lastReviewed": "April 18, 2026",
+    "lastReviewed": "May 17, 2026",
     "sourceBadge": "Source: NC Secretary of State",
     "summaryTitle": "At a glance",
     "metrics": [
@@ -731,7 +732,7 @@ const baseStatePages = [
         "variant": "secondary"
       }
     ],
-    "lastReviewed": "April 18, 2026",
+    "lastReviewed": "May 17, 2026",
     "sourceBadge": "Source: Pennsylvania Department of State and Business Filing Services",
     "summaryTitle": "At a glance",
     "metrics": [
@@ -814,7 +815,7 @@ const baseStatePages = [
     ],
     "heroTitle": "Texas franchise tax due date and information report rules",
     "heroSubtitle": "Use this page if you need the Texas franchise tax deadline, the no-tax-due threshold, or the matching information report rule. Most businesses start with May 15, then confirm whether a PIR or OIR is still required.",
-    "lastReviewed": "April 18, 2026",
+    "lastReviewed": "May 17, 2026",
     "sourceBadge": "Source: Texas Comptroller of Public Accounts",
     "summaryTitle": "At a glance",
     "metrics": [
@@ -884,7 +885,7 @@ const baseStatePages = [
     ],
     "heroTitle": "Washington annual report fee and deadline",
     "heroSubtitle": "Use this page if you need the Washington annual report deadline or late total. Most for-profit businesses start with the end of the anniversary month, the $70 filing fee, and the $95 delinquent total.",
-    "lastReviewed": "April 18, 2026",
+    "lastReviewed": "May 17, 2026",
     "sourceBadge": "Source: Washington Secretary of State",
     "summaryTitle": "At a glance",
     "metrics": [
@@ -932,4 +933,9 @@ const baseStatePages = [
   }
 ];
 
-export const statePages = [...baseStatePages, ...expansionStatePages, ...extraExpansionStatePages];
+export const statePages = [
+  ...baseStatePages,
+  ...expansionStatePages,
+  ...extraExpansionStatePages,
+  ...mayExpansionStatePages
+];

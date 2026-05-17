@@ -1,5 +1,6 @@
 import { expansionStructuredStateContentByFilePath } from "./state-expansion.mjs";
 import { extraExpansionStructuredStateContentByFilePath } from "./state-expansion-extra.mjs";
+import { mayExpansionStructuredStateContentByFilePath } from "./state-expansion-may-2026.mjs";
 
 const baseStructuredStateContentByFilePath = {
   "tools/california/statement-of-information-deadline/index.html": [
@@ -1380,5 +1381,6 @@ const baseStructuredStateContentByFilePath = {
 export const structuredStateContentByFilePath = {
   ...baseStructuredStateContentByFilePath,
   ...expansionStructuredStateContentByFilePath,
-  ...extraExpansionStructuredStateContentByFilePath
+  ...extraExpansionStructuredStateContentByFilePath,
+  ...mayExpansionStructuredStateContentByFilePath
 };

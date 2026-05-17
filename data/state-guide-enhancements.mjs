@@ -6,6 +6,10 @@ import {
   extraExpansionGuideDecisionToolByRoute,
   extraExpansionGuideEvidenceByRoute
 } from "./state-expansion-extra.mjs";
+import {
+  mayExpansionGuideDecisionToolByRoute,
+  mayExpansionGuideEvidenceByRoute
+} from "./state-expansion-may-2026.mjs";
 
 const STANDARD_STATUSES = [
   {
@@ -202,7 +206,8 @@ const baseGuideEvidenceByRoute = {
 export const guideEvidenceByRoute = {
   ...baseGuideEvidenceByRoute,
   ...expansionGuideEvidenceByRoute,
-  ...extraExpansionGuideEvidenceByRoute
+  ...extraExpansionGuideEvidenceByRoute,
+  ...mayExpansionGuideEvidenceByRoute
 };
 
 const baseGuideDecisionToolByRoute = {
@@ -1262,5 +1267,6 @@ const baseGuideDecisionToolByRoute = {
 export const guideDecisionToolByRoute = {
   ...baseGuideDecisionToolByRoute,
   ...expansionGuideDecisionToolByRoute,
-  ...extraExpansionGuideDecisionToolByRoute
+  ...extraExpansionGuideDecisionToolByRoute,
+  ...mayExpansionGuideDecisionToolByRoute
 };

@@ -1,5 +1,6 @@
 import { expansionStateDirectory } from "./state-expansion.mjs";
 import { extraExpansionStateDirectory } from "./state-expansion-extra.mjs";
+import { mayExpansionStateDirectory } from "./state-expansion-may-2026.mjs";
 
 export const coverageBuckets = [
   {
@@ -526,5 +527,6 @@ const baseStateDirectory = [
 export const stateDirectory = [
   ...baseStateDirectory,
   ...expansionStateDirectory,
-  ...extraExpansionStateDirectory
+  ...extraExpansionStateDirectory,
+  ...mayExpansionStateDirectory
 ];
